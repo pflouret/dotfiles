@@ -34,7 +34,7 @@ $alignr $sysname $kernel $machine
 $stippled_hr
 SYSTEM $alignr $loadavg
 
-CPU: ${cpu cpu1}% ${cpu cpu2}% ${freq 1}mhz ${freq 2}mhz $alignr ${execi 2 ~/.conky/bin/laptop_temp.sh 0}C ${execi 2 ~/.conky/bin/laptop_temp.sh 1}C
+CPU: ${cpu cpu1}% ${cpu cpu2}% ${freq 1}mhz ${freq 2}mhz $alignr ${execi 2 ~/.conky/bin/cputemp.sh 0}C ${execi 2 ~/.conky/bin/cputemp.sh 1}C
 ${cpugraph cpu1 15,0 999999 ffffff}
 ${cpugraph cpu2 15,0 999999 ffffff}
 Disk IO: ${alignr} $diskio r$diskio_read w$diskio_write
