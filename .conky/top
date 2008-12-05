@@ -1,0 +1,34 @@
+#font -misc-fixed-*-*-normal-*-10-*-*-*-*-*-*-*
+#font -*-terminal-medium-*-*-*-10-*-*-*-*-80-*-*
+alignment top_left
+background no
+cpu_avg_samples 1
+default_color aaaaaa
+default_shade_color black
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+gap_x 3
+gap_y 2
+minimum_size 1270 4
+no_buffers yes
+override_utf8_locale no
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+pad_percents 2
+short_units yes
+update_interval 1.0
+uppercase yes
+#use_spacer left
+use_xft yes
+total_run_times 0
+top_cpu_separate no
+xftfont lime
+xftalpha 0.8
+
+TEXT
+$nodename $uptime | cpu: ${cpu cpu1}% ${cpugraph cpu1 8,25} ${cpu cpu2}% ${cpugraph cpu2 8,25} | ram: $mem ($cached) | temp: ${execi 2 ~/.conky/bin/laptop_temp.sh 0}C ${execi 2 ~/.conky/bin/laptop_temp.sh 1}C | io: $diskio ${diskiograph 8,30} |${top cpu 1}% ${top name 1} ${alignr} weather: ${execi 300 ~/.conky/bin/weather.py} | wifi: ${wireless_link_qual_perc wlan0}% ${wireless_link_bar 8,20 wlan0} | bat: ${battery_percent}% (${execi 2 bat_time_left.sh}) | vol: ${execi 0.5 vol.sh} | BA: ${tztime America/Argentina/Buenos_Aires %H:%M} | ${time %a %b %d %H:%M:%S}

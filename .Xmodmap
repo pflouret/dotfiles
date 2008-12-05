@@ -1,0 +1,29 @@
+! make caps lock an escape key
+!remove Lock = Caps_Lock
+!keysym Scroll_Lock = Caps_Lock
+!keysym Caps_Lock = Escape
+!keycode 66 = Caps_Lock
+!keysym Scroll_Lock = Caps_Lock
+!add Lock = Caps_Lock
+
+!keycode 66 = Control_L
+!clear Lock
+!add Control = Control_L
+
+!keycode 113 = Super_L
+keycode 113 = Alt_R ISO_Level3_Shift
+keycode 115 = Super_L
+
+keycode 123 = XF86Sleep
+keycode 144 = XF86AudioPrev
+keycode 153 = XF86AudioNext
+keycode 160 = XF86AudioMute
+keycode 162 = XF86AudioPause
+keycode 164 = XF86AudioStop
+keycode 172 = XF86HomePage 
+keycode 174 = XF86AudioLowerVolume
+keycode 176 = XF86AudioRaiseVolume
+keycode 222 = XF86PowerDown
+keycode 236 = XF86Tools
+! wifi detector key
+keycode 238 = XF86Q

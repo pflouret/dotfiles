@@ -1,0 +1,88 @@
+alignment top_right
+background no
+cpu_avg_samples 2
+double_buffer yes
+default_color aaaaaa
+#default_shade_color ff0000
+#default_outline_color ff0000
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+gap_x 5
+gap_y 30
+minimum_size 260 5
+maximum_width 300
+no_buffers yes
+override_utf8_locale no
+own_window yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_type desktop
+own_window_transparent yes
+total_run_times 0
+update_interval 1.0
+uppercase yes
+use_spacer left
+use_xft no
+xftfont lime
+xftalpha 0.8
+
+#fan: $i8k_right_fan_status ${i8k_right_fan_rpm}rpm
+TEXT
+$alignr $nodename -- up $uptime
+$alignr $sysname $kernel $machine
+$stippled_hr
+SYSTEM $alignr $loadavg
+
+CPU: ${cpu cpu1}% ${cpu cpu2}% ${freq 1}mhz ${freq 2}mhz $alignr ${execi 2 ~/.conky/bin/laptop_temp.sh 0}C ${execi 2 ~/.conky/bin/laptop_temp.sh 1}C
+${cpugraph cpu1 15,0 999999 ffffff}
+${cpugraph cpu2 15,0 999999 ffffff}
+Disk IO: ${alignr} $diskio r$diskio_read w$diskio_write
+${diskiograph /dev/sda 15}
+
+RAM: $alignr $mem/$memmax $memperc%
+${membar 3}
+Swap: $alignr $swap / $swapmax
+${swapbar 3}
+
+$stippled_hr
+TOP
+
+cpu usage $alignr  PID     CPU%   MEM%
+${color white} ${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}$color
+ ${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+
+mem usage
+${color white} ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
+ ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+ ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+
+$stippled_hr
+HDD
+
+HOME: $alignr ${fs_free /home} / ${fs_size /home}
+${fs_bar 4 /home}
+ROOT: $alignr ${fs_free /} / ${fs_size /}
+${fs_bar 4 /}
+VAR: $alignr ${fs_free /var} / ${fs_size /var}
+${fs_bar 4 /var}
+${if_mounted ~/disky}DISKY: $alignr ${fs_free ~/disky} / ${fs_size ~/disky}
+${fs_bar 4 ~/disky}
+$endif
+$stippled_hr
+Net
+
+${if_up wlan0}wlan0 (${addr wlan0}) -- ${wireless_essid wlan0}
+down: ${downspeed wlan0} kb/s ${alignr}${downspeedgraph wlan0 7,130}
+  up: ${upspeed wlan0} kb/s  ${alignr}${upspeedgraph wlan0 7,130}
+ tot: down ${totaldown wlan0} up ${totalup wlan0}
+$endif
+${if_up eth0}eth0 (${addr eth0})
+down: ${downspeed eth0} kb/s ${alignr}${downspeedgraph eth0 7,130}
+  up: ${upspeed eth0} kb/s  ${alignr}${upspeedgraph eth0 7,130}
+ tot: down ${totaldown eth0} up ${totalup eth0}
+$endif
+
+
+

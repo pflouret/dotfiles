@@ -1,0 +1,4 @@
+.xmonad/
+!.xmonad/xmonad.hs
+.ipython/
+!.ipython/ipythonrc

@@ -1,0 +1,69 @@
+
+Xft.dpi:96
+Xft.hinting:true
+Xft.hintstyle:hintfull
+
+!---------------------
+
+xterm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+xterm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+xterm*bellIsUrgent: true
+xterm*background: #111111
+xterm*foreground: #dddddd
+xterm*geometry: 115x50
+xterm*highlightSelection: true
+xterm*eightBitInput: false
+xterm*saveLines: 5000
+xterm*selectToClipboard: true
+xterm*termName: xterm-256color
+
+xterm*color4: DodgerBlue1
+xterm*color12: DodgerBlue2
+
+!---------------------
+
+urxvt*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*italicFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*font: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*italicFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*boldFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*geometry: 115x50
+urxvt*externalBorder: 0
+urxvt*internalBorder: 1
+urxvt*scrollBar: false
+urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0000/aaaa
+urxvt*background: #111111
+urxvt*foreground: #dddddd
+
+urxvt*tripleclickwords: true
+urxvt*urlLauncher: opera
+urxvt*saveLines: 4096
+urxvt*iso14755_52: false
+
+! Black (not tango) + DarkGrey
+urxvt*color0: #000000
+urxvt*color8: #555753
+! DarkRed + Red
+urxvt*color1: #a40000
+urxvt*color9: #cc0000
+! DarkGreen + Green
+urxvt*color2: #4e9a06
+urxvt*color10: #73d216
+! DarkYellow + Yellow
+urxvt*color3: #c4a000
+urxvt*color11: #edd400
+! DarkBlue + Blue
+urxvt*color4: #204a87
+urxvt*color12: #3465a4
+! DarkMangenta + Magenta
+urxvt*color5: #ce5c00
+urxvt*color13: #f57900
+! DarkCyan + Cyan (both not tango)
+urxvt*color6: #038e82
+urxvt*color14: #05d2c1
+! LightGrey + White
+urxvt*color7: #babdb6
+urxvt*color15: #d3d7cf
+

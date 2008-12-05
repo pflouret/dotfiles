@@ -1,0 +1,30 @@
+[user]
+  email = palbof@gmail.com
+  name = pablo flouret
+
+[alias]
+  branches = branch -a
+  ci = commit
+  co = checkout
+  diffc = diff --cached
+  log1 = log --pretty=oneline
+  logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %ar: %s'
+  loggn = !git --no-pager log --pretty=format:'%Cblue%h%Creset %an <%ae> %ar: %s'
+  logs = log --pretty=short
+  gitkf = !gitk master..origin &
+  st = status
+  unmerged = ls-files -u
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  log = auto
+
+[merge]
+  tool = vimdiff
+  log = true
+
+[mergetool]
+  keepBackup = false
+
