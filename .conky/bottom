@@ -31,4 +31,4 @@ xftfont lime
 xftalpha 0.8
 
 TEXT
-$nodename $uptime | cpu: ${cpu cpu1}% ${cpugraph cpu1 8,25} ${cpu cpu2}% ${cpugraph cpu2 8,25} | ram: $mem ($cached) | temp: ${execi 2 ~/.conky/bin/cputemp.sh 0}C ${execi 2 ~/.conky/bin/cputemp.sh 1}C | io: $diskio ${diskiograph 8,30} |${top cpu 1}% ${top name 1} ${alignr} weather: ${execi 300 ~/.conky/bin/weather.py} | bat: ${battery_percent}% (${execi 2 bat_time_left.sh}) | ba: ${tztime America/Argentina/Buenos_Aires %H:%M} | ${time %a %b %d %H:%M:%S}
+$nodename $uptime | cpu: ${cpu cpu1}% ${cpugraph cpu1 8,25} ${cpu cpu2}% ${cpugraph cpu2 8,25} | ram: $mem ($cached) | temp: ${execi 2 ~/.conky/bin/cputemp.sh 0}C ${execi 2 ~/.conky/bin/cputemp.sh 1}C | io: $diskio ${diskiograph 8,30} |${top cpu 1}% ${top name 1} ${alignr} weather: ${execi 300 ~/.conky/bin/weather-com.py} | bat: ${battery_percent}% (${execi 2 bat_time_left.sh}) | ba: ${tztime America/Argentina/Buenos_Aires %H:%M} | ${time %a %b %d %H:%M:%S}

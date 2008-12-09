@@ -4,14 +4,11 @@ let g:AutoComplPop_IgnoreCaseOption = 1
 
 if has("win32")
   set guifont=Consolas:h9:cDEFAULT
-  autocmd FileType python source $VIM/vimfiles/plugin/python.vim
-  autocmd FileType html,xml,xsl source $VIM/vimfiles/scripts/closetag.vim
-  autocmd FileType mako source $VIM/vimfiles/syntax/mako.vim
-else
-  autocmd FileType python source ~/.vim/plugin/python.vim
-  autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
-  autocmd BufRead *.mako set filetype=mako
 endif
+
+autocmd FileType python :runtime plugin/python.vim
+autocmd Filetype html,xml,xsl :runtime scripts/closetag.vim
+autocmd BufRead *.mako set filetype=mako
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python set textwidth=98
@@ -23,6 +20,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
+map <F10> :TlistToggle<CR>
+imap <F10> :TlistToggle<CR>
+let Tlist_WinWidth = 40
 
 "let g:AutoComplPop_NotEnableAtStartup = 1
 "autocmd FileType python,ruby,html,xml,xsl :AutoComplPopEnable

@@ -60,7 +60,7 @@ error_messages2: black red
 # sort:	None = 0, byName = 1, byName_rev = 2, bySize = 3,
 # 	bySize_rev = 4, byDate = 5, byDate_rev = 6
 sort: 1
-show_dotfiles: 1
+show_dotfiles: 0
 save_conf_at_exit: 1
 sort_mix_dirs: 0
 show_output_after_exec: 1

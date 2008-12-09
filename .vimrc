@@ -174,10 +174,6 @@ endif
 :imap <F9> <ESC>:qa!<CR>
 :nmap  <F9> :qa!<CR>
 
-":map <F10> <ESC>2yypJ$a;<ESC>
-":map <F11> :s/^\t//<CR><C-R>
-":map <F12> :s/^/\t/<CR><C-R>
-
 autocmd FileType css :nmap <F1> <ESC>A*/I/*
 autocmd FileType css :nmap <S-F1> <ESC>$xx^xx
 

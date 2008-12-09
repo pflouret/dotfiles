@@ -15,6 +15,7 @@ activity "activity!!1 %C -> %n%f %t"
 
 vbell off
 vbell_msg "*beep*"
+bell_msg ""
 
 pow_detach_msg "screen session of \$LOGNAME \$:cr:\$:nl:ended."
 

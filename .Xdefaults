@@ -14,8 +14,10 @@ xterm*geometry: 115x50
 xterm*highlightSelection: true
 xterm*eightBitInput: false
 xterm*saveLines: 5000
-xterm*selectToClipboard: true
 xterm*termName: xterm-256color
+!xterm*selectToClipboard: true
+xterm*VT100.translations: #override \
+  <BtnUp>:select-end(PRIMARY, CUT_BUFFER0, CLIPBOARD)
 
 xterm*color4: DodgerBlue1
 xterm*color12: DodgerBlue2
