@@ -15,6 +15,9 @@
   st = status
   unmerged = ls-files -u
 
+[branch]
+  autosetupmerge = true
+
 [color]
   diff = auto
   status = auto
