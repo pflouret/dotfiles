@@ -9,6 +9,8 @@ else
   nozkbd=1
 fi
 
+WORDCHARS=${WORDCHARS//[&=\/;!#%\{]}
+
 bindkey -v
 
 if [ -n $nozkbd ]; then

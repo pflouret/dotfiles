@@ -30,12 +30,11 @@ urxvt*italicFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 !urxvt*font: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
 !urxvt*italicFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
 !urxvt*boldFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+
 urxvt*geometry: 115x50
 urxvt*externalBorder: 0
 urxvt*internalBorder: 1
 urxvt*scrollBar: false
-urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0000/aaaa
 urxvt*background: #111111
 urxvt*foreground: #dddddd
 
@@ -43,6 +42,8 @@ urxvt*tripleclickwords: true
 urxvt*urlLauncher: opera
 urxvt*saveLines: 4096
 urxvt*iso14755_52: false
+urxvt*urgentOnBell: true
+urxvt*perl-ext: selection,selection-popup
 
 ! Black (not tango) + DarkGrey
 urxvt*color0: #000000
@@ -57,8 +58,8 @@ urxvt*color10: #73d216
 urxvt*color3: #c4a000
 urxvt*color11: #edd400
 ! DarkBlue + Blue
-urxvt*color4: #204a87
-urxvt*color12: #3465a4
+urxvt*color4: DodgerBlue1
+urxvt*color12: DodgerBlue2
 ! DarkMangenta + Magenta
 urxvt*color5: #ce5c00
 urxvt*color13: #f57900
@@ -69,3 +70,5 @@ urxvt*color14: #05d2c1
 urxvt*color7: #babdb6
 urxvt*color15: #d3d7cf
 
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0000/aaaa
