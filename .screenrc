@@ -9,7 +9,6 @@ maptimeout 50
 silencewait 15
 altscreen on
 deflogin off
-shelltitle "> |zsh"
 
 activity "activity!!1 %C -> %n%f %t"
 
@@ -22,20 +21,13 @@ pow_detach_msg "screen session of \$LOGNAME \$:cr:\$:nl:ended."
 bindkey -d "^[k" prev
 bindkey -d "^[l" next
 
-hardstatus alwayslastline
-hardstatus string "%{= dd}%?%-Lw%?%{= yk} %n*%f %t %{= dd}%?%+Lw%?"
+hardstatus on
+hardstatus string "%?%h%:%t%?" 
 
-#hardstatus string '%{= wK}%-Lw%{= KW}%50>%n%f %t%{= wK}%+Lw%< %{= kG}%-=%D %c:%s'
-#hardstatus string "%{= dd}%?%-Lw%?%{= wk}%n*%f %t%{= dd}%?%+Lw%? %=%c:%s"
-#hardstatus string '%{= kG}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W}%c:%s%{g}]'
-#caption string "%{= wk} %?%-Lw%?%{= kd} %n*%f %t %{= wk}%?%+Lw%? %{= wk}%=%{= Wk} %C%a %m-%d-%Y %{= wk}"
+caption always 
+caption string "%{= dd}%?%-w%?%{= wk}%n:%t%{= dd}%?%+w%?"
 
-termcapinfo xterm* ti@:te@
-termcapinfo xterm* ti=E7E[?47l
-
-
-# window title?
-#termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-#termcapinfo rxvt*  'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-#termcapinfo xterm*|rxvt* 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo xterm*|rxvt* ti@:te@
+termcapinfo xterm*|rxvt* ti=E7E[?47l
+termcapinfo xterm*|rxvt* 'hs:ts=\033]0;:fs=\007:ds=\033]0;\007' # titlebar
 

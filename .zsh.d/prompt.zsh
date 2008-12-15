@@ -23,22 +23,25 @@ case $HOSTNAME in
 esac
 
 case "$TERM" in
-  xterm*|?rxvt*)
-    # display user@host and full dir in *term title
-    precmd () { print -Pn  "\033]0;%n@%m %~\007" }
-    # display user@host and name of current process in *term title
-    preexec () { print -Pn "\033]0;%n@%m <$1> %~\007" }
-    #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+  xterm*|rxvt*)
+    precmd () {
+      print -Pn  "\033]0;%~\007"
+    }
+
+    preexec () { 
+      print -Pn "\033]0;<$1>\007" 
+    }
     ;;
   screen*)
-    # Set screen's window title to the command the user typed.
-    preexec() { print -n '\ek'$1'\e\\' }
-
-    # Restore a generic title if no program is running.
-    precmd() { 
-      print -n '\ek'$HOST:$PWD'\e\\'
+    precmd () {
+      print -Pn '\ek%~\e\\'
+      print -Pn  "\033]0;%~\007"
     }
-    PROMPT_COMMAND='echo -ne "\033k$HOSTNAME\033\\"'
+
+    preexec () { 
+      print -Pn '\ek'$1'\e\\'
+      print -Pn "\033]0;<$1>\007" 
+    }
     ;;
   *)
     ;;
