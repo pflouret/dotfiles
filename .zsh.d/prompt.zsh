@@ -63,6 +63,10 @@ case $TERM in
   ;;
 esac
 
+if [ -n $MC_SID ]; then
+  export RPROMPT=''
+fi
+
 function chpwd() {
   [[ -t 1 ]] || return
   case $TERM in

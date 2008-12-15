@@ -37,13 +37,21 @@ urxvt*internalBorder: 0
 urxvt*scrollBar: false
 urxvt*background: #111111
 urxvt*foreground: #dddddd
+urxvt*transparent: true
+urxvt*shading: 35
+urxvt*tintColor: #ffffff
 
 urxvt*tripleclickwords: true
-urxvt*urlLauncher: opera
 urxvt*saveLines: 4096
 urxvt*iso14755_52: false
 urxvt*urgentOnBell: true
-urxvt*perl-ext: selection,selection-popup
+
+urxvt*perl-ext: selection,selection-popup,matcher
+urxvt*perl-ext-common: 
+urxvt*urlLauncher: /usr/bin/opera
+urxvt*keysym.C-M-w: perl:matcher
+urxvt*keysym.C-M-S-p: perl:searchable-scrollback
+urxvt*matcher.button: 3
 
 ! Black + DarkGrey
 urxvt*color0: #000000
@@ -58,7 +66,7 @@ urxvt*color10: LimeGreen
 urxvt*color3: #c4a000
 urxvt*color11: #edd400
 ! DarkBlue + Blue
-urxvt*color4: DodgerBlue1
+urxvt*color4: Blue
 urxvt*color12: DodgerBlue2
 ! DarkMangenta + Magenta
 urxvt*color5: #ce5c00
@@ -70,5 +78,3 @@ urxvt*color14: #05d2c1
 urxvt*color7: #babdb6
 urxvt*color15: #d3d7cf
 
-!urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0000/aaaa

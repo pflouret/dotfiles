@@ -44,9 +44,17 @@ import qualified XMonad.StackSet as W
 
  
 myTerminal      = "urxvtc"
-myBorderWidth   = 2
+myBorderWidth   = 1
 myModMask       = mod4Mask
-myWorkspaces = ["1:web", "2:im", "3:term", ":4", ":5", ":6", ":7", "8:music", "9:arr"] -- ++ map show [5..9]
+myWorkspaces = [ "1:web"
+               , "2:im"
+               , "3:term"
+               , "4:four"
+               , "5:five"
+               , "6:six"
+               , "7:seven"
+               , "8:music"
+               , "9:arr"] -- ++ map show [5..9]
 myNormalBorderColor  = "#444444"
 myFocusedBorderColor = "#ff0000"
 
@@ -83,7 +91,7 @@ myLayout = avoidStruts $
            workspaceDir "~" $
            smartBorders $
            onWorkspaces ["1:web", "8:music"] (myTabbed ||| Mirror tiled ||| tiled) $
-           tiled ||| TwoPane (3/100) (1/2) ||| Mirror tiled ||| noBorders myTabbed
+           tiled ||| Mirror tiled ||| noBorders myTabbed ||| TwoPane (3/100) (1/2) 
            -- dragPane Vertical 0.1 0.5
            -- TwoPane (3/100) (1/2)
            -- Grid
@@ -107,26 +115,27 @@ myMediaKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, 0x1008ff17), spawn "") -- XF86AudioNext
     , ((0, 0x1008ff18), spawn "") -- XF86HomePage
     , ((0, 0x1008ff31), spawn "") -- XF86AudioPause
+    , ((0, xK_Print),   spawn $ XMonad.terminal conf ++ " -e scrot -c -d 5 -e 'mv $f ~/crap/img/screenshots'")
+    , ((modMask, xK_Print),spawn $ XMonad.terminal conf ++ " -e scrot -e 'mv $f ~/crap/img/screenshots'")
+    , ((controlMask, xK_Print), spawn "gscreenshot")
     ]
 
 myKeys = \conf -> mkKeymap conf $
     [ ("M-r",             spawn $ XMonad.terminal conf) -- launch a terminal
     , ("M-d",             spawn $ XMonad.terminal conf ++ " -e screen -RR") -- attach to some screen
     , ("M-S-d",           spawn $ XMonad.terminal conf ++ " -e screen") -- fresh screen
-    , ("M-e",             spawn $ XMonad.terminal conf ++ " -e lfm") -- attach to some screen
+    , ("M-e",             spawn $ XMonad.terminal conf ++ " -e mc -x")
+    , ("M-t",             spawn $ XMonad.terminal conf ++ " -e htop")
     , ("C-M1-l",          spawn "xscreensaver-command -lock") -- lock the screen
-    , ("C-<Sys_Req>",     spawn "gscreenshot")
-    , ("M-<Sys_Req>",     spawn $ XMonad.terminal conf ++ "scrot -e 'mv $f ~/crap/img/screenshots")
-    , ("<Sys_Req>",       spawn $ XMonad.terminal conf ++ "scrot -c -d 5 -e 'mv $f ~/crap/img/screenshots")
-    , ("M-<Home>",        spawn $ "foobar2000 -playpause")
-    , ("M-<Insert>",      spawn $ "foobar2000 -rand")
-    , ("M-<End>",         spawn $ "foobar2000 -stop")
-    , ("M-<Page_Up>",     spawn $ "foobar2000 -prev")
-    , ("M-<Page_Down>",   spawn $ "foobar2000 -next")
-    , ("M-<Left>",        spawn $ "foobar2000 -command-'Seek back by 5 seconds'")
-    , ("M-<Right>",       spawn $ "foobar2000 -command-'Seek ahead by 5 seconds'")
-    , ("M-<Up>",          spawn $ "foobar2000 -volup")
-    , ("M-<Down>",        spawn $ "foobar2000 -voldown")
+    , ("M-<Home>",        spawn "foobar2000 -playpause")
+    , ("M-<Insert>",      spawn "foobar2000 -rand")
+    , ("M-<End>",         spawn "foobar2000 -stop")
+    , ("M-<Page_Up>",     spawn "foobar2000 -prev")
+    , ("M-<Page_Down>",   spawn "foobar2000 -next")
+    , ("M-<Left>",        spawn "foobar2000 -command-'Seek back by 5 seconds'")
+    , ("M-<Right>",       spawn "foobar2000 -command-'Seek ahead by 5 seconds'")
+    , ("M-<Up>",          spawn "foobar2000 -volup")
+    , ("M-<Down>",        spawn "foobar2000 -voldown")
     --
     , ("M-<Space>",       sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ("M-S-<Space>",     setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default
@@ -146,15 +155,14 @@ myKeys = \conf -> mkKeymap conf $
     --
     , ("M1-<Tab>",        windows W.focusDown)
     , ("M1-S-<Tab>",      windows W.focusUp)
-    , ("M-j",             windows W.focusDown)
     , ("M-k",             windows W.focusUp)
-    , ("M-h",             windows W.focusUp)
     , ("M-l",             windows W.focusDown)
+    , ("M-j",             windows W.focusDown)
 
     , ("M-m",             windows W.focusMaster)
     , ("M-<Return>",      windows W.swapMaster)
-    , ("M-S-j",           windows W.swapDown)
     , ("M-S-k",           windows W.swapUp)
+    , ("M-S-j",           windows W.swapDown)
     , ("M-<Backspace>",   focusUrgent)
     -- move/resize floats
     , ("M-C-h",           withFocused $ keysMoveWindow (-10,0))
@@ -165,8 +173,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-M1-C-j",        withFocused $ keysResizeWindow (-10,-10) (0,0))
     --
     , ("M-s",             withFocused $ windows . W.sink)
-    , ("M-M1-h",          sendMessage Shrink) -- Shrink the master area
-    , ("M-M1-l",          sendMessage Expand) -- Expand the master area
+    , ("M-M1-h",          sendMessage Shrink)
+    , ("M-M1-l",          sendMessage Expand)
     , ("M-M1-j",          sendMessage MirrorShrink)
     , ("M-M1-k",          sendMessage MirrorExpand)
 
@@ -209,20 +217,21 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
  
 -- Window rules:
 myManageHook = composeAll
-    [ className =? "MPlayer1"       --> doFloat
+    [ className =? "MPlayer"       --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Gscreenshot.py" --> doFloat
     , resource  =? "volwheel"       --> doFloat
     , resource  =? "xfontsel"       --> doFloat
     , className =? "Conky"          --> doIgnore
-    , className =? "trayer"         --> doIgnore
-    , resource  =? "stalonetray"    --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
     , className =? "Opera"          --> doF (W.shift "1:web") 
+    , className =? "Firefox"        --> doF (W.shift "1:web") 
     , className =? "Gajim.py"       --> doF (W.shift "2:im") 
     , resource  =? "foobar2000.exe" --> doF (W.shift "8:music") 
-    -- , title     =? "VLC media player" --> doFloat
+    , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
+    , className =? "Nicotine"       --> doF (W.shift "9:arr") 
+    , title     =? "VLC (XVideo output)" --> doFloat
     ] -- <+> manageDocks
 
 myUrgencyHook = withUrgencyHook NoUrgencyHook
@@ -235,7 +244,7 @@ shorten n xs | length xs < n = xs
  where
     end = "..."
 
-myStatusBar = "dzen2 -bg '#111111' -fg '#eeeeee' -sa l -fn '-*-nu-*-*-*-*-*-*-*-*-*-*-*' -e '' -xs 1 -ta l"
+myStatusBar = "dzen2 -bg '#111111' -fg '#eeeeee' -sa l -h 14 -fn '-*-nu-*-*-*-*-*-*-*-*-*-*-*' -e '' -xs 1 -ta l"
 
 myDzenPP :: Handle -> PP
 myDzenPP h = defaultPP 
