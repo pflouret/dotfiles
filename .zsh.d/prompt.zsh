@@ -13,69 +13,51 @@ USER=`id -un`
 
 case $HOSTNAME in
   poobar)
-    hostcolor="$YELLOW" ;;
+    hostcolor="$NC" ;;
   berserk)
     hostcolor="$BLUE" ;;
   woot|museek4musicbrainz)
+    hostcolor="$YELLOW" ;;
+  *)
     hostcolor="$GREEN" ;;
-  *)
-    hostcolor="$NC" ;;
-esac
-
-case "$TERM" in
-  xterm*|rxvt*)
-    precmd () {
-      print -Pn  "\033]0;%~\007"
-    }
-
-    preexec () { 
-      print -Pn "\033]0;<$1>\007" 
-    }
-    ;;
-  screen*)
-    precmd () {
-      print -Pn '\ek%~\e\\'
-      print -Pn  "\033]0;%~\007"
-    }
-
-    preexec () { 
-      print -Pn '\ek'$1'\e\\'
-      print -Pn "\033]0;<$1>\007" 
-    }
-    ;;
-  *)
-    ;;
 esac
 
 case $USER in
   palbo|pflouret)
-    usercolor="$NC" ;;
+    usercolor="$GREEN" ;;
   root)
     usercolor="$RED" ;;
   *)
-    usercolor="$GREEN" ;;
+    usercolor="$NC" ;;
 esac
 
-common_ps="%D{%k%M} ${usercolor}%n${NC}@${hostcolor}%m${NC}:%~"
-export PS1="$common_ps $ "
-export RPROMPT="!%h"
-
-case $TERM in
-  screen*)
-    export PS1="$common_ps $WINDOW${NC}> "
-  ;;
-esac
-
-if [ -n $MC_SID ]; then
-  export RPROMPT=''
+if [[ -n $SUDO_USER || -n $SSH_TTY ]]; then
+  rprompt="${usercolor}${USER}${NC}@${hostcolor}%m${NC}"
 fi
 
-function chpwd() {
-  [[ -t 1 ]] || return
-  case $TERM in
-    *xterm*|rxvt*)
-      print -Pn "\e]2;@%m:%~\a"
-      ;;
-  esac
-}
+prompt="${hostcolor}[${NC}${usercolor}%~${NC}${hostcolor}]${NC}: "
+
+export PS1=$prompt
+
+[[ -z $MC_SID ]] && export RPROMPT=$rprompt
+
+case "$TERM" in
+  xterm*|rxvt*)
+    precmd () { print -Pn  "\033]0;%12<...<%~\007" }
+    preexec () { print -Pn "\033]0;$1\007" }
+    ;;
+  screen*)
+    precmd () {
+      print -Pn '\ek%12<...<%~\e\\'
+      print -Pn  "\033]2;%~\007"
+    }
+
+    preexec () { 
+      print -Pn '\ek'$1'\e\\'
+      print -Pn "\033]0;$1\007"
+    }
+    ;;
+  *)
+    ;;
+esac
 

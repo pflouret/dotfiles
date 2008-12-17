@@ -17,7 +17,7 @@ no_buffers yes
 override_utf8_locale no
 own_window yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_type desktop
+own_window_type override
 own_window_transparent yes
 total_run_times 0
 update_interval 1.0

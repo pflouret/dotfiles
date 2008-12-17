@@ -1,5 +1,6 @@
 numlockx &
 conky -d -c ~/.conky/bottom
+conky -d -c ~/.conky/desktop
 xsetroot -cursor_name left_ptr
 
 #hsetroot -solid "#111111"
@@ -9,7 +10,7 @@ gajim &
 urxvtd -q -o -f
 
 nitrogen --restore
-xcompmanager -c -r0 &
+xcompmgr -c -r0 &
 
 xmodmap ~/.Xmodmap
 

@@ -21,6 +21,7 @@ import XMonad.Layout.LayoutHints
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Reflect
 import XMonad.Layout.Tabbed
 import XMonad.Layout.TwoPane   
 import XMonad.Layout.WorkspaceDir
@@ -97,7 +98,7 @@ myLayout = avoidStruts $
            -- Grid
            -- magnifier <blah>
   where
-     tiled    = ResizableTall nmaster delta ratio [] -- default tiling algorithm partitions the screen into two panes
+     tiled    = reflectHoriz $ ResizableTall nmaster delta ratio [] -- default tiling algorithm partitions the screen into two panes
      myTabbed = tabbed shrinkText myTabConfig
      nmaster  = 1 -- The default number of windows in the master pane
      ratio    = 1/2 -- Default proportion of screen occupied by master pane
@@ -169,8 +170,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-C-j",           withFocused $ keysMoveWindow (0,10))
     , ("M-C-k",           withFocused $ keysMoveWindow (0,-10))
     , ("M-C-l",           withFocused $ keysMoveWindow (10,0))
-    , ("M-M1-C-k",        withFocused $ keysResizeWindow (10,10) (0,0))
-    , ("M-M1-C-j",        withFocused $ keysResizeWindow (-10,-10) (0,0))
+    , ("M-M1-C-h",        withFocused $ keysResizeWindow (-10,0) (0,0))
+    , ("M-M1-C-j",        withFocused $ keysResizeWindow (0,10) (1,0))
+    , ("M-M1-C-k",        withFocused $ keysResizeWindow (0,-10) (0,0))
+    , ("M-M1-C-l",        withFocused $ keysResizeWindow (10,10) (0,0))
     --
     , ("M-s",             withFocused $ windows . W.sink)
     , ("M-M1-h",          sendMessage Shrink)
@@ -216,8 +219,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     ]
  
 -- Window rules:
-myManageHook = composeAll
-    [ className =? "MPlayer"       --> doFloat
+myManageHook = composeAll [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Gscreenshot.py" --> doFloat
     , resource  =? "volwheel"       --> doFloat
@@ -232,7 +234,8 @@ myManageHook = composeAll
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
     , title     =? "VLC (XVideo output)" --> doFloat
-    ] -- <+> manageDocks
+    ] <+> (doF W.swapDown)
+    -- <+> manageDocks
 
 myUrgencyHook = withUrgencyHook NoUrgencyHook
 -- myUrgencyHook = withUrgencyHook dzenUrgencyHook
@@ -256,16 +259,16 @@ myDzenPP h = defaultPP
     , ppWsSep   = " "
     , ppLayout  = dzenColor "#eeeeee" "" .
                   (\x -> case x of
-                            "Tall"                   -> "tile" -- "^i(/home/robert/dzen_bitmaps/tall.xbm)"
-                            "Mirror Tall"            -> "mtile" -- "^i(/home/robert/dzen_bitmaps/mtall.xbm)"
-                            "ResizableTall"          -> "tile"
-                            "Mirror ResizableTall"   -> "mtile"
-                            "Full"                   -> "full" -- "^i(/home/robert/dzen_bitmaps/full.xbm)"
-                            "Tabbed Bottom Simplest" -> "tab"
-                            "Tabbed Simplest"        -> "tab"
+                            "Tall"                          -> "tile" -- "^i(/home/robert/dzen_bitmaps/tall.xbm)"
+                            "Mirror Tall"                   -> "mtile" -- "^i(/home/robert/dzen_bitmaps/mtall.xbm)"
+                            "ReflectX ResizableTall"        -> "tile"
+                            "Mirror ReflectX ResizableTall" -> "mtile"
+                            "Full"                          -> "full" -- "^i(/home/robert/dzen_bitmaps/full.xbm)"
+                            "Tabbed Bottom Simplest"        -> "tab"
+                            "Tabbed Simplest"               -> "tab"
                             _ -> x
                   )
-    , ppTitle   = dzenColor "#bbbbbb" "" . wrap "< " " >" 
+    , ppTitle   = dzenColor "#bbbbbb" "" . wrap "[ " " ]" 
     , ppOutput   = hPutStrLn h
     }
  
