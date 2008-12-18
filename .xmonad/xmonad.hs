@@ -219,9 +219,11 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     ]
  
 -- Window rules:
-myManageHook = composeAll [ className =? "MPlayer"        --> doFloat
+myManageHook = composeAll
+    [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Gscreenshot.py" --> doFloat
+    , className =? "Zenity"         --> doFloat
     , resource  =? "volwheel"       --> doFloat
     , resource  =? "xfontsel"       --> doFloat
     , className =? "Conky"          --> doIgnore

@@ -40,6 +40,8 @@ urxvt*foreground: #dddddd
 urxvt*transparent: true
 urxvt*shading: 80
 urxvt*tintColor: #ffffff
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0000/0000
 
 urxvt*tripleclickwords: true
 urxvt*saveLines: 4096
