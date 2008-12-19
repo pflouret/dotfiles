@@ -232,6 +232,7 @@ myManageHook = composeAll
     , className =? "Opera"          --> doF (W.shift "1:web") 
     , className =? "Firefox"        --> doF (W.shift "1:web") 
     , className =? "Gajim.py"       --> doF (W.shift "2:im") 
+    , className =? "Skype"          --> doF (W.shift "2:im") 
     , resource  =? "foobar2000.exe" --> doF (W.shift "8:music") 
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
