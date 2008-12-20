@@ -29,10 +29,15 @@ else
 fi
 
 bindkey -v "^W" backward-delete-word
+bindkey "^P" up-history
+bindkey "^N" down-history
 bindkey "^R" history-incremental-search-backward
-bindkey "^@"  accept-and-infer-next-history  # ctrl-space
 bindkey "\e[Z" undo  # shift-tab
 bindkey "^Z" undo
+
+zmodload zsh/complist
+bindkey -M menuselect "/"  accept-and-infer-next-history
+bindkey -M menuselect "\e[Z"  reverse-menu-complete
 
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
