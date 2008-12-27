@@ -126,6 +126,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-d",             spawn $ XMonad.terminal conf ++ " -e screen -RR") -- attach to some screen
     , ("M-S-d",           spawn $ XMonad.terminal conf ++ " -e screen") -- fresh screen
     , ("M-e",             spawn $ XMonad.terminal conf ++ " -e mc -x")
+    , ("M-S-e",           spawn "thunar")
     , ("M-t",             spawn $ XMonad.terminal conf ++ " -e htop")
     , ("C-M1-l",          spawn "xscreensaver-command -lock") -- lock the screen
     , ("M-<Home>",        spawn "foobar2000 -playpause")
