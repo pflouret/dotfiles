@@ -13,6 +13,7 @@ import XMonad.Actions.FloatKeys
 import XMonad.Actions.WindowNavigation
 import XMonad.Hooks.DynamicLog hiding (shorten)
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.Gaps
 import XMonad.Layout.Circle
@@ -27,6 +28,7 @@ import XMonad.Layout.TwoPane
 import XMonad.Layout.WorkspaceDir
 import XMonad.ManageHook
 import XMonad.Prompt
+import XMonad.Prompt.AppLauncher as AL
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.Shell
 import XMonad.Prompt.Window
@@ -86,7 +88,6 @@ myTabConfig = defaultTheme
     , decoHeight = 14
     }
 
--- myLayout = avoidStruts (gaps [(U,0),(D,16),(L,0),(R,0)] $ tiled ||| Mirror tiled ||| Full)
 myLayout = avoidStruts $ 
            gaps [(U,0),(D,16),(L,0),(R,0)] $ 
            workspaceDir "~" $
@@ -145,6 +146,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-n",           refresh) -- Resize viewed windows to the correct size
     --
     -- , ((modMask,                 xK_w     ), workspacePrompt myXPConfig W.moveTo)
+    , ("M1-<F1>",         AL.launchApp myXPConfig $ XMonad.terminal conf ++ " -e")
     , ("M1-<F2>",         shellPrompt myXPConfig) -- cool run prompt
     , ("M-g",             windowPromptGoto myXPConfig)
     , ("M-b",             windowPromptBring myXPConfig)
@@ -238,8 +240,12 @@ myManageHook = composeAll
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
     , title     =? "VLC (XVideo output)" --> doFloat
-    ] <+> (doF W.swapDown)
-    -- <+> manageDocks
+    ] <+> transience' <+> (doF avoidMaster)
+
+avoidMaster :: W.StackSet i l a s sd -> W.StackSet i l a s sd
+avoidMaster = W.modify' $ \c -> case c of
+    W.Stack t [] (r:rs) -> W.Stack t [r] rs
+    otherwise           -> c
 
 myUrgencyHook = withUrgencyHook NoUrgencyHook
 -- myUrgencyHook = withUrgencyHook dzenUrgencyHook
