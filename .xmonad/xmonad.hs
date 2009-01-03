@@ -9,6 +9,7 @@
  
 import XMonad hiding ( (|||) )
 import XMonad.Actions.CycleWS
+import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.WindowNavigation
 import XMonad.Hooks.DynamicLog hiding (shorten)
@@ -156,6 +157,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-<Tab>",         toggleWS)
     , ("M-o",             moveTo Next NonEmptyWS)
     , ("M-i",             moveTo Prev NonEmptyWS)
+    , ("M-S-o",           nextWS)
+    , ("M-S-i",           prevWS)
+    , ("M-y",             viewEmptyWorkspace)
+    , ("M-S-y",           tagToEmptyWorkspace)
     --
     , ("M1-<Tab>",        windows W.focusDown)
     , ("M1-S-<Tab>",      windows W.focusUp)
@@ -234,6 +239,7 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore
     , className =? "Opera"          --> doF (W.shift "1:web") 
     , className =? "Firefox"        --> doF (W.shift "1:web") 
+    , className =? "Gran Paradiso"  --> doF (W.shift "1:web")
     , className =? "Gajim.py"       --> doF (W.shift "2:im") 
     , className =? "Skype"          --> doF (W.shift "2:im") 
     , resource  =? "foobar2000.exe" --> doF (W.shift "8:music") 

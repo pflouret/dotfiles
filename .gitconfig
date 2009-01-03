@@ -13,6 +13,7 @@
   logs = log --pretty=short
   gitkf = !gitk master..origin &
   st = status
+  stp = !git -p status
   unmerged = ls-files -u
 
 [branch]
