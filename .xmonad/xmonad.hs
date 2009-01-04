@@ -246,7 +246,7 @@ myManageHook = composeAll
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
     , title     =? "VLC (XVideo output)" --> doFloat
-    ] <+> transience' <+> (doF avoidMaster)
+    ] -- <+> transience' <+> (doF avoidMaster)
 
 avoidMaster :: W.StackSet i l a s sd -> W.StackSet i l a s sd
 avoidMaster = W.modify' $ \c -> case c of

@@ -12,7 +12,7 @@ PATH = '/ig/api?weather=%s'
 USER_AGENT = 'Opera/9.60 (X11; Linux i686; U; en) Presto/2.1.1'
 
 def main(opts):
-  h = httplib.HTTPConnection('www.google.com')
+  h = httplib.HTTPConnection('www.google.com', timeout=2)
 
   h.request('GET', PATH % opts.location, headers={'User-Agent': USER_AGENT})
   r = h.getresponse()

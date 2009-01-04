@@ -9,7 +9,7 @@ PATH = '/weather/local/NOXX0029?cc=*&dayf=0&unit=m'#&par=1084340912key=6eda6b79a
 USER_AGENT = 'Opera/9.60 (X11; Linux i686; U; en) Presto/2.1.1'
 
 def main():
-  h = httplib.HTTPConnection('xoap.weather.com')
+  h = httplib.HTTPConnection('xoap.weather.com', timeout=1)
 
   h.request('GET', PATH, headers={'User-Agent': USER_AGENT})
   r = h.getresponse()
