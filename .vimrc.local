@@ -2,10 +2,6 @@
 let g:AutoComplPop_MappingDriven = 1
 let g:AutoComplPop_IgnoreCaseOption = 1
 
-if has("win32")
-  set guifont=Consolas:h9:cDEFAULT
-endif
-
 autocmd FileType python :runtime plugin/python.vim
 autocmd Filetype html,xml,xsl :runtime scripts/closetag.vim
 autocmd BufRead *.mako set filetype=mako
@@ -29,6 +25,9 @@ let Tlist_WinWidth = 40
 
 if has("gui_running")
   colorscheme fruity
+  if has("gui_gtk2")
+    set guifont=Terminus\ 9
+  endif
 else
   if &term != "linux"
     set t_Co=256
@@ -36,3 +35,8 @@ else
     autocmd VimEnter * :GuiColorScheme fruity
   endif
 endif
+
+if has("win32")
+  set guifont=Consolas:h9:cDEFAULT
+endif
+
