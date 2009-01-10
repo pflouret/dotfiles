@@ -25,3 +25,4 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,args --sort cmd,a
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31' 
 
 zstyle ':completion:*:xmms2:*' menu yes select
+zstyle ':completion:*:git:*' menu yes select
