@@ -37,9 +37,9 @@ urxvt*internalBorder: 0
 urxvt*scrollBar: false
 urxvt*background: #111111
 urxvt*foreground: #dddddd
-urxvt*transparent: true
-urxvt*shading: 80
-urxvt*tintColor: #ffffff
+!urxvt*transparent: true
+!urxvt*shading: 80
+!urxvt*tintColor: #ffffff
 !urxvt*depth: 32
 !urxvt*background: rgba:0000/0000/0000/0000
 

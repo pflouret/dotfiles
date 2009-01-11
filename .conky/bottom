@@ -15,9 +15,9 @@ minimum_size 1270 0
 no_buffers yes
 override_utf8_locale no
 own_window yes
-own_window_colour 0000ff
+own_window_colour 111111
 own_window_type desktop
-own_window_transparent yes
+own_window_transparent no
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 pad_percents 2
 short_units yes

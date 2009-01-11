@@ -130,7 +130,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-e",             spawn $ XMonad.terminal conf ++ " -e mc -x")
     , ("M-S-e",           spawn "thunar")
     , ("M-t",             spawn $ XMonad.terminal conf ++ " -e htop")
-    , ("M-S-l",           spawn "xscreensaver-command -lock") -- lock the screen
+    , ("M-a",             spawn "xscreensaver-command -lock") -- lock the screen
     , ("M-<Home>",        spawn "foobar2000 -playpause")
     , ("M-<Insert>",      spawn "foobar2000 -rand")
     , ("M-<End>",         spawn "foobar2000 -stop")

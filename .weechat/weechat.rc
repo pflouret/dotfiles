@@ -1,5 +1,5 @@
 #
-# WeeChat configuration file, created by WeeChat v0.2.6 on Sat Jan 10 01:55:17 2009
+# WeeChat configuration file, created by WeeChat v0.2.6 on Sun Jan 11 04:52:17 2009
 # WARNING! Be careful when editing this file, WeeChat writes this file when exiting.
 #
 
@@ -129,7 +129,7 @@ history_display_default = 5
 
 [log]
 log_auto_server = off
-log_auto_channel = off
+log_auto_channel = on
 log_auto_private = off
 log_plugin_msg = off
 log_path = "%h/logs/"
