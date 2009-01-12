@@ -1,5 +1,5 @@
 #
-# WeeChat configuration file, created by WeeChat v0.2.6 on Sun Jan 11 04:52:17 2009
+# WeeChat configuration file, created by WeeChat v0.2.6 on Mon Jan 12 00:16:16 2009
 # WARNING! Be careful when editing this file, WeeChat writes this file when exiting.
 #
 
@@ -11,7 +11,7 @@ look_startup_version = on
 look_weechat_slogan = "the geekest IRC client!"
 look_one_server_buffer = off
 look_open_near_server = off
-look_scroll_amount = 3
+look_scroll_amount = 1
 look_buffer_timestamp = "[%H:%M:%S]"
 look_color_nicks_number = 10
 look_color_actions = on
@@ -27,7 +27,7 @@ look_nick_prefix = ""
 look_nick_suffix = " |"
 look_align_nick = right
 look_align_other = on
-look_align_size = 14
+look_align_size = 20
 look_align_size_max = 20
 look_align_text_offset = -1
 look_nick_completor = ":"
@@ -36,7 +36,7 @@ look_nick_completion_smart = on
 look_nick_complete_first = off
 look_infobar = on
 look_infobar_timestamp = "%B, %A %d %Y"
-look_infobar_seconds = on
+look_infobar_seconds = off
 look_infobar_delay_highlight = 7
 look_hotlist_names_count = 3
 look_hotlist_names_level = 12
@@ -149,7 +149,7 @@ irc_lag_min_show = 1
 irc_lag_disconnect = 5
 irc_anti_flood = 2
 irc_fifo_pipe = off
-irc_highlight = ""
+irc_highlight = "palbo"
 irc_colors_receive = on
 irc_colors_send = on
 irc_send_unknown_commands = off

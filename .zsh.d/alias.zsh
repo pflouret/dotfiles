@@ -17,6 +17,9 @@ alias ot='pushd .'
 alias to='popd'
 
 alias y='yaourt'
+alias yi='yaourt -Qii'
+alias yl='yaourt -Ql'
+
 alias psss='ps -ef|grep'
 alias svim='sudo vim'
 alias xpropc='xprop|grep WM_CLASS'

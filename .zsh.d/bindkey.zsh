@@ -34,6 +34,7 @@ bindkey "^N" down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "\e[Z" undo  # shift-tab
 bindkey "^Z" undo
+bindkey '^i' expand-or-complete-prefix
 
 zmodload zsh/complist
 bindkey -M menuselect "/"  accept-and-infer-next-history
