@@ -6,6 +6,10 @@ export HISTFILE=~/.zhistory
 export EDITOR=vim
 export BROWSER="/usr/bin/opera"
 
+export PAGER="less"
+export LESS="FRX"
+export GREP_OPTIONS="--color=auto"
+
 eval `dircolors -b`
 
 for f in ~/.zsh.d/*.zsh; do
