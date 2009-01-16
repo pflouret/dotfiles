@@ -94,13 +94,14 @@ myLayout = avoidStruts $
            workspaceDir "~" $
            smartBorders $
            onWorkspaces ["1:web", "8:music"] (myTabbed ||| Mirror tiled ||| tiled) $
-           tiled ||| Mirror tiled ||| noBorders myTabbed ||| TwoPane (3/100) (1/2) 
+           tiled ||| Mirror tiled ||| noBorders myTabbed -- ||| TwoPane (3/100) (1/2) 
            -- dragPane Vertical 0.1 0.5
            -- TwoPane (3/100) (1/2)
            -- Grid
            -- magnifier <blah>
   where
-     tiled    = reflectHoriz $ ResizableTall nmaster delta ratio [] -- default tiling algorithm partitions the screen into two panes
+     -- tiled    = reflectHoriz $ ResizableTall nmaster delta ratio [] -- default tiling algorithm partitions the screen into two panes
+     tiled    = ResizableTall nmaster delta ratio [] -- default tiling algorithm partitions the screen into two panes
      myTabbed = tabbed shrinkText myTabConfig
      nmaster  = 1 -- The default number of windows in the master pane
      ratio    = 1/2 -- Default proportion of screen occupied by master pane
@@ -280,6 +281,8 @@ myDzenPP h = defaultPP
                             "Mirror Tall"                   -> "mtile" -- "^i(/home/robert/dzen_bitmaps/mtall.xbm)"
                             "ReflectX ResizableTall"        -> "tile"
                             "Mirror ReflectX ResizableTall" -> "mtile"
+                            "ResizableTall"        -> "tile"
+                            "Mirror ResizableTall" -> "mtile"
                             "Full"                          -> "full" -- "^i(/home/robert/dzen_bitmaps/full.xbm)"
                             "Tabbed Bottom Simplest"        -> "tab"
                             "Tabbed Simplest"               -> "tab"
