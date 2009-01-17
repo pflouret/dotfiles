@@ -17,6 +17,8 @@ xmodmap ~/.Xmodmap
 
 urxvtc -e ssh-add
 
+tilda &> /dev/null &
+
 exec xmonad
 
 #exec openbox-session

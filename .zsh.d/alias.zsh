@@ -13,6 +13,10 @@ alias mv='nocorrect mv -i'
 alias rm='nocorrect rm -i --preserve-root'
 alias find='noglob find'
 
+alias grepc='grep -C 2'
+alias grepcc='grep -C'
+alias grepo='grep -o'
+
 alias ot='pushd .'
 alias to='popd'
 

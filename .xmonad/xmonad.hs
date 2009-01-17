@@ -53,7 +53,7 @@ myModMask       = mod4Mask
 myWorkspaces = [ "1:web"
                , "2:im"
                , "3:term"
-               , "4:four"
+               , "4:code"
                , "5:five"
                , "6:six"
                , "7:seven"
