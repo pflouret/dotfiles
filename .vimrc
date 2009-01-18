@@ -59,17 +59,6 @@ map Y y$
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>,nbsp:.
 set nolist
 
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
-
-"autocmd FileWritePre * :call TrimWhiteSpace()
-"autocmd FileAppendPre * :call TrimWhiteSpace()
-"autocmd FilterWritePre * :call TrimWhiteSpace()
-"autocmd BufWritePre * :call TrimWhiteSpace()
-
 " completion
 set infercase
 
@@ -148,8 +137,8 @@ endif
 :imap <silent> <C-k> <ESC>:bp!<CR>
 :nmap <silent> <C-k> :bp!<CR>
 
-:imap <F3> @w
-:nmap <F3> @w
+":imap <F3> @w
+":nmap <F3> @w
 
 :imap <F4> @q
 :nmap <F4> @q
@@ -165,17 +154,18 @@ endif
 :imap <C-q> <ESC>:xa<CR>
 :nmap <C-q> :xa<CR>
 
-:imap <F7> <ESC>:bd<CR>
-:nmap <F7> :bd<CR>
+":imap <F7> <ESC>:bd<CR>
+":nmap <F7> :bd<CR>
 
-:imap <F8> <ESC>:mks! session.vim<CR>
-:nmap <F8> :mks! session.vim<CR>
+":imap <F8> <ESC>:mks! session.vim<CR>
+":nmap <F8> :mks! session.vim<CR>
 
 :imap <F9> <ESC>:qa!<CR>
 :nmap  <F9> :qa!<CR>
 
-autocmd FileType css :nmap <F1> <ESC>A*/I/*
-autocmd FileType css :nmap <S-F1> <ESC>$xx^xx
+if filereadable(expand(expand("~/.vimrc.plugins")))
+  source ~/.vimrc.plugins
+endif
 
 if filereadable(expand(expand("~/.vimrc.local")))
   source ~/.vimrc.local

@@ -155,3 +155,9 @@ hi jinjaSpecial     guifg=#008ffd   guibg=#200000
 " ERuby Highlighting (for my eruby.vim)
 hi erubyRubyDelim   guifg=#2c8a16                   gui=bold
 hi erubyComment     guifg=#4d9b3a                   gui=italic
+
+" ShowMarks
+hi ShowMarksHLl guibg=#111111 guifg=#00ff00
+hi ShowMarksHLu guibg=#111111 guifg=#00ff00
+hi ShowMarksHLo guibg=#111111 guifg=#00ff00
+hi ShowMarksHLm guibg=#111111 guifg=#00ff00

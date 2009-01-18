@@ -5,78 +5,78 @@ Xft.hintstyle:hintfull
 
 !---------------------
 
-xterm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-xterm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-xterm*bellIsUrgent: true
-xterm*background: #111111
-xterm*foreground: #dddddd
-xterm*geometry: 115x50
-xterm*highlightSelection: true
-xterm*eightBitInput: false
-xterm*saveLines: 5000
-xterm*termName: xterm-256color
-!xterm*selectToClipboard: true
-xterm*VT100.translations: #override \
+XTerm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+XTerm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+XTerm*bellIsUrgent: true
+XTerm*background: #111111
+XTerm*foreground: #dddddd
+XTerm*geometry: 115x50
+XTerm*highlightSelection: true
+XTerm*eightBitInput: false
+XTerm*saveLines: 5000
+XTerm*termName: xterm-256color
+!XTerm*selectToClipboard: true
+XTerm*VT100.translations: #override \
   <BtnUp>:select-end(PRIMARY, CUT_BUFFER0, CLIPBOARD)
 
-xterm*color4: DodgerBlue1
-xterm*color12: DodgerBlue2
+XTerm*color4: DodgerBlue1
+XTerm*color12: DodgerBlue2
 
 !---------------------
 
-urxvt*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-urxvt*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-urxvt*italicFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*font: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*italicFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*boldFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*italicFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*font: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*italicFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*boldFont: -*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
 
-urxvt*geometry: 115x50
-urxvt*externalBorder: 0
-urxvt*internalBorder: 0
-urxvt*scrollBar: false
-urxvt*background: #111111
-urxvt*foreground: #dddddd
-!urxvt*transparent: true
-!urxvt*shading: 80
-!urxvt*tintColor: #ffffff
-!urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0000/0000
+URxvt*geometry: 115x50
+URxvt*externalBorder: 0
+URxvt*internalBorder: 0
+URxvt*scrollBar: false
+URxvt*background: #111111
+URxvt*foreground: #dddddd
+!URxvt*transparent: true
+!URxvt*shading: 80
+!URxvt*tintColor: #ffffff
+!URxvt*depth: 32
+!URxvt*background: rgba:0000/0000/0000/0000
 
-urxvt*tripleclickwords: true
-urxvt*saveLines: 4096
-urxvt*iso14755_52: false
-urxvt*urgentOnBell: true
+URxvt*tripleclickwords: true
+URxvt*saveLines: 4096
+URxvt*iso14755_52: false
+URxvt*urgentOnBell: true
 
-urxvt*perl-ext: selection,selection-popup,matcher
-urxvt*perl-ext-common: 
-urxvt*urlLauncher: /usr/bin/opera
-urxvt*keysym.C-M-w: perl:matcher
-urxvt*keysym.C-M-S-p: perl:searchable-scrollback
-urxvt*matcher.button: 3
+URxvt*perl-ext: selection,selection-popup,matcher
+URxvt*perl-ext-common: 
+URxvt*urlLauncher: /usr/bin/opera
+URxvt*keysym.C-M-w: perl:matcher
+URxvt*keysym.C-M-S-p: perl:searchable-scrollback
+URxvt*matcher.button: 3
 
 ! Black + DarkGrey
-urxvt*color0: #000000
-urxvt*color8: #555753
+URxvt*color0: #000000
+URxvt*color8: #555753
 ! DarkRed + Red
-urxvt*color1: #a40000
-urxvt*color9: #cc0000
+URxvt*color1: #a40000
+URxvt*color9: #cc0000
 ! DarkGreen + Green
-urxvt*color2: green
-urxvt*color10: LimeGreen
+URxvt*color2: green
+URxvt*color10: LimeGreen
 ! DarkYellow + Yellow
-urxvt*color3: #c4a000
-urxvt*color11: #edd400
+URxvt*color3: #c4a000
+URxvt*color11: #edd400
 ! DarkBlue + Blue
-urxvt*color4: Blue
-urxvt*color12: DodgerBlue2
+URxvt*color4: Blue
+URxvt*color12: DodgerBlue2
 ! DarkMangenta + Magenta
-urxvt*color5: #ce5c00
-urxvt*color13: #f57900
+URxvt*color5: #ce5c00
+URxvt*color13: #f57900
 ! DarkCyan + Cyan
-urxvt*color6: #038e82
-urxvt*color14: #05d2c1
+URxvt*color6: #038e82
+URxvt*color14: #05d2c1
 ! LightGrey + White
-urxvt*color7: #babdb6
-urxvt*color15: #d3d7cf
+URxvt*color7: #babdb6
+URxvt*color15: #d3d7cf
 
