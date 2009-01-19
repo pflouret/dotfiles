@@ -23,7 +23,7 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 "au BufRead,BufNewFile *.py setlocal tags+=~/.vim/tags/local/pytags,~/.vim/tags/linux/pytags
 
 set tagrelative
-set tags=./.tags;${HOME}
+set tags=./tags;${HOME}
 
 map <F10> :NERDTreeToggle<CR>
 imap <F10> :NERDTreeToggle<CR>
