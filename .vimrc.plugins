@@ -31,6 +31,9 @@ imap <F10> :NERDTreeToggle<CR>
 map <F11> :TlistToggle<CR>
 imap <F11> :TlistToggle<CR>
 let Tlist_WinWidth = 40
+let Tlist_Close_On_Select = 1
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Show_One_File = 1
 
 nmap <F12> :SrcExplToggle<CR>
 let g:SrcExpl_winHeight = 8
