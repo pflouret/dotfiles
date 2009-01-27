@@ -57,7 +57,7 @@ URxvt*matcher.button: 3
 
 ! Black + DarkGrey
 URxvt*color0: #000000
-URxvt*color8: #111111
+URxvt*color8: #444444
 ! DarkRed + Red
 URxvt*color1: #a40000
 URxvt*color9: #cc0000
