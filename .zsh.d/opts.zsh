@@ -11,7 +11,7 @@ setopt list_packed
 setopt list_types
 setopt mark_dirs
 setopt pushd_ignore_dups
-setopt share_history
+setopt sharehistory
 
 unsetopt list_ambiguous
 unsetopt list_beep
