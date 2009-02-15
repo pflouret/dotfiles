@@ -132,15 +132,14 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-e",           spawn "thunar")
     , ("M-t",             spawn $ XMonad.terminal conf ++ " -e htop")
     , ("M-a",             spawn "xscreensaver-command -lock") -- lock the screen
-    , ("M-<Home>",        spawn "foobar2000 -playpause")
-    , ("M-<Insert>",      spawn "foobar2000 -rand")
-    , ("M-<End>",         spawn "foobar2000 -stop")
-    , ("M-<Page_Up>",     spawn "foobar2000 -prev")
-    , ("M-<Page_Down>",   spawn "foobar2000 -next")
-    , ("M-<Left>",        spawn "foobar2000 -command-'Seek back by 5 seconds'")
-    , ("M-<Right>",       spawn "foobar2000 -command-'Seek ahead by 5 seconds'")
-    , ("M-<Up>",          spawn "foobar2000 -volup")
-    , ("M-<Down>",        spawn "foobar2000 -voldown")
+    , ("M-<Home>",        spawn "xmms2 toggleplay")
+    , ("M-<End>",         spawn "xmms2 stop")
+    , ("M-<Page_Up>",     spawn "xmms2 prev")
+    , ("M-<Page_Down>",   spawn "xmms2 next")
+    , ("M-<Left>",        spawn "xmms2 seek -5")
+    , ("M-<Right>",       spawn "xmms2 seek +5")
+    , ("M-<Up>",          spawn "xmms2 volume +3")
+    , ("M-<Down>",        spawn "xmms2 volume -3")
     --
     , ("M-<Space>",       sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ("M-S-<Space>",     setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default
@@ -149,7 +148,8 @@ myKeys = \conf -> mkKeymap conf $
     --
     -- , ((modMask,                 xK_w     ), workspacePrompt myXPConfig W.moveTo)
     , ("M1-<F1>",         AL.launchApp myXPConfig $ XMonad.terminal conf ++ " -e")
-    , ("M1-<F2>",         shellPrompt myXPConfig) -- cool run prompt
+    -- , ("M1-<F2>",         shellPrompt myXPConfig) -- cool^Wshitty run prompt
+    , ("M1-<F2>",         spawn "gmrun")
     , ("M-g",             windowPromptGoto myXPConfig)
     , ("M-b",             windowPromptBring myXPConfig)
     , ("M-x",             xmonadPrompt myXPConfig)
