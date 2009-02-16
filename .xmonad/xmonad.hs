@@ -140,6 +140,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-<Right>",       spawn "xmms2 seek +5")
     , ("M-<Up>",          spawn "xmms2 volume +3")
     , ("M-<Down>",        spawn "xmms2 volume -3")
+    , ("M-x",             spawn "xmms2-notif.py -c")
     --
     , ("M-<Space>",       sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ("M-S-<Space>",     setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default
@@ -152,7 +153,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M1-<F2>",         spawn "gmrun")
     , ("M-g",             windowPromptGoto myXPConfig)
     , ("M-b",             windowPromptBring myXPConfig)
-    , ("M-x",             xmonadPrompt myXPConfig)
+    -- , ("M-x",             xmonadPrompt myXPConfig)
     , ("M1-<F4>",         kill) -- close focused window 
     --
     , ("M-<Tab>",         toggleWS)
