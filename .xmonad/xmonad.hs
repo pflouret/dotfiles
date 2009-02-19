@@ -256,9 +256,9 @@ avoidMaster = W.modify' $ \c -> case c of
     W.Stack t [] (r:rs) -> W.Stack t [r] rs
     otherwise           -> c
 
--- myUrgencyHook = withUrgencyHook NoUrgencyHook
-myUrgencyHook = withUrgencyHook dzenUrgencyHook
-    { args = ["-x", "0", "-y", "1184", "-h", "16", "-w", "1600", "-ta", "r", "-expand", "l", "-fg", "#0099ff", "-bg", "#0f0f0f", "-fn", "-*-terminus-*-*-*-*-*-*-*-*-*-*-*-*"] }
+myUrgencyHook = withUrgencyHook NoUrgencyHook
+-- myUrgencyHook = withUrgencyHook dzenUrgencyHook
+    -- { args = ["-x", "0", "-y", "1184", "-h", "16", "-w", "1600", "-ta", "r", "-expand", "l", "-fg", "#0099ff", "-bg", "#0f0f0f", "-fn", "-*-terminus-*-*-*-*-*-*-*-*-*-*-*-*"] }
  
 shorten :: Int -> String -> String
 shorten n xs | length xs < n = xs
