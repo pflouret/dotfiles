@@ -116,7 +116,7 @@ set uc=100
 set ut=4000
 
 set timeout timeoutlen=1000 ttimeoutlen=100
-if !has("gui_running") && &term == "rxvt-unicode"
+if !has("gui_running") && &term == "rxvt*"
     map  <ESC>[18^ <C-F7>
     map  <ESC>[19^ <C-F8>
     map  <ESC>[20^ <C-F9>
@@ -130,6 +130,9 @@ if !has("gui_running") && &term == "rxvt-unicode"
     map! <ESC>[24^ <C-F12>
     map! <ESC>[23$ <S-F11>
 endif
+
+:nmap W <C-e>
+:nmap E <C-y>
 
 :nmap <silent> <C-l> :bn!<CR>
 :imap <silent> <C-l> <ESC>:bn!<CR>
