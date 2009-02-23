@@ -17,7 +17,7 @@ xmodmap ~/.Xmodmap
 
 urxvtc -e ssh-add
 
-tilda &> /dev/null &
+tilda -c 'screen -d -r tilda' &> /dev/null &
 
 exec xmonad
 

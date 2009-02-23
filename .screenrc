@@ -3,7 +3,7 @@ escape ^tt
 startup_message off
 defutf8 on
 crlf off
-defscrollback 10000
+defscrollback 1000
 autodetach on
 maptimeout 50
 silencewait 15

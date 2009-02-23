@@ -93,8 +93,8 @@ myLayout = avoidStruts $
            gaps [(U,0),(D,16),(L,0),(R,0)] $ 
            workspaceDir "~" $
            smartBorders $
-           onWorkspaces ["1:web", "8:music"] (myTabbed ||| Mirror tiled ||| tiled) $
-           tiled ||| Mirror tiled ||| noBorders myTabbed -- ||| TwoPane (3/100) (1/2) 
+           onWorkspaces ["1:web"] (myTabbed ||| Mirror tiled ||| tiled) $
+           tiled ||| Mirror tiled ||| myTabbed -- ||| TwoPane (3/100) (1/2) 
            -- dragPane Vertical 0.1 0.5
            -- TwoPane (3/100) (1/2)
            -- Grid
