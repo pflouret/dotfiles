@@ -30,4 +30,9 @@ caption string "%{= dd}%?%-w%?%{= wk}%n:%t%{= dd}%?%+w%?"
 termcapinfo xterm*|rxvt* ti@:te@
 termcapinfo xterm*|rxvt* ti=E7E[?47l
 termcapinfo xterm*|rxvt* 'hs:ts=\033]0;:fs=\007:ds=\033]0;\007' # titlebar
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
+attrcolor b ".I" # allow bold colors
+defbce "on" # erase background with current bg color
+term screen-256color-bce
