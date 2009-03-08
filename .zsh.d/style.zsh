@@ -18,8 +18,6 @@ zstyle ':completion:*' cache-path ~/.zshcache
 zstyle ':completion:*' menu select=5
 zstyle :compinstall filename "$HOME/.zshrc"
 
-FPATH=~/.zsh.d/completion:$FPATH
-
 autoload -Uz compinit
 compinit
 

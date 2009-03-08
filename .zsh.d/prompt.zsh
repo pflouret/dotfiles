@@ -18,6 +18,8 @@ case $HOSTNAME in
     hostcolor="$BLUE" ;;
   woot|museek4musicbrainz)
     hostcolor="$YELLOW" ;;
+  quux)
+    hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
 esac

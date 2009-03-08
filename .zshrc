@@ -12,10 +12,11 @@ export GREP_OPTIONS="--color=auto"
 
 eval `dircolors -b`
 
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
 for f in ~/.zsh.d/*.zsh; do
   source $f
 done
 
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
