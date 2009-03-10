@@ -2,6 +2,8 @@
 au FileType python :runtime plugin/python.vim
 au Filetype html,xml,xsl :runtime scripts/closetag.vim
 au BufRead *.mako set filetype=mako
+au BufRead *.mkd set filetype=mkd
+au BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set textwidth=98
