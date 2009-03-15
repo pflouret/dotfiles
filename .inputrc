@@ -1,3 +1,6 @@
 set completion-ignore-case On
 #"\E[Z": complete-filename
 set editing-mode vi
+
+"\C-p" previous-history
+"\C-n" next-history
