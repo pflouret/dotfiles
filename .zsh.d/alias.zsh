@@ -1,4 +1,4 @@
-alias ls='ls --color=never -H -F'
+alias ls='ls --color=auto -H -F'
 alias ll='ls -lha'
 alias l='ls -lh'
 alias lsd='ls -ld *(/)'  # only show directories

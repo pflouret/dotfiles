@@ -60,7 +60,7 @@ myWorkspaces = [ "1:web"
                , "8:music"
                , "9:arr"] -- ++ map show [5..9]
 myNormalBorderColor  = "#444444"
-myFocusedBorderColor = "#ff0000"
+myFocusedBorderColor = "#0000FF"
 
 myXPConfig = defaultXPConfig
     { font = "-*-terminus-*-*-*-*-*-*-*-*-*-*-*-*"
