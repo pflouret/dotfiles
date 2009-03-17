@@ -1,12 +1,18 @@
 
-au FileType python :runtime plugin/python.vim
+
 au Filetype html,xml,xsl :runtime scripts/closetag.vim
 au BufRead *.mako set filetype=mako
 au BufRead *.mkd set filetype=mkd
 au BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 
+au FileType python :runtime plugin/python.vim
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set textwidth=98
+
+au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+au FileType ruby,eruby let g:rubycomplete_rails = 1
+au FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -49,6 +55,8 @@ let g:SrcExpl_searchLocalDef = 1
 
 let g:AutoComplPop_MappingDriven = 1
 let g:AutoComplPop_IgnoreCaseOption = 1
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 
 "let g:showmarks_include=".'`^<>[]{}()\""
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -68,6 +76,7 @@ else
     autocmd VimEnter * :GuiColorScheme fruity
   endif
 endif
+"colorscheme desert256
 
 if has("win32")
   set guifont=Consolas:h9:cDEFAULT
