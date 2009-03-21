@@ -80,3 +80,30 @@ URxvt*color14: #05d2c1
 URxvt*color7: #babdb6
 URxvt*color15: #d3d7cf
 
+! colors ---------------------------------------------------------------
+
+!! Black
+!URxvt*color0:      #000000
+!URxvt*color8:      #1A1A1A
+!! Red
+!URxvt*color1:      #ff6565
+!URxvt*color9:      #ff8d8d
+!! Green
+!URxvt*color2:      #93d44f
+!URxvt*color10:     #c8e7a8
+!! Yellow
+!URxvt*color3:      #ecc049
+!URxvt*color11:     #ffc123
+!! Blue
+!URxvt*color4:      #204a87
+!URxvt*color12:     #3465a4
+!! Mangenta
+!URxvt*color5:      #ce5c00
+!URxvt*color13:     #f57900
+!! Cyan 
+!URxvt*color6:      #89b6e2
+!URxvt*color14:     #46a4ff
+!! White
+!URxvt*color7:      #cccccc
+!URxvt*color15:     #ffffff
+
