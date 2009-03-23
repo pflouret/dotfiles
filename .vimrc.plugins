@@ -9,6 +9,7 @@ au FileType python :runtime plugin/python.vim
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set textwidth=98
 
+au FileType ruby,eruby set sw=3
 au FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 au FileType ruby,eruby let g:rubycomplete_rails = 1
