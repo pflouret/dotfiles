@@ -42,6 +42,8 @@ URxvt*foreground: #dddddd
 !URxvt*tintColor: #ffffff
 !URxvt*depth: 32
 !URxvt*background: rgba:0000/0000/0000/0000
+!URxvt*iconFile: /usr/share/icons/gnome/32x32/apps/terminal.png
+URxvt*iconFile: /usr/share/pixmaps/rxvt-unicode.png
 
 URxvt*tripleclickwords: true
 URxvt*saveLines: 4096
