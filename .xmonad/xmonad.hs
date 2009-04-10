@@ -248,6 +248,9 @@ myManageHook = composeAll
     , resource  =? "foobar2000.exe" --> doF (W.shift "8:music") 
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
+    , className =? "Skype"          --> (ask >>= doF . W.sink)
+    , resource  =? "spotify.exe"    --> (ask >>= doF . W.sink)
+    , title     =? "Wine System Tray"    --> (ask >>= doF . W.sink)
     , title     =? "VLC (XVideo output)" --> doFloat
     ] -- <+> transience' <+> (doF avoidMaster)
 
