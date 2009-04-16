@@ -1,6 +1,6 @@
 numlockx &
-conky -d -c ~/.conky/bottom
-conky -d -c ~/.conky/desktop
+conky -d -c ~/.conky/bottom &> /dev/null
+conky -d -c ~/.conky/desktop &> /dev/null
 xsetroot -cursor_name left_ptr
 xset m 2 1
 
