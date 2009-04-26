@@ -117,12 +117,12 @@ set ut=4000
 
 set timeout timeoutlen=1000 ttimeoutlen=100
 if !has("gui_running") && &term == "rxvt*"
-    map  <ESC>[18^ <C-F7>
-    map  <ESC>[19^ <C-F8>
-    map  <ESC>[20^ <C-F9>
-    map  <ESC>[23^ <C-F11>
-    map  <ESC>[24^ <C-F12>
-    map  <ESC>[23$ <S-F11>
+    map <ESC>[18^ <C-F7>
+    map <ESC>[19^ <C-F8>
+    map <ESC>[20^ <C-F9>
+    map <ESC>[23^ <C-F11>
+    map <ESC>[24^ <C-F12>
+    map <ESC>[23$ <S-F11>
     map! <ESC>[18^ <C-F7>
     map! <ESC>[19^ <C-F8>
     map! <ESC>[20^ <C-F9>
@@ -131,40 +131,32 @@ if !has("gui_running") && &term == "rxvt*"
     map! <ESC>[23$ <S-F11>
 endif
 
-:nmap W <C-e>
-:nmap E <C-y>
+:map <silent> <C-l> :bn!<CR>
+:map! <silent> <C-l> <ESC>:bn!<CR>
 
-:nmap <silent> <C-l> :bn!<CR>
-:imap <silent> <C-l> <ESC>:bn!<CR>
+:map <silent> <C-k> <ESC>:bp!<CR>
+:map! <silent> <C-k> :bp!<CR>
 
-:imap <silent> <C-k> <ESC>:bp!<CR>
-:nmap <silent> <C-k> :bp!<CR>
+:map <F3> @w
+:map! <F3> @w
+:map <F4> @q
+:map! <F4> @q
 
-":imap <F3> @w
-":nmap <F3> @w
+:map <F5> <ESC>:wa!<CR>
+:map! <F5> <ESC>:wa!<CR>
+:map <C-s> <ESC>:wa!<CR>
+:map! <C-s> <ESC>:wa!<CR>
 
-:imap <F4> @q
-:nmap <F4> @q
+:map <F6> <ESC>:xa<CR>
+:map! <F6> <ESC>:xa<CR>
 
-:imap <F5> <ESC>:wa!<CR>
-:nmap <F5> :wa!<CR>
+":map! <F7> <ESC>:bd<CR>
+":map! <F8> <ESC>:mks! session.vim<CR>
+:map <F9> <ESC>:qa!<CR>
+:map! <F9> <ESC>:qa!<CR>
 
-:imap <C-s> <ESC>:wa!<CR>
-:nmap <C-s> :wa!<CR>
-
-:imap <F6> <ESC>:xa<CR>
-:nmap <F6> :xa<CR>
-:imap <C-q> <ESC>:xa<CR>
-:nmap <C-q> :xa<CR>
-
-":imap <F7> <ESC>:bd<CR>
-":nmap <F7> :bd<CR>
-
-":imap <F8> <ESC>:mks! session.vim<CR>
-":nmap <F8> :mks! session.vim<CR>
-
-:imap <F9> <ESC>:qa!<CR>
-:nmap  <F9> :qa!<CR>
+:map <C-w>x :bd<CR>:vsp<CR>
+:map <C-w>z :bd<CR>:sp<CR>
 
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins

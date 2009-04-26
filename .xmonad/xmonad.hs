@@ -141,6 +141,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-<Up>",          spawn "xmms2 volume +3")
     , ("M-<Down>",        spawn "xmms2 volume -3")
     , ("M-x",             spawn "xmms2-notif.py -c")
+    , ("M-=",             spawn "xclip -selection clipboard -o | sponge | xclip -selection primary -i")
+    , ("M--",             spawn "xclip -selection primary -o | sponge | xclip -selection clipboard -i")
     --
     , ("M-<Space>",       sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ("M-S-<Space>",     setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default
