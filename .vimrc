@@ -155,8 +155,8 @@ endif
 :map <F9> <ESC>:qa!<CR>
 :map! <F9> <ESC>:qa!<CR>
 
-:map <C-w>x :bd<CR>:vsp<CR>
-:map <C-w>z :bd<CR>:sp<CR>
+:map <C-w>x :bd<CR>:vsp<CR>:bn!<CR>
+:map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
 
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
