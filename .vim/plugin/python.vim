@@ -52,7 +52,7 @@ vmap ]#   :call PythonCommentSelection()<CR>
 map  ]u   :call PythonUncommentSelection()<CR>
 vmap ]u   :call PythonUncommentSelection()<CR>
 
-map  ]c   :call PythonSelectObject("class")<CR>
+"map  ]c   :call PythonSelectObject("class")<CR>
 map  ]f   :call PythonSelectObject("function")<CR>
 
 map  ]<up>    :call PythonNextLine(-1)<CR>
