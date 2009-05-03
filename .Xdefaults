@@ -8,8 +8,6 @@ Xft.hintstyle:hintfull
 XTerm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 XTerm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 XTerm*bellIsUrgent: true
-XTerm*background: #111111
-XTerm*foreground: #dddddd
 XTerm*geometry: 115x50
 XTerm*highlightSelection: true
 XTerm*eightBitInput: false
@@ -35,8 +33,6 @@ URxvt*geometry: 115x50
 URxvt*externalBorder: 0
 URxvt*internalBorder: 0
 URxvt*scrollBar: false
-URxvt*background: #111111
-URxvt*foreground: #dddddd
 !URxvt*transparent: true
 !URxvt*shading: 80
 !URxvt*tintColor: #ffffff
@@ -57,55 +53,95 @@ URxvt*keysym.C-M-w: perl:matcher
 URxvt*keysym.C-M-S-p: perl:searchable-scrollback
 URxvt*matcher.button: 3
 
-! Black + DarkGrey
-URxvt*color0: #000000
-URxvt*color8: #444444
-! DarkRed + Red
-URxvt*color1: #a40000
-URxvt*color9: #cc0000
-! DarkGreen + Green
-URxvt*color2: green
-URxvt*color10: LimeGreen
-! DarkYellow + Yellow
-URxvt*color3: #c4a000
-URxvt*color11: #edd400
-! DarkBlue + Blue
-URxvt*color4: Blue
-URxvt*color12: DodgerBlue2
-! DarkMangenta + Magenta
-URxvt*color5: #ce5c00
-URxvt*color13: #f57900
-! DarkCyan + Cyan
-URxvt*color6: #038e82
-URxvt*color14: #05d2c1
-! LightGrey + White
-URxvt*color7: #babdb6
-URxvt*color15: #d3d7cf
+!black   0 8  !red     1 9
+!green   2 10 !yellow  3 11
+!blue    4 12 !magenta 5 13
+!cyan    6 14 !white   7 15
+*background: #080808
+*foreground: #dddddd
 
-! colors ---------------------------------------------------------------
+*color0:  #080808
+*color8:  #505050
+*color1:  #b04020
+*color1:  #ec420e
+*color9:  #dd4010
+*color9:  #cc420e
+*color2:  #afd700
+*color10: #daff30
+*color3:  #f7cf0a
+*color11: #fce70d
+*color4:  #3060aa
+*color12: #6099dd
+*color5:  #d6156c
+*color13: #fe4365
+*color6:  #89b6e2
+*color14: #46a4ff
+*color7:  #808080
+*color15: #b0b0b0
 
-!! Black
-!URxvt*color0:      #000000
-!URxvt*color8:      #1A1A1A
-!! Red
-!URxvt*color1:      #ff6565
-!URxvt*color9:      #ff8d8d
-!! Green
-!URxvt*color2:      #93d44f
-!URxvt*color10:     #c8e7a8
-!! Yellow
-!URxvt*color3:      #ecc049
-!URxvt*color11:     #ffc123
-!! Blue
-!URxvt*color4:      #204a87
-!URxvt*color12:     #3465a4
-!! Mangenta
-!URxvt*color5:      #ce5c00
-!URxvt*color13:     #f57900
-!! Cyan 
-!URxvt*color6:      #89b6e2
-!URxvt*color14:     #46a4ff
-!! White
-!URxvt*color7:      #cccccc
-!URxvt*color15:     #ffffff
+!*color0:  #000000
+!*color8:  #444444
+!*color1:  #a40000
+!*color9:  #cc0000
+!*color2:  green
+!*color10: LimeGreen
+!*color3:  #c4a000
+!*color11: #edd400
+!*color4:  Blue
+!*color12: DodgerBlue2
+!*color5:  #ce5c00
+!*color13: #f57900
+!*color6:  #038e82
+!*color14: #05d2c1
+!*color7:  #babdb6
+!*color15: #d3d7cf
 
+!*color0:  #000000
+!*color8:  #555753
+!*color1:  #ff6565
+!*color9:  #ff8d8d
+!*color2:  #93d44f
+!*color10: #c8e7a8
+!*color3:  #eab93d
+!*color11: #ffc123
+!*color4:  #204a87
+!*color12: #3465a4
+!*color5:  #ce5c00
+!*color13: #f57900
+!*color6:  #89b6e2
+!*color14: #46a4ff
+!*color7:  #cccccc
+!*color15: #ffffff
+
+!*color0:  #000000
+!*color8:  #666666
+!*color1:  #9e1828
+!*color9:  #cf6171
+!*color2:  #aece92
+!*color10: #c5f779
+!*color3:  #968a38
+!*color11: #fff796
+!*color4:  #414171
+!*color12: #4186be
+!*color5:  #963c59
+!*color13: #cf9ebe
+!*color6:  #418179
+!*color14: #71bebe
+!*color7:  #bebebe
+
+!*color0:  #353535
+!*color8:  #666666
+!*color1:  #AE4747
+!*color9:  #EE6363
+!*color2:  #556B2F
+!*color10: #9ACD32
+!*color3:  #DAA520
+!*color11: #FFC125
+!*color4:  #6F99B4
+!*color12: #7C96B0
+!*color5:  #8B7B8B
+!*color13: #D8BFD8
+!*color6:  #A7A15E
+!*color14: #F0E68C
+!*color7:  #DDDDDD
+!*color15: #FFFFFF

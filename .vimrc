@@ -1,6 +1,8 @@
 " hAx0r vimrc, bite the dust
 " lots borrowed from Seth House :P
 
+colorscheme desert
+
 set nocompatible     " cp: turn off vi compatibility
 
 " Search {{{

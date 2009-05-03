@@ -271,7 +271,7 @@ shorten n xs | length xs < n = xs
  where
     end = "..."
 
-myStatusBar = "dzen2 -bg '#111111' -fg '#eeeeee' -sa l -h 14 -fn '-*-nu-*-*-*-*-*-*-*-*-*-*-*' -e '' -xs 1 -ta l"
+myStatusBar = "dzen2 -bg '#080808' -fg '#eeeeee' -sa l -h 14 -fn '-*-nu-*-*-*-*-*-*-*-*-*-*-*' -e '' -xs 1 -ta l"
 
 myDzenPP :: Handle -> PP
 myDzenPP h = defaultPP 

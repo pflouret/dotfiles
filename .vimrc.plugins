@@ -75,10 +75,9 @@ else
   if &term != "linux"
     set t_Co=256
     set ttymouse=xterm2
-    autocmd VimEnter * :GuiColorScheme fruity
+    "autocmd VimEnter * :GuiColorScheme fruity
   endif
 endif
-"colorscheme desert256
 
 if has("win32")
   set guifont=Consolas:h9:cDEFAULT
