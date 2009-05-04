@@ -1,0 +1,46 @@
+
+# Time formatting (leave empty to disable timestamps)
+:datetime_format: "%H:%M:%S"
+:history_datetime_format: "%Y-%b-%d %H:%M:%S"
+
+# When completing contacts try to find matches for online contacts, and if none
+# is found try to find matches on all of them. Otherwise always match every
+# contact.
+:autocomplete_online_first: true
+
+# Show changes in contacts' status
+:show_status_changes: false
+
+# Group contacts in contact list
+:show_groups_in_contact_list: true
+
+# ctrl+c quits the program if enabled, otherwise ctrl+c ignores whatever is
+# typed and you get a clean prompt, and ctrl+d on a clean line exits lijab,
+# terminal style.
+:ctrl_c_quits: false
+
+# Ring the terminal bell on incoming message.
+# Useful for setting the urgent hint on the terminal window:
+# Set as so in your ~/.Xdefaults, might have to run xrdb -merge ~/.Xdefaults afterwards
+# XTerm*bellIsUrgent: true
+# or
+# URxvt*urgentOnBell: true
+# or just look it up on your terminal's man page, don't be lazy.
+:terminal_bell_on_message: true
+
+# Default priority for each status
+:status_priorities: 
+  :chat: 55
+  :dnd: 20
+  :xa: 30
+  :away: 40
+  :available: 50
+
+# Command aliases.
+# <command_alias> : <existing_command>
+# Commands can be overloaded.
+# For instance /who could be redefined like so to sort by status by default.
+# /who : /who status
+:aliases: 
+  /exit: /quit
+  /h: /history

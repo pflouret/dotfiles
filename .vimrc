@@ -2,6 +2,11 @@
 " lots borrowed from Seth House :P
 
 colorscheme desert
+autocmd VimEnter * :hi IncSearch cterm=NONE ctermfg=black ctermbg=green
+autocmd VimEnter * :hi Search cterm=NONE ctermfg=black ctermbg=blue
+"autocmd VimEnter * :hi Visual cterm=reverse,bold
+autocmd VimEnter * :hi Visual cterm=NONE ctermbg=grey ctermfg=black
+autocmd VimEnter * :hi LineNr ctermfg=grey
 
 set nocompatible     " cp: turn off vi compatibility
 

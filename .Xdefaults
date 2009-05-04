@@ -60,12 +60,12 @@ URxvt*matcher.button: 3
 *background: #080808
 *foreground: #dddddd
 
-*color0:  #080808
+*color0:  #000000
 *color8:  #505050
-*color1:  #b04020
-*color1:  #ec420e
+!*color1:  #b04020
+*color1:  #f72106
 *color9:  #dd4010
-*color9:  #cc420e
+!*color9:  #f72106
 *color2:  #afd700
 *color10: #daff30
 *color3:  #f7cf0a
