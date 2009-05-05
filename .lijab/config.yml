@@ -30,11 +30,11 @@
 
 # Default priority for each status
 :status_priorities: 
+  :away: 40
   :chat: 55
+  :available: 50
   :dnd: 20
   :xa: 30
-  :away: 40
-  :available: 50
 
 # Command aliases.
 # <command_alias> : <existing_command>
