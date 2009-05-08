@@ -9,6 +9,7 @@ maptimeout 50
 silencewait 15
 altscreen on
 deflogin off
+defflow off
 
 activity "activity!!1 %C -> %n%f %t"
 

@@ -1,0 +1,57 @@
+data.location=~/.task
+confirmation=no
+echo.command=yes
+next=2
+dateformat=Y-M-D
+#monthsperline=2
+curses=on
+color=on
+due=7
+nag=priorities man!
+locking=on
+color.overdue=bold_red
+color.due=bold_yellow
+color.pri.H=bold_red
+color.pri.M=bold_yellow
+color.pri.L=blue
+#color.pri.none=white
+color.active=bold_cyan
+#color.tagged=yellow
+#color.tag.bug=yellow
+#color.project.garden=on_green
+#color.keyword.car=on_blue
+#color.recurring=on_red
+#shadow.file=/home/palbo/.task/shadow.txt
+#shadow.command=list
+#shadow.notify=on
+default.project=stuff
+#default.priority=M
+default.command=ls
+# Fields: id,uuid,project,priority,entry,start,due,recur,age,active,tags,description
+#         description_only
+# Description:   This report is ...
+# Sort:          due+,priority-,project+
+# Filter:        pro:x pri:H +bug
+# Limit:         10
+report.long.description=Lists all task, all data, matching the specified criteria
+report.long.labels=ID,Project,Pri,Added,Started,Due,Recur,Age,Tags,Description
+report.long.columns=id,project,priority,entry,start,due,recur,age,tags,description
+report.long.sort=due+,priority-,project+
+report.list.description=Lists all tasks matching the specified criteria
+report.list.labels=ID,Project,Pri,Due,Active,Age,Description
+report.list.columns=id,project,priority,due,active,age,description
+report.list.sort=due+,priority-,project+
+report.ls.description=Minimal listing of all tasks matching the specified criteria
+report.ls.labels=id,proj,tags,pri,task
+report.ls.columns=id,project,tags,priority,description
+report.ls.sort=priority-,project+
+report.newest.description=Shows the newest tasks
+report.newest.labels=ID,Project,Pri,Due,Active,Age,Description
+report.newest.columns=id,project,priority,due,active,age,description
+report.newest.sort=id-
+report.newest.limit=10
+report.oldest.description=Shows the oldest tasks
+report.oldest.labels=ID,Project,Pri,Due,Active,Age,Description
+report.oldest.columns=id,project,priority,due,active,age,description
+report.oldest.sort=id+
+report.oldest.limit=10

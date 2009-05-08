@@ -63,8 +63,8 @@ URxvt*matcher.button: 3
 *color0:  #000000
 *color8:  #505050
 !*color1:  #b04020
-*color1:  #f72106
-*color9:  #dd4010
+*color1:  #dd4010
+*color9:  #f72106
 !*color9:  #f72106
 *color2:  #afd700
 *color10: #daff30
