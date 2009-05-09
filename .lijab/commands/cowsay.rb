@@ -18,7 +18,7 @@ Commands::Command.define :cowsay do
       if say && Main.contacts.key?(contact)
          msg = "\n#{`cowsay #{say} 2>&1`}"
          if $?.success?
-            Main.contacts[contact].send_message(msg, nil, false)
+            Main.contacts[contact].send_message(msg)
          else
             raise Commands::CommandError, %{shell complained: "#{msg.chomp}"}
          end
