@@ -9,7 +9,7 @@
 :autocomplete_online_first: true
 
 # Show changes in contacts' status
-:show_status_changes: true
+:show_status_changes: false
 
 # Group contacts in contact list
 :show_groups_in_contact_list: true
