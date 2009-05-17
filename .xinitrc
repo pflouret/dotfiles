@@ -1,3 +1,5 @@
+#!/bin/bash
+
 numlockx &
 conky -d -c ~/.conky/bottom &> /dev/null
 conky -d -c ~/.conky/desktop &> /dev/null
@@ -7,7 +9,7 @@ xset m 2 1
 #hsetroot -solid "#111111"
 setxkbmap -option grp:switch,grp:alt_caps_toggle,grp_led:scroll us,no,latam
 xscreensaver -no-splash &
-gajim &
+#gajim &
 urxvtd -q -o -f
 
 nitrogen --restore
