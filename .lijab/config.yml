@@ -32,8 +32,8 @@
 :status_priorities: 
   :away: 40
   :chat: 55
-  :dnd: 20
   :available: 50
+  :dnd: 20
   :xa: 30
 
 # Command aliases.
