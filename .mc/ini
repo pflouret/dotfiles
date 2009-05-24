@@ -82,8 +82,8 @@ permission_mode=0
 filetype_mode=1
 
 [Dirs]
-other_dir=/home/palbo
-current_is_left=0
+other_dir=/home/palbo/media
+current_is_left=1
 
 [New Left Panel]
 display=listing
