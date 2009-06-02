@@ -8,6 +8,7 @@ xset m 2 1
 
 #hsetroot -solid "#111111"
 setxkbmap -option grp:switch,grp:alt_caps_toggle,grp_led:scroll us,no,latam
+setxkbmap -option terminate:ctrl_alt_bksp
 xscreensaver -no-splash &
 #gajim &
 urxvtd -q -o -f
