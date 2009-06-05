@@ -23,7 +23,7 @@ compinit
 
 autoload -U zargs
 
-compdef pkill=killall
+#compdef pkill=killall
 
 zstyle ':completion:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,args --sort cmd,args'
