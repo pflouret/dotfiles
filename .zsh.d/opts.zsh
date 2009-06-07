@@ -10,6 +10,7 @@ setopt interactive_comments
 setopt list_packed
 setopt list_types
 setopt mark_dirs
+setopt no_hup
 setopt pushd_ignore_dups
 setopt sharehistory
 
