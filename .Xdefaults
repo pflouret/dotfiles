@@ -6,7 +6,7 @@ Xft.hintstyle:hintfull
 !---------------------
 
 XTerm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-!XTerm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+XTerm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 XTerm*bellIsUrgent: true
 XTerm*geometry: 115x50
 XTerm*highlightSelection: true
