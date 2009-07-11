@@ -7,7 +7,7 @@ import sys
 
 from xml.dom import minidom
 
-PATH = '/weather/local/NOXX0029?cc=*&dayf=0&unit=m'#&par=1084340912key=6eda6b79a8b3abd2'
+PATH = '/weather/local/NOXX0029?prod=xoap&link=xoap&cc=*&dayf=0&unit=m&par=1084340912&key=6eda6b79a8b3abd2'
 USER_AGENT = 'Opera/9.60 (X11; Linux i686; U; en) Presto/2.1.1'
 
 def main():
