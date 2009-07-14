@@ -32,10 +32,12 @@ def main():
 
   h.close()
 
-  temp = dom.getElementsByTagName('tmp')[0].firstChild.data
   ut = dom.getElementsByTagName('ut')[0].firstChild.data
-  desc = dom.getElementsByTagName('t')[0].firstChild.data
-  humidity = dom.getElementsByTagName('hmid')[0].firstChild.data
+
+  cc = dom.getElementsByTagName('cc')[0]
+  temp = cc.getElementsByTagName('tmp')[0].firstChild.data
+  desc = cc.getElementsByTagName('t')[0].firstChild.data
+  humidity = cc.getElementsByTagName('hmid')[0].firstChild.data
 
   print '%s %s%s %s%%' % (desc.lower(), temp, ut, humidity)
 
