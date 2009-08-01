@@ -82,7 +82,7 @@ permission_mode=0
 filetype_mode=1
 
 [Dirs]
-other_dir=/home/palbo/disky/vbox
+other_dir=/media/disk
 current_is_left=1
 
 [New Left Panel]
