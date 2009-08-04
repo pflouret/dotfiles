@@ -40,6 +40,10 @@ zmodload zsh/complist
 bindkey -M menuselect "/"  accept-and-infer-next-history
 bindkey -M menuselect "\e[Z"  reverse-menu-complete
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
       LBUFFER+=/..
