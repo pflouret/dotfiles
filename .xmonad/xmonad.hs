@@ -325,7 +325,7 @@ main = do
     xmonad $ myUrgencyHook
            $ defaultConfig
            { terminal           = myTerminal
-           , focusFollowsMouse  = False
+           , focusFollowsMouse  = True
            , borderWidth        = myBorderWidth
            , modMask            = myModMask
            , numlockMask        = myNumlockMask
