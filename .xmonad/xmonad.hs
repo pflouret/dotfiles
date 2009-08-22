@@ -147,6 +147,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-<Space>",       sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ("M-S-<Space>",     setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default
     , ("M-f",             sendMessage $ JumpToLayout "Tabbed Simplest")
+    , ("M-v",             sendMessage ToggleStruts)
     , ("M-S-n",           refresh) -- Resize viewed windows to the correct size
     --
     -- , ((modMask,                 xK_w     ), workspacePrompt myXPConfig W.moveTo)
