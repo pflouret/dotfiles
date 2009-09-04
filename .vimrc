@@ -165,6 +165,9 @@ endif
 :map <C-w>x :bd<CR>:vsp<CR>:bn!<CR>
 :map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
 
+:vnoremap < <gv
+:vnoremap > >gv
+
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
 endif
