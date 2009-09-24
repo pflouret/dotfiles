@@ -41,8 +41,8 @@ weechat::register("beep", "FlashCode <flashcode\@flashtux.org>", $version,
 weechat::config_set_plugin("beep_highlight", $default_beep_highlight) if (weechat::config_get_plugin("beep_highlight") eq "");
 weechat::config_set_plugin("beep_pv", $default_beep_pv) if (weechat::config_get_plugin("beep_pv") eq "");
 
-weechat::hook_signal("weechat_highlight", "highlight");
-weechat::hook_signal("irc_pv", "pv");
+weechat::hook_signal("weechat_highlight", "highlight", "");
+weechat::hook_signal("irc_pv", "pv", "");
 
 sub highlight
 {

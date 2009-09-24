@@ -19,6 +19,16 @@
 # Display sidebar with list of buffers.
 #
 # History:
+# 2009-06-14, FlashCode <flashcode@flashtux.org>:
+#     v1.3: add option "hide_merged_buffers"
+# 2009-06-14, FlashCode <flashcode@flashtux.org>:
+#     v1.2: improve display with merged buffers
+# 2009-05-02, FlashCode <flashcode@flashtux.org>:
+#     v1.1: sync with last API changes
+# 2009-02-21, FlashCode <flashcode@flashtux.org>:
+#     v1.0: remove timer used to update bar item first time (not needed any more)
+# 2009-02-17, FlashCode <flashcode@flashtux.org>:
+#     v0.9: fix bug with indenting of private buffers
 # 2009-01-04, FlashCode <flashcode@flashtux.org>:
 #     v0.8: update syntax for command /set (comments)
 # 2008-10-20, Jiri Golembiovsky <golemj@gmail.com>:
@@ -56,12 +66,13 @@
 
 use strict;
 
-my $version = "0.8";
+my $version = "1.3";
 
 # -------------------------------[ config ]-------------------------------------
 
-my $default_short_names = "off";
-my $default_indenting   = "off";
+my $default_short_names         = "off";
+my $default_indenting           = "off";
+my $default_hide_merged_buffers = "off";
 
 my %hotlist_level = (0 => "low", 1 => "message", 2 => "private", 3 => "highlight");
 my %default_color_hotlist = ("low"       => "white",
@@ -81,6 +92,10 @@ if (weechat::config_get_plugin("short_names") eq "")
 if (weechat::config_get_plugin("indenting") eq "")
 {
     weechat::config_set_plugin("indenting", $default_indenting);
+}
+if (weechat::config_get_plugin("hide_merged_buffers") eq "")
+{
+    weechat::config_set_plugin("hide_merged_buffers", $default_hide_merged_buffers);
 }
 if (weechat::config_get_plugin("color_number") eq "")
 {
@@ -102,14 +117,14 @@ if (weechat::config_get_plugin("color_current") eq "")
 {
     weechat::config_set_plugin("color_current", "lightcyan,red");
 }
-weechat::bar_item_new("buffers", "build_buffers");
+weechat::bar_item_new("buffers", "build_buffers", "");
 weechat::bar_new("buffers", "0", "0", "root", "", "left", "horizontal",
                  "vertical", "0", "0", "default", "default", "default", "1",
                  "buffers");
-weechat::hook_signal("buffer_*", "buffers_signal_buffer");
-weechat::hook_signal("hotlist_*", "buffers_signal_hotlist");
-weechat::hook_config("plugins.var.perl.buffers.*", "buffers_signal_config");
-weechat::hook_timer(1, 0, 1, "buffers_timer_one_time");
+weechat::hook_signal("buffer_*", "buffers_signal_buffer", "");
+weechat::hook_signal("hotlist_*", "buffers_signal_hotlist", "");
+weechat::hook_config("plugins.var.perl.buffers.*", "buffers_signal_config", "");
+weechat::bar_item_update("buffers");
 
 # ------------------------------------------------------------------------------
 
@@ -122,58 +137,115 @@ sub build_buffers
     my $infolist = weechat::infolist_get("hotlist", "", "");
     while (weechat::infolist_next($infolist))
     {
-        $hotlist{weechat::infolist_integer($infolist, "buffer_number")} =
+        $hotlist{weechat::infolist_pointer($infolist, "buffer_pointer")} =
             weechat::infolist_integer($infolist, "priority");
     }
     weechat::infolist_free($infolist);
     
     # read buffers list
+    my @buffers;
+    my @current1 = ();
+    my @current2 = ();
+    my $old_number = -1;
+    my $active_seen = 0;
     $infolist = weechat::infolist_get("buffer", "", "");
     while (weechat::infolist_next($infolist))
     {
+        my $buffer = {};
+        my $number = weechat::infolist_integer($infolist, "number");
+        if ($number ne $old_number)
+        {
+            @buffers = (@buffers, @current2, @current1);
+            @current1 = ();
+            @current2 = ();
+            $active_seen = 0;
+        }
+        $old_number = $number;
+        my $active = weechat::infolist_integer($infolist, "active");
+        if ($active)
+        {
+            $active_seen = 1;
+        }
+        $buffer->{"pointer"} = weechat::infolist_pointer($infolist, "pointer");
+        $buffer->{"number"} = $number;
+        $buffer->{"active"} = $active;
+        $buffer->{"current_buffer"} = weechat::infolist_integer($infolist, "current_buffer");
+        $buffer->{"short_name"} = weechat::infolist_string($infolist, "short_name");
+        $buffer->{"name"} = weechat::infolist_string($infolist, "name");
+        if ($active_seen)
+        {
+            push(@current2, $buffer);
+        }
+        else
+        {
+            push(@current1, $buffer);
+        }
+    }
+    @buffers = (@buffers, @current2, @current1);
+    weechat::infolist_free($infolist);
+    
+    # build string with buffers
+    $old_number = -1;
+    my $hide_merged_buffers = weechat::config_get_plugin("hide_merged_buffers");
+    for my $buffer (@buffers)
+    {
+        if (($hide_merged_buffers eq "on") && (! $buffer->{"active"}))
+        {
+            next;
+        }
         my $color = weechat::config_get_plugin("color_default");
         $color = "default" if ($color eq "");
         my $bg = "";
-        my $number = weechat::infolist_integer($infolist, "number");
-        if (exists $hotlist{$number})
+        if (exists $hotlist{$buffer->{"pointer"}})
         {
             $color = weechat::config_get_plugin("color_hotlist_"
-                                                .$hotlist_level{$hotlist{$number}});
+                                                .$hotlist_level{$hotlist{$buffer->{"pointer"}}});
         }
-        if (weechat::infolist_integer($infolist, "current_buffer") == 1)
+        if ($buffer->{"current_buffer"})
         {
             $color = weechat::config_get_plugin("color_current");
             $bg = $1 if ($color =~ /.*,(.*)/);
         }
         my $color_bg = "";
         $color_bg = weechat::color(",".$bg) if ($bg ne "");
-        $str .= weechat::color(weechat::config_get_plugin("color_number"))
-            .$color_bg
-            .weechat::infolist_integer($infolist, "number")
-            .weechat::color("default")
-            .$color_bg
-            ."."
-            .weechat::color($color);
+        if ($old_number ne $buffer->{"number"})
+        {
+            $str .= weechat::color(weechat::config_get_plugin("color_number"))
+                .$color_bg
+                .$buffer->{"number"}
+                .weechat::color("default")
+                .$color_bg
+                ."."
+                .weechat::color($color);
+        }
+        else
+        {
+            $str .= weechat::color("default")
+                .$color_bg
+                .(" " x length($buffer->{"number"}))
+                ." "
+                .weechat::color($color);
+        }
         if (weechat::config_get_plugin("indenting") eq "on")
         {
-            if ((weechat::infolist_string($infolist, "plugin_name") eq "irc")
-                && (weechat::info_get("irc_is_channel",
-                                      weechat::infolist_string($infolist, "short_name")) eq "1"))
+            my $type = weechat::buffer_get_string($buffer->{"pointer"}, "localvar_type");
+            if (($type eq "channel") || ($type eq "private"))
             {
                 $str .= "  ";
             }
         }
         if (weechat::config_get_plugin("short_names") eq "on")
         {
-            $str .= weechat::infolist_string($infolist, "short_name");
+            $str .= $buffer->{"short_name"};
         }
         else
         {
-            $str .= weechat::infolist_string($infolist, "name");
+            $str .= $buffer->{"name"};
         }
         $str .= "\n";
+        $old_number = $buffer->{"number"};
     }
-    weechat::infolist_free($infolist);
+    
     
     return $str;
 }
@@ -191,12 +263,6 @@ sub buffers_signal_hotlist
 }
 
 sub buffers_signal_config
-{
-    weechat::bar_item_update("buffers");
-    return weechat::WEECHAT_RC_OK;
-}
-
-sub buffers_timer_one_time
 {
     weechat::bar_item_update("buffers");
     return weechat::WEECHAT_RC_OK;
