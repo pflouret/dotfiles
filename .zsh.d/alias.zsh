@@ -11,7 +11,7 @@ alias h='history 0|grep'
 alias cp='nocorrect cp -i'
 alias mv='nocorrect mv -i'
 alias rm='nocorrect rm -i --preserve-root'
-alias find='noglob find'
+#alias find='noglob find'
 
 alias grepc='grep -C 2'
 alias grepcc='grep -C'
