@@ -81,6 +81,7 @@ else
   if &term != "linux"
     set t_Co=256
     set ttymouse=xterm2
+    set mouse=a
     "autocmd VimEnter * :GuiColorScheme fruity
   endif
 endif
