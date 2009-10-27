@@ -108,11 +108,11 @@ myLayout = avoidStruts $
      delta    = 1/100 -- Percent of screen to increment by when resizing panes
  
 myMediaKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((0, 0x1008ff11), spawn "amixer -q sset PCM 12-") -- "aumix -v -2") -- XF86AudioLowerVolume
+    [ ((0, 0x1008ff11), spawn "amixer -q sset PCM 24-") -- "aumix -v -2") -- XF86AudioLowerVolume
     , ((0, 0x1008ff12), spawn "amixer -q sset Master toggle ") -- "amixer -q set PCM toggle") -- XF86AudioMute
-    , ((0, 0x1008ff13), spawn "amixer -q sset PCM 12+") -- "aumix -v +2") -- XF86AudioRaiseVolume
-    , ((controlMask, 0x1008ff11), spawn "amixer -q sset PCM 24-") -- "aumix -v -2") -- XF86AudioLowerVolume
-    , ((controlMask, 0x1008ff13), spawn "amixer -q sset PCM 24+") -- "aumix -v +2") -- XF86AudioRaiseVolume
+    , ((0, 0x1008ff13), spawn "amixer -q sset PCM 24+") -- "aumix -v +2") -- XF86AudioRaiseVolume
+    , ((controlMask, 0x1008ff11), spawn "amixer -q sset PCM 12-") -- "aumix -v -2") -- XF86AudioLowerVolume
+    , ((controlMask, 0x1008ff13), spawn "amixer -q sset PCM 12+") -- "aumix -v +2") -- XF86AudioRaiseVolume
     , ((0, 0x1008ff14), spawn "") -- XF86AudioPlay
     , ((0, 0x1008ff15), spawn "") -- XF86AudioStop
     , ((0, 0x1008ff16), spawn "") -- XF86AudioPrev
