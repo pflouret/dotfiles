@@ -70,7 +70,7 @@ horizontal_split=0
 
 [Layout]
 equal_split=1
-first_panel_size=106
+first_panel_size=63
 message_visible=1
 keybar_visible=1
 xterm_title=1
