@@ -70,7 +70,7 @@ horizontal_split=0
 
 [Layout]
 equal_split=1
-first_panel_size=63
+first_panel_size=106
 message_visible=1
 keybar_visible=1
 xterm_title=1
@@ -82,8 +82,8 @@ permission_mode=0
 filetype_mode=1
 
 [Dirs]
-other_dir=/home/palbo
-current_is_left=0
+other_dir=/home/palbo/media/1-usenet/dest
+current_is_left=1
 
 [New Left Panel]
 display=listing
