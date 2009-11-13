@@ -6,7 +6,7 @@ conky -d -c ~/.conky/desktop &> /dev/null
 xsetroot -cursor_name left_ptr
 xset m 2 1
 
-#hsetroot -solid "#111111"
+hsetroot -solid "#111111"
 setxkbmap -option grp:switch,grp:alt_caps_toggle,grp_led:scroll us,no,latam
 setxkbmap -option terminate:ctrl_alt_bksp
 xscreensaver -no-splash &
@@ -23,5 +23,4 @@ urxvtc -e ssh-add
 tilda -c 'screen -D -R tilda' &> /dev/null &
 
 exec xmonad
-
 #exec openbox-session
