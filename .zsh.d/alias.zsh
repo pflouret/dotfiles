@@ -27,6 +27,7 @@ alias t='tupac'
 alias ti='tupac -Qii'
 alias tl='tupac -Ql'
 
+alias dh='df -h'
 alias psss='ps -ef|grep'
 alias svim='sudo vim'
 alias xpropc='xprop|grep WM_CLASS'
