@@ -220,23 +220,19 @@ myKeys = \conf -> mkKeymap conf $
  
 -- Mouse bindings: default actions bound to mouse events
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
- 
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modMask, button1), (\w -> focus w >> mouseMoveWindow w))
- 
     -- mod-button2, Raise the window to the top of the stack
     , ((modMask, button2), (\w -> focus w >> windows W.swapMaster))
- 
     -- mod-button3, Set the window to floating mode and resize by dragging
     , ((modMask, button3), (\w -> focus w >> mouseResizeWindow w))
- 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
  
 -- Window rules:
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
+    -- , className =? "Gimp"           --> doFloat
     , className =? "Gscreenshot.py" --> doFloat
     , className =? "Zenity"         --> doFloat
     , className =? "Tilda"          --> doFloat
@@ -245,18 +241,22 @@ myManageHook = composeAll
     , className =? "Conky"          --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
-    , className =? "Opera"          --> doF (W.shift "1:web") 
-    , className =? "Firefox"        --> doF (W.shift "1:web") 
-    , className =? "Gran Paradiso"  --> doF (W.shift "1:web")
-    , className =? "Shiretoko"      --> doF (W.shift "1:web")
+    , resource  =? "opera"          --> doF (W.shift "1:web") 
+    , resource  =? "Navigator"      --> doF (W.shift "1:web")
+    , resource  =? "iron"           --> doF (W.shift "1:web")
     , className =? "Gajim.py"       --> doF (W.shift "2:im") 
     , className =? "Skype"          --> doF (W.shift "2:im") 
     , resource  =? "foobar2000.exe" --> doF (W.shift "8:music") 
+    , resource  =? "spotify.exe"    --> doF (W.shift "8:music") 
     , resource  =? "uTorrent.exe"   --> doF (W.shift "9:arr") 
     , className =? "Nicotine"       --> doF (W.shift "9:arr") 
+    , resource  =? "urxvt-lijab"    --> doF (W.shift "2:im") 
+    , resource  =? "urxvt-term"     --> doF (W.shift "3:term") 
+    , resource  =? "urxvt-nzb"      --> doF (W.shift "9:arr") 
     , className =? "Skype"          --> (ask >>= doF . W.sink)
-    , resource  =? "spotify.exe"    --> (ask >>= doF . W.sink)
+    -- , resource  =? "spotify.exe"    --> (ask >>= doF . W.sink)
     , title     =? "Wine System Tray"    --> (ask >>= doF . W.sink)
+    , title     =? "Wine System Tray"    --> doF (W.shift "8:music")
     , title     =? "VLC (XVideo output)" --> doFloat
     ] -- <+> transience' <+> (doF avoidMaster)
 
