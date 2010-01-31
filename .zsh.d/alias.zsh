@@ -33,6 +33,7 @@ alias psss='ps -ef|grep'
 alias svim='sudo vim'
 alias xpropc='xprop|grep WM_CLASS'
 alias xpropp='xprop|grep -i'
+alias weeknumber='echo WEEK `date +%V`'
 
 
 alias -g LL='|less'
