@@ -74,13 +74,13 @@ $stippled_hr
 Net
 
 ${if_up wlan0}wlan0 (${addr wlan0}) -- ${wireless_essid wlan0}
-down: ${downspeed wlan0} kb/s ${alignr}${downspeedgraph wlan0 7,130}
-  up: ${upspeed wlan0} kb/s  ${alignr}${upspeedgraph wlan0 7,130}
+down: ${downspeed wlan0} ${alignr}${downspeedgraph wlan0 7,130}
+  up: ${upspeed wlan0} ${alignr}${upspeedgraph wlan0 7,130}
  tot: down ${totaldown wlan0} up ${totalup wlan0}
 $endif
 ${if_up eth0}eth0 (${addr eth0})
-down: ${downspeed eth0} kb/s ${alignr}${downspeedgraph eth0 7,130}
-  up: ${upspeed eth0} kb/s  ${alignr}${upspeedgraph eth0 7,130}
+down: ${downspeed eth0} ${alignr}${downspeedgraph eth0 7,130}
+  up: ${upspeed eth0} ${alignr}${upspeedgraph eth0 7,130}
  tot: down ${totaldown eth0} up ${totalup eth0}
 $endif
 
