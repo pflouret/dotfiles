@@ -1,6 +1,6 @@
 
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=20000
+export SAVEHIST=20000
 export HISTFILE=~/.zhistory
 
 export EDITOR=vim
