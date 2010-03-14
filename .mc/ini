@@ -88,7 +88,7 @@ auto_save_setup_panels=1
 
 [Layout]
 equal_split=1
-first_panel_size=52
+first_panel_size=106
 message_visible=1
 keybar_visible=1
 xterm_title=1
@@ -143,6 +143,8 @@ base_color=normal=default,default:selected=reverse,gray:marked=yellow,default:ma
 rxvt-256color=
 color_terminals=
 xterm-256color=
+
+screen-256color-bce=
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
