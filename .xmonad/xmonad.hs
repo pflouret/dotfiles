@@ -119,9 +119,9 @@ myMediaKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, 0x1008ff17), spawn "") -- XF86AudioNext
     , ((0, 0x1008ff18), spawn "") -- XF86HomePage
     , ((0, 0x1008ff31), spawn "") -- XF86AudioPause
-    , ((0, xK_Print),   spawn $ XMonad.terminal conf ++ " -e scrot -c -d 5 -e 'mv $f ~/crap/img/screenshots'")
+    , ((controlMask, xK_Print),   spawn $ XMonad.terminal conf ++ " -e scrot -c -d 5 -e 'mv $f ~/crap/img/screenshots'")
     , ((modMask, xK_Print),spawn $ XMonad.terminal conf ++ " -e scrot -e 'mv $f ~/crap/img/screenshots'")
-    , ((controlMask, xK_Print), spawn "gscreenshot")
+    , ((0, xK_Print), spawn "gscreenshot")
     ]
 
 myKeys = \conf -> mkKeymap conf $
@@ -238,6 +238,7 @@ myManageHook = composeAll
     , className =? "Tilda"          --> doFloat
     , resource  =? "volwheel"       --> doFloat
     , resource  =? "xfontsel"       --> doFloat
+    , isFullscreen                  --> doFullFloat
     , className =? "Conky"          --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
