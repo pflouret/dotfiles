@@ -42,12 +42,13 @@ set noswapfile  "swf:   don't pollute my fs with swp files
 set path=.,**
 
 set tabstop=4     "ts:    number of spaces that a tab counts for
-set softtabstop=2 "sts:    number of spaces that a tab counts for when editing
+set softtabstop=2 "sts:   number of spaces that a tab counts for when editing
 set expandtab     "et:    uses spaces instead of tab characters
 set smarttab      "sta:   helps with backspacing because of expandtab
 set shiftwidth=4  "sw:    number of spaces to use for autoindent
 set shiftround    "sr:    rounds indent to a multiple of shiftwidth
 set autoindent    "ai:    copy indent from current line
+set textwidth=100 "tw:    text width of text in columns
 
 set nojoinspaces "nojs: no inserting two spaces after punctuation on a join
 set lazyredraw   "lz:    will not redraw the screen while running macros
