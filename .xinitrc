@@ -24,9 +24,9 @@ xmodmap ~/.Xmodmap
 #urxvtc -e ssh-add
 
 tilda -c 'screen -D -R tilda' &> /dev/null &
-#urxvtc -name urxvt-lijab -e screen -RD lijab &> /dev/null &
-#urxvtc -name urxvt-nzb -e screen -RD nzb &> /dev/null &
-#urxvtc -name urxvt-term -e screen -RD term &> /dev/null &
+urxvtc -name urxvt-lijab -e screen -RD lijab &> /dev/null &
+urxvtc -name urxvt-nzb -e screen -RD nzb &> /dev/null &
+urxvtc -name urxvt-term -e screen -RD term &> /dev/null &
 
 exec ck-launch-session xmonad
 #exec openbox-session
