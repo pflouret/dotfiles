@@ -243,6 +243,7 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
     , resource  =? "opera"          --> doF (W.shift "1:web") 
+    -- , fmap ("opera" `isPrefixOf`) resource --> doF (W.shift "1:web")
     , resource  =? "Navigator"      --> doF (W.shift "1:web")
     , resource  =? "iron"           --> doF (W.shift "1:web")
     , className =? "Gajim.py"       --> doF (W.shift "2:im") 
