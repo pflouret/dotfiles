@@ -3,7 +3,8 @@
   name = pablo flouret
 
 [alias]
-  branches = branch -a
+  b = branch
+  ba = branch -a
   ci = commit
   co = checkout
   diffc = diff --cached
@@ -13,6 +14,7 @@
   logs = log --pretty=short
   ls = ls-files -v .
   gitkf = !gitk master..origin &
+  r = remote -v
   st = status
   stp = !git -p status
   unmerged = ls-files -u
