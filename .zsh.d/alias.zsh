@@ -1,4 +1,13 @@
-alias ls='ls --color=auto -H -F'
+if [[ `uname` == 'Darwin' ]]; then
+  alias ls='ls -F'
+else
+  alias ls='ls --color=auto -H -F'
+  alias cp='nocorrect cp'
+  alias mv='nocorrect mv'
+  alias rm='nocorrect rm --preserve-root'
+  alias find='noglob find'
+fi
+
 alias ll='ls -lha'
 alias l='ls -lh'
 alias lsd='ls -ld *(/)'  # only show directories
@@ -8,11 +17,6 @@ alias lsbig='ls -lSrh'   # display the biggest files
 
 alias h='history 0|grep'
 
-alias cp='nocorrect cp -i'
-alias mv='nocorrect mv -i'
-alias rm='nocorrect rm -i --preserve-root'
-#alias find='noglob find'
-
 alias grepc='grep -C 2'
 alias grepcc='grep -C'
 alias grepo='grep -o'
@@ -20,22 +24,20 @@ alias grepo='grep -o'
 alias ot='pushd .'
 alias to='popd'
 
+alias b='brew'
+alias bi='brew install'
+alias bs='brew search'
 alias y='yaourt'
 alias yi='yaourt -Qii'
 alias yl='yaourt -Ql'
 alias yo='yaourt -Qo'
-alias t='tupac'
-alias ti='tupac -Qii'
-alias tl='tupac -Ql'
 
 alias dh='df -h'
-alias open='xdg-open'
 alias psss='ps -ef|grep'
 alias svim='sudo vim'
 alias xpropc='xprop|grep WM_CLASS'
 alias xpropp='xprop|grep -i'
 alias weeknumber='echo WEEK `date +%V`'
-
 
 alias -g LL='|less'
 

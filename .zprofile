@@ -1,4 +1,4 @@
-export PATH=.:~/bin:$PATH:~/opt/eclipse
+export PATH=.:~/bin:~/homebrew/bin:/usr/local/bin:$PATH
 
 if [ -x /usr/bin/keychain ]; then
   keychain --clear -q --timeout 2880

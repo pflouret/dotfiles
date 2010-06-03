@@ -1,8 +1,8 @@
-hostname=`hostname`
+HOSTNAME=`hostname`
 
 zkbddir=~/.zsh.d/zkbd
-if [ -f $zkbddir/$TERM-$hostname ]; then
-  source $zkbddir/$TERM-$hostname
+if [ -f $zkbddir/$TERM-$HOSTNAME ]; then
+  source $zkbddir/$TERM-$HOSTNAME
 elif [ -f $zkbddir/$TERM ]; then
   source $zkbddir/$TERM
 else

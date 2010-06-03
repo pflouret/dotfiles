@@ -12,7 +12,7 @@ USER=`id -un`
 #autoload colors; colors
 
 case $HOSTNAME in
-  poobar)
+  chateaufort)
     hostcolor="$NC" ;;
   berserk)
     hostcolor="$BLUE" ;;
