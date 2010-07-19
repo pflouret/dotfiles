@@ -4,7 +4,7 @@ export HISTFILE=~/.zhistory
 export CLICOLOR=1
 
 export EDITOR=vim
-export BROWSER="/usr/bin/opera"
+export BROWSER="opera"
 
 export PAGER="less"
 export LESS="FRX"

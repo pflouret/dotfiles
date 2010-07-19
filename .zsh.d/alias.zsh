@@ -64,6 +64,10 @@ findn() {
   find $@ -name $1
 }
 
+function mkcd() {
+  [ -n "$1" ] && mkdir -p "$@" && cd "$1";
+}
+
 if [[ `uname` == 'Darwin' ]]; then
     brew_prefix=`brew --prefix`
     alias base64="$brew_prefix/bin/gbase64"
