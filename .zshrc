@@ -10,8 +10,6 @@ export PAGER="less"
 export LESS="FRX"
 export GREP_OPTIONS="--color=auto"
 
-#eval `dircolors -b`
-
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -19,4 +17,6 @@ fi
 for f in ~/.zsh.d/*.zsh; do
   source $f
 done
+
+eval `dircolors -b`
 
