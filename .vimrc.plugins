@@ -40,6 +40,12 @@ au BufRead,BufNewFile *.vapi set filetype=vala
 set tagrelative
 set tags=./tags;${HOME}
 
+map <C-j> :LustyJuggler<CR>
+imap <C-j> :LustyJuggler<CR>
+
+map <leader>e :LustyFilesystemExplorer<CR>
+map <leader>b :LustyBufferExplorer<CR>
+
 map <F10> :NERDTreeToggle<CR>
 imap <F10> :NERDTreeToggle<CR>
 

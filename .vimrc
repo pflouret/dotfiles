@@ -9,6 +9,7 @@ autocmd VimEnter * :hi Visual cterm=NONE ctermbg=grey ctermfg=black
 autocmd VimEnter * :hi LineNr ctermfg=grey
 
 set nocompatible     " cp: turn off vi compatibility
+set autochdir
 
 " Search {{{
 
@@ -86,6 +87,7 @@ set wildmode=longest:full,list:full  "wim:   helps wildmenu auto-completion
 " }}}
 " Window Layout {{{
 
+set hidden
 set showmode         "smd:   shows current vi mode in lower left
 "set cursorline       "cul:   highlights the current line
 set showcmd          "sc:    shows typed commands
