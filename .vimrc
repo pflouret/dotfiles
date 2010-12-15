@@ -8,8 +8,9 @@ autocmd VimEnter * :hi Search cterm=NONE ctermfg=black ctermbg=blue
 autocmd VimEnter * :hi Visual cterm=NONE ctermbg=grey ctermfg=black
 autocmd VimEnter * :hi LineNr ctermfg=grey
 
+let mapleader=","
 set nocompatible     " cp: turn off vi compatibility
-set autochdir
+"set autochdir
 
 " Search {{{
 
