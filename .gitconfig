@@ -3,10 +3,13 @@
   name = pablo flouret
 
 [alias]
+  amend = commit --amend
   b = branch
   ba = branch -a
+  bb = !git branch|grep '^\\*'|sed 's/^\\* //'
   ci = commit
   co = checkout
+  d = diff
   diffc = diff --cached
   log1 = log --pretty=oneline
   logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %Cgreen%ar:%Creset %s'
