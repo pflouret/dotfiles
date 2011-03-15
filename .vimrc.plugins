@@ -26,6 +26,8 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 au BufRead,BufNewFile *.vala set filetype=vala
 au BufRead,BufNewFile *.vapi set filetype=vala
 
+au FileType gitcommit set tw=80
+
 "autocmd FileType c set omnifunc=ccomplete#Complete
 
 "au BufWrite *.cpp,*.h,*.c,*.rl,*.def,*.ot call system("ctags -a  -f ~/.vim/tags/local/ctags --extra=+q " . expand("%:p"))
