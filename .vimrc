@@ -42,6 +42,7 @@ set noswapfile  "swf:   don't pollute my fs with swp files
 " Searches the current directory as well as subdirectories with commands like
 " :find, :grep, etc.
 set path=.,**
+set grepprg=ack
 
 set tabstop=4     "ts:    number of spaces that a tab counts for
 set softtabstop=2 "sts:   number of spaces that a tab counts for when editing
