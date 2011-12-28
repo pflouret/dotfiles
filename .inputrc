@@ -5,3 +5,4 @@ set editing-mode vi
 "\C-p" previous-history
 "\C-n" next-history
 "\C-tab" menu-complete
+"\C-l":'clear\n'
