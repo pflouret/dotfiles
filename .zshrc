@@ -10,6 +10,8 @@ export PAGER="less"
 export LESS="FRX"
 export GREP_OPTIONS="--color=auto"
 
+fpath=($fpath ~/.zsh.d/completion)
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
