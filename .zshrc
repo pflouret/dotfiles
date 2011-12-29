@@ -20,6 +20,4 @@ for f in ~/.zsh.d/*.zsh; do
   source $f
 done
 
-eval `dircolors -b`
-
 test -f "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
