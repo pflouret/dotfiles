@@ -1,7 +1,6 @@
 setopt auto_cd
 setopt auto_pushd
 setopt append_history
-#setopt extended_glob
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks

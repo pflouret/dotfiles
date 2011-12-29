@@ -12,21 +12,19 @@ USER=`id -un`
 #autoload colors; colors
 
 case $HOSTNAME in
-  chateaufort)
+  chateaufort|berserk*)
     hostcolor="$NC" ;;
-  berserk)
-    hostcolor="$BLUE" ;;
   woot|museek4musicbrainz)
     hostcolor="$YELLOW" ;;
-  quux)
+  quux|ca88*)
     hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
 esac
 
 case $USER in
-  palbo|pflouret)
-    usercolor="$GREEN" ;;
+  palbo|pflouret|thd864)
+    usercolor="$YELLOW" ;;
   root)
     usercolor="$RED" ;;
   *)

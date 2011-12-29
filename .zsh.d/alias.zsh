@@ -20,10 +20,6 @@ alias lsbig='ls -lSrh'   # display the biggest files
 
 alias h='history 0|grep'
 
-alias grepc='grep -C 2'
-alias grepcc='grep -C'
-alias grepo='grep -o'
-
 alias ot='pushd .'
 alias to='popd'
 
@@ -37,7 +33,6 @@ alias yo='yaourt -Qo'
 
 alias dh='df -h'
 alias psss='ps -ef|grep'
-alias svim='sudo vim'
 alias xpropc='xprop|grep WM_CLASS'
 alias xpropp='xprop|grep -i'
 alias weeknumber='echo WEEK `date +%V`'
