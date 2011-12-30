@@ -19,8 +19,9 @@ set ignorecase  "ic:    ignores case when pattern matching
 set smartcase   "scs:   ignores ignorecase when pattern contains uppercase
 set hlsearch    "hls:   highlights search results
 set wrapscan    "ws: wrap around the file when searching
-" Use ctrl-n to unhighlight search results in normal mode:
-nmap <silent> <C-N> :silent noh<CR>
+
+" Use ,<space> to unhighlight search results in normal mode:
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " }}}
 " Line Wrap {{{
@@ -170,8 +171,17 @@ endif
 :map <C-w>x :bd<CR>:vsp<CR>:bn!<CR>
 :map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
 
+" Forgot to sudo
+cmap w!! w !sudo tee % >/dev/null
+
 :vnoremap < <gv
 :vnoremap > >gv
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Fuck you, manual key.
+nnoremap K <nop>
 
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
