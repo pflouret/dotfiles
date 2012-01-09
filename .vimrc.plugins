@@ -45,9 +45,9 @@ set tags=./tags;${HOME}
 
 map <C-j> :LustyJuggler<CR>
 imap <C-j> :LustyJuggler<CR>
-
 map <leader>e :LustyFilesystemExplorer<CR>
 map <leader>b :LustyBufferExplorer<CR>
+let g:LustyJugglerSuppressRubyWarning = 1
 
 map <F10> :NERDTreeToggle<CR>
 imap <F10> :NERDTreeToggle<CR>
