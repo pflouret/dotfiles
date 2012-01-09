@@ -56,8 +56,8 @@ set textwidth=100 "tw:    text width of text in columns
 
 set nojoinspaces "nojs: no inserting two spaces after punctuation on a join
 set lazyredraw   "lz:    will not redraw the screen while running macros
-"set pastetoggle=<C-S-P> "pt: key binding for paste/nopaste
-map <silent> <C-S-P> :set paste!<CR>:set paste?<CR>i
+"set pastetoggle=<leader>p "pt: key binding for paste/nopaste
+map <silent> <leader>p :set paste!<CR>:set paste?<CR>
 
 "nnoremap <C-F> <esc>
 "vnoremap <C-F> <esc>gV
