@@ -1,6 +1,6 @@
 [user]
-  email = quuxbaz@gmail.com
-  name = pablo flouret
+  email = pablof@motorola.com
+  name = Pablo Flouret
 
 [alias]
   amend = commit --amend
@@ -30,6 +30,9 @@
   status = auto
   branch = auto
   log = auto
+
+[core]
+  excludesfile = ~/.gitignoreglobal
 
 [merge]
   tool = vimdiff
