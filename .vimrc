@@ -46,7 +46,7 @@ set path=.,**
 set grepprg=ack
 
 set tabstop=4     "ts:    number of spaces that a tab counts for
-set softtabstop=2 "sts:   number of spaces that a tab counts for when editing
+set softtabstop=4 "sts:   number of spaces that a tab counts for when editing
 set expandtab     "et:    uses spaces instead of tab characters
 set smarttab      "sta:   helps with backspacing because of expandtab
 set shiftwidth=4  "sw:    number of spaces to use for autoindent
@@ -57,7 +57,7 @@ set textwidth=100 "tw:    text width of text in columns
 set nojoinspaces "nojs: no inserting two spaces after punctuation on a join
 set lazyredraw   "lz:    will not redraw the screen while running macros
 "set pastetoggle=<leader>p "pt: key binding for paste/nopaste
-map <silent> <leader>p :set paste!<CR>:set paste?<CR>
+map <silent> <leader>p :set paste!<CR>:set paste?<CR>i
 
 "nnoremap <C-F> <esc>
 "vnoremap <C-F> <esc>gV
