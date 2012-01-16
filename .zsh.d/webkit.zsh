@@ -3,12 +3,12 @@ function set-webkit-path() {
     d=`pwd`;
     while [ $d != ~ ]; do
         if [ -d "$d/$S" ]; then
+            echo "$0: using $d/$S";
             export PATH="$d/$S":$PATH;
             return 0;
         else
             d=`dirname $d`;
         fi
-        echo $d;
     done
     echo "$0: error: No Tools/Scripts folder found." >&2;
     return 1;
@@ -32,9 +32,24 @@ function bw() {
     --web-audio
     --geolocation
     --client-based-geolocation
+    --fullscreen-api
     )
 
     bwf --minimal $features $@;
 }
 
+function wt() {
+    if ! hash new-run-webkit-tests &> /dev/null && ! set-webkit-path &> /dev/null; then
+        echo "$0: error: no build-webkit on PATH" >&2;
+        return 1;
+    fi
+
+    new-run-webkit-tests --debug -f --child-processes=8 $@
+}
+
+function wtq() {
+    wt --no-show-results --no-record-results $@
+}
+
 export CHANGE_LOG_EDITOR=vim
+
