@@ -1,47 +1,47 @@
 [user]
-  email = quuxbaz@gmail.com
-  name = pablo flouret
+    email = quuxbaz@gmail.com
+    name = pablo flouret
 
 [alias]
-  amend = commit --amend
-  b = branch
-  ba = branch -a
-  bb = !git branch|grep '^\\*'|sed 's/^\\* //'
-  ci = commit
-  co = checkout
-  d = diff
-  ds = diff --stat
-  dc = diff --cached
-  diffc = diff --cached
-  log1 = log --pretty=oneline
-  logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %Cgreen%ar:%Creset %s'
-  qlog = log --pretty=format:'%Cgreen%h%Creset %an %Cblue%ar:%Creset %s' -10
-  logs = log --pretty=short
-  ls = ls-files -v .
-  gitkf = !gitk master..origin &
-  r = remote -v
-  st = status
-  stp = !git -p status
-  unmerged = ls-files -u
+    amend = commit --amend
+    b = branch
+    ba = branch -a
+    bb = !git branch|grep '^\\*'|sed 's/^\\* //'
+    ci = commit
+    co = checkout
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+    diffc = diff --cached
+    log1 = log --pretty=oneline
+    logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %Cgreen%ar:%Creset %s'
+    qlog = log --pretty=format:'%Cgreen%h%Creset %an %Cblue%ar:%Creset %s' -10
+    logs = log --pretty=short
+    ls = ls-files -v .
+    gitkf = !gitk master..origin &
+    r = remote -v
+    st = status
+    stp = !git -p status
+    unmerged = ls-files -u
 
 [branch]
-  autosetupmerge = true
+    autosetupmerge = true
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  log = auto
+    diff = auto
+    status = auto
+    branch = auto
+    log = auto
 
 [core]
-  excludesfile = ~/.gitignoreglobal
+    excludesfile = ~/.gitignoreglobal
 
 [merge]
-  tool = vimdiff
-  log = true
+    tool = vimdiff
+    log = true
 
 [mergetool]
-  keepBackup = false
+    keepBackup = false
 
 [push]
-  default = tracking
+    default = tracking
