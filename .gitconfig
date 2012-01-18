@@ -33,6 +33,9 @@
   branch = auto
   log = auto
 
+[core]
+  excludesfile = ~/.gitignoreglobal
+
 [merge]
   tool = vimdiff
   log = true
