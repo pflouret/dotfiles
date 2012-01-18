@@ -10,6 +10,8 @@
   ci = commit
   co = checkout
   d = diff
+  ds = diff --stat
+  dc = diff --cached
   diffc = diff --cached
   log1 = log --pretty=oneline
   logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %Cgreen%ar:%Creset %s'
