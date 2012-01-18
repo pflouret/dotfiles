@@ -51,5 +51,6 @@ function wtq() {
     wt --no-show-results --no-record-results $@
 }
 
+alias wp="webkit-patch"
 export CHANGE_LOG_EDITOR=vim
 
