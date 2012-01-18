@@ -1,13 +1,11 @@
 
-
-au Filetype html,xml,xsl :runtime scripts/closetag.vim
 au BufRead *.mako set filetype=mako
 au BufRead *.mkd set filetype=mkd
 au BufRead *.md set filetype=mkd
 au BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 au BufRead ChangeLog* set et tw=80
 
-au FileType python :runtime plugin/python.vim
+au FileType python runtime! plugin/python.vim
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set shiftwidth=2
 
@@ -19,6 +17,7 @@ au FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "au FileType haml set sw=2
 
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+au Filetype html,xml,xsl runtime! ftplugin/html_autoclosetag.vim
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType xml set omnifunc=xmlcomplete#CompleteTags
