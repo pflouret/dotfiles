@@ -67,3 +67,6 @@ function mkcd() {
   [ -n "$1" ] && mkdir -p "$@" && cd "$1";
 }
 
+function growl() {
+    echo '\e]9;\007'
+}
