@@ -167,6 +167,8 @@ endif
 ":map! <F8> <ESC>:mks! session.vim<CR>
 :map <F9> <ESC>:qa!<CR>
 :map! <F9> <ESC>:qa!<CR>
+:map <C-q> <ESC>:qa!<CR>
+:map! <C-q> <ESC>:qa!<CR>
 
 :map <C-w>x :bd<CR>:vsp<CR>:bn!<CR>
 :map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
