@@ -173,6 +173,9 @@ endif
 :map <C-w>x :bd<CR>:vsp<CR>:bn!<CR>
 :map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
 
+:inoremap jj <ESC>
+set timeoutlen=400
+
 " Forgot to sudo
 cmap w!! w !sudo tee % >/dev/null
 
