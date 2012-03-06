@@ -5,6 +5,7 @@ function set-webkit-path() {
         if [ -d "$d/$S" ]; then
             echo "$0: using $d/$S";
             export PATH="$d/$S":$PATH;
+            alias drt="$d/Source/WebKit/chromium/xcodebuild/Debug/DumpRenderTree.app/Contents/MacOS/DumpRenderTree"
             return 0;
         else
             d=`dirname $d`;
@@ -23,7 +24,8 @@ function bwf() {
     p=`which build-webkit`
     base=${p%%/Tools/Scripts/build-webkit}
     mv -f $base/build.log{,.bak} &> /dev/null
-    time build-webkit --debug --makeargs='-j10' $@ 2>&1 | tee $base/build.log
+    time build-webkit --debug --makeargs='-j7' $@ 2>&1 | tee $base/build.log
+    growl finished compiling
 }
 
 function bw() {
@@ -36,6 +38,10 @@ function bw() {
     )
 
     bwf --minimal $features $@;
+}
+
+function bwc {
+    bwf --chromium --v8
 }
 
 function wt() {
