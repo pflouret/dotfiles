@@ -33,8 +33,12 @@ function bw() {
     --javascript-debugger
     --web-audio
     --geolocation
-    --client-based-geolocation
     --fullscreen-api
+    --sql-database
+    --css-filters
+    --filters
+    --workers
+    --shared-workers
     )
 
     bwf --minimal $features $@;
