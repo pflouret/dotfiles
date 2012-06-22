@@ -24,24 +24,43 @@ function bwf() {
     p=`which build-webkit`
     base=${p%%/Tools/Scripts/build-webkit}
     mv -f $base/build.log{,.bak} &> /dev/null
-    time build-webkit --debug --makeargs='-j7' $@ 2>&1 | tee $base/build.log
+    time build-webkit --makeargs='-j5' --debug $@ 2>&1 | tee $base/build.log
     growl finished compiling
 }
 
-function bw() {
+function bwm() {
     features=(
     --javascript-debugger
     --web-audio
     --geolocation
     --fullscreen-api
-    --sql-database
     --css-filters
     --filters
     --workers
     --shared-workers
+    --netscape-plugin-api
     )
 
     bwf --minimal $features $@;
+}
+
+function bw() {
+    features=(
+    --no-css-exclusions
+    --no-css-regions
+    --no-icon-database
+    --no-mathml
+    --no-mutation-observers
+    --no-sql-database
+    --no-svg
+    --no-svg-dom-objc-bindings
+    --no-svg-fonts
+    --no-webgl
+    --no-web-sockets
+    --no-xslt
+    )
+
+    bwf $features $@;
 }
 
 function bwc {
