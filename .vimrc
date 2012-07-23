@@ -174,7 +174,7 @@ endif
 :map <C-w>z :bd<CR>:sp<CR>:bn!<CR>
 
 :inoremap jj <ESC>
-set timeoutlen=400
+set timeoutlen=200
 
 " Forgot to sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -185,8 +185,15 @@ cmap w!! w !sudo tee % >/dev/null
 " Don't move on *
 nnoremap * *<c-o>
 
-" Fuck you, manual key.
+" Fuck you, man key.
 nnoremap K <nop>
+
+" Make operations work with the OS clipboard
+"set clipboard=unnamed
+
+" When pasting over selected text in visual mode, re-copy what you're pasting
+" instead of trampling it with what you pasted over.
+xnoremap <expr> p v:register=='"'?'pgvy':'p'
 
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
