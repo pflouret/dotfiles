@@ -73,7 +73,7 @@ function wt() {
         return 1;
     fi
 
-    new-run-webkit-tests --debug -f --child-processes=7 --no-retry --print default,config $@
+    new-run-webkit-tests --debug -f --child-processes=7 --no-retry $@
 }
 
 function wtq() {
