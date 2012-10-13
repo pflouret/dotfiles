@@ -1,5 +1,5 @@
-export HISTSIZE=50000
-export SAVEHIST=50000
+export HISTSIZE=100000
+export SAVEHIST=100000
 export HISTFILE=~/.zhistory
 export CLICOLOR=1
 
@@ -10,7 +10,7 @@ export PAGER="less"
 export LESS="FRX"
 export GREP_OPTIONS="--color=auto"
 
-fpath=($fpath ~/.zsh.d/completion)
+fpath=($fpath /usr/local/share/zsh-completions ~/.zsh.d/completion)
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local

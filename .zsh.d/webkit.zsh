@@ -25,7 +25,7 @@ function bwf() {
     base=${p%%/Tools/Scripts/build-webkit}
     mv -f $base/build.log{,.bak} &> /dev/null
     time build-webkit --makeargs='-j5' --debug $@ 2>&1 | tee $base/build.log
-    growl finished compiling
+    growlnotify -m "Finished compiling" -a Safari
 }
 
 function bwm() {

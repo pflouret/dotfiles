@@ -1,11 +1,10 @@
 
-coreutils=`brew info coreutils|grep default-names`
-if [[ `uname` == 'Darwin' ]] && [ ! $coreutils ]; then
-    alias ls="ls -GHF"
-else
+if ls --color &> /dev/null; then
     alias ls='ls --color=auto -HF'
+else
+    # Darwin
+    alias ls="ls -GHF"
 fi
-hash dircolors &> /dev/null && eval `dircolors -b`
 
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
@@ -18,7 +17,7 @@ alias lad='ls -ld .*(/)' # only show dot-directories
 alias lsa='ls -a .*(.)'  # only show dot-files
 alias lsbig='ls -lSrh'   # display the biggest files
 
-alias h='history 0|grep'
+alias h='history 0|grep -i'
 
 alias ot='pushd .'
 alias to='popd'
@@ -36,8 +35,14 @@ alias psss='ps -ef|grep'
 alias xpropc='xprop|grep WM_CLASS'
 alias xpropp='xprop|grep -i'
 alias weeknumber='echo WEEK `date +%V`'
+alias fs="stat -f \"%z bytes\""
 
-alias -g LL='|less'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 dum() {
   n=$1
@@ -46,7 +51,7 @@ dum() {
 }
 
 pss() {
-  ps aux | grep $@ | grep -v grep
+  ps aux | grep -i $@ | grep -v grep
 }
 
 findd() {

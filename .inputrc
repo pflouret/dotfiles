@@ -1,4 +1,6 @@
-set completion-ignore-case On
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set page-completions off
 #"\E[Z": complete-filename
 set editing-mode vi
 

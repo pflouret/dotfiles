@@ -52,7 +52,7 @@ set smarttab      "sta:   helps with backspacing because of expandtab
 set shiftwidth=4  "sw:    number of spaces to use for autoindent
 set shiftround    "sr:    rounds indent to a multiple of shiftwidth
 set autoindent    "ai:    copy indent from current line
-set textwidth=100 "tw:    text width of text in columns
+"set textwidth=100 "tw:    text width of text in columns
 
 set nojoinspaces "nojs: no inserting two spaces after punctuation on a join
 set lazyredraw   "lz:    will not redraw the screen while running macros
@@ -128,7 +128,7 @@ let html_use_css=1
 set uc=100
 set ut=4000
 
-set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=200
 if !has("gui_running") && &term == "rxvt*"
     map <ESC>[18^ <C-F7>
     map <ESC>[19^ <C-F8>
