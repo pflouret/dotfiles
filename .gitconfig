@@ -1,6 +1,6 @@
 [user]
     email = quuxbaz@gmail.com
-    name = pablo flouret
+    name = Pablo Flouret
 
 [alias]
     amend = !git log -n 1 --pretty=format:%B | git commit --amend -F -
