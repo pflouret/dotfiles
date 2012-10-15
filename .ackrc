@@ -2,3 +2,4 @@
 --type-set=idl=.idl
 --type-set=conf=.conf
 --type-set=mk=.mk,.make,.am
+--type-set=gyp=.gyp,.gypi
