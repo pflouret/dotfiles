@@ -64,7 +64,7 @@ function bw() {
 }
 
 function bwc {
-    bwf --chromium --v8
+    bwf --chromium
 }
 
 function wt() {
