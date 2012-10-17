@@ -67,6 +67,13 @@ let g:showmarks_textlower="\t"
 let g:showmarks_textupper="\t"
 let g:showmarks_textother="\t"
 
+let g:ctrlp_max_files = 0
+let g:ctrlp_by_filename = 1
+let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn))$'
+let g:ctrlp_working_path_mode = 'c'
+"let g:ctrlp_working_path_mode = 'ra'
+
+
 if has("gui_running")
   colorscheme fruity
   if has("gui_gtk2")
