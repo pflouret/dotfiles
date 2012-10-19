@@ -128,7 +128,7 @@ let html_use_css=1
 set uc=100
 set ut=4000
 
-set timeout timeoutlen=1000 ttimeoutlen=200
+set timeout timeoutlen=1000 ttimeoutlen=400
 if !has("gui_running") && &term == "rxvt*"
     map <ESC>[18^ <C-F7>
     map <ESC>[19^ <C-F8>
