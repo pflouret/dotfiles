@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ddir=`dirname $0`
-files=`find $ddir -maxdepth 1 ! -path $ddir ! -path $ddir/.gitignore ! -path $ddir/.git ! -path $0`
+files=`find $ddir -maxdepth 1 ! -path $ddir ! -path $ddir/.gitignore ! -path $ddir/.git ! -path '*.sh'`
 
 mkdir dotfiles-bkp
 for f in $files; do
