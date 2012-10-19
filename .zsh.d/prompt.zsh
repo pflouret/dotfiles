@@ -14,16 +14,16 @@ USER=`id -un`
 case $HOSTNAME in
   chateaufort|berserk*)
     hostcolor="$NC" ;;
-  woot|museek4musicbrainz)
+  ca88*)
     hostcolor="$YELLOW" ;;
-  quux|ca88*)
+  pipe|quux|woot)
     hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
 esac
 
 case $USER in
-  palbo|pflouret|thd864)
+  pf|palbo|pflouret|thd864)
     usercolor="$YELLOW" ;;
   root)
     usercolor="$RED" ;;
