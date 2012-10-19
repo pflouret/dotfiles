@@ -12,11 +12,12 @@
     d = diff
     ds = diff --stat
     dc = diff --cached
+    dw = diff --color-words
     diffc = diff --cached
-    log1 = log --pretty=oneline
-    logg = log --pretty=format:'%Cblue%h%Creset %an <%ae> %Cgreen%ar:%Creset %s'
-    qlog = log --pretty=format:'%Cgreen%h%Creset %an %Cblue%ar:%Creset %s' -10
-    logs = log --pretty=short
+    l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -10
+    ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
+    lf = log --pretty=medium --stat
+    l1 = log --pretty=oneline
     ls = ls-files -v .
     gitkf = !gitk master..origin &
     r = remote -v
