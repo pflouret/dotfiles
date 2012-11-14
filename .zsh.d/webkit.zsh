@@ -6,6 +6,7 @@ function set-webkit-path() {
             echo "$0: using $d/$S";
             export PATH="$d/$S":$PATH;
             alias drt="$d/Source/WebKit/chromium/xcodebuild/Debug/DumpRenderTree.app/Contents/MacOS/DumpRenderTree"
+            set-webkit-configuration --debug
             return 0;
         else
             d=`dirname $d`;
@@ -25,7 +26,7 @@ function bwf() {
     base=${p%%/Tools/Scripts/build-webkit}
     mv -f $base/build.log{,.bak} &> /dev/null
     time build-webkit --makeargs='-j5' --debug $@ 2>&1 | tee $base/build.log
-    growlnotify -m "Finished compiling" -a Safari
+    hash growlnotify &> /dev/null && growlnotify -m "Finished compiling" -a Safari
 }
 
 function bwm() {
@@ -46,6 +47,7 @@ function bwm() {
 
 function bw() {
     features=(
+    --no-css-compositing
     --no-css-exclusions
     --no-css-regions
     --no-icon-database
