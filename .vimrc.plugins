@@ -70,7 +70,8 @@ let g:showmarks_textother="\t"
 let g:ctrlp_max_files = 0
 let g:ctrlp_by_filename = 1
 let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn))$'
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_open_multiple_files = '2vjr'
 "let g:ctrlp_working_path_mode = 'ra'
 
 map <silent> <C-h> <esc>:FSHere<CR>
