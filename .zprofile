@@ -5,7 +5,20 @@ fi
 
 export PATH=.:~/bin:$coreutils:/usr/local/sbin:/usr/local/bin:$PATH
 
-if [ -x /usr/bin/keychain ]; then
-  keychain --clear -q --timeout 2880
-  source ~/.keychain/`hostname`-sh > /dev/null
+if [[ `uname` == "Linux" ]]; then
+    SSH_ENV="$HOME/.ssh/environment"
+    function start_agent {
+        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+        chmod 600 "${SSH_ENV}"
+        . "${SSH_ENV}" > /dev/null
+    }
+
+    if [ -f "${SSH_ENV}" ]; then
+        . "${SSH_ENV}" > /dev/null
+        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+            start_agent;
+        }
+    else
+        start_agent;
+    fi
 fi
