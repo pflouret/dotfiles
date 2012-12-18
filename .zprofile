@@ -4,7 +4,7 @@ if hash brew &> /dev/null; then
 fi
 
 if hash launchctl &> /dev/null; then
-    launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.Root.plist
+    launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.Root.plist &> /dev/null
 fi
 
 export PATH=.:~/bin:$coreutils:/usr/local/sbin:/usr/local/bin:$PATH
