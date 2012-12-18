@@ -3,6 +3,10 @@ if hash brew &> /dev/null; then
     coreutils=$(brew --prefix coreutils)/libexec/gnubin;
 fi
 
+if hash launchctl &> /dev/null; then
+    launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.Root.plist
+fi
+
 export PATH=.:~/bin:$coreutils:/usr/local/sbin:/usr/local/bin:$PATH
 
 if [[ `uname` == "Linux" ]]; then
