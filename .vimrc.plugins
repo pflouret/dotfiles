@@ -26,6 +26,8 @@ au BufRead,BufNewFile *.vapi set filetype=vala
 au FileType gitcommit set tw=80
 
 "autocmd FileType c set omnifunc=ccomplete#Complete
+let g:OmniCpp_MayCompleteDot = 0
+let g:OmniCpp_MayCompleteArrow = 0
 
 set tagrelative
 set tags=./tags;${HOME}
