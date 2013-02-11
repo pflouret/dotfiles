@@ -41,6 +41,9 @@
     tool = vimdiff
     log = true
 
+#[merge "changelog"]
+#	driver = perl Tools/Scripts/resolve-ChangeLogs --fix-merged --merge-driver %O %A %B
+
 [mergetool]
     keepBackup = false
 
