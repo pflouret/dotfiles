@@ -27,3 +27,5 @@ if [[ `uname` == "Linux" ]]; then
         start_agent;
     fi
 fi
+
+test -f ~/.zprofile.local && source ~/.zprofile.local
