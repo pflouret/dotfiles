@@ -12,9 +12,7 @@ export GREP_OPTIONS="--color=auto"
 
 fpath=($fpath /usr/local/share/zsh-completions ~/.zsh.d/completion)
 
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
+test -f ~/.zshrc.local && source ~/.zshrc.local
 
 for f in ~/.zsh.d/*.zsh; do
   source $f
