@@ -12,11 +12,11 @@ USER=`id -un`
 #autoload colors; colors
 
 case $HOSTNAME in
-  chateaufort|berserk*)
+  chateaufort|berserk*|pflouret-m*)
     hostcolor="$NC" ;;
   ca88*)
     hostcolor="$YELLOW" ;;
-  pipe|quux|woot)
+  parb.es|pipe|quux|woot)
     hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
