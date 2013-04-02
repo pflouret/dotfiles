@@ -248,6 +248,12 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true
 
+# Dock on the right
+defaults write com.apple.dock orientation -string right
+
+# Pin the dock to the top
+defaults write com.apple.dock pinning -string start
+
 # Automatically hide and show the Dock
 #defaults write com.apple.dock autohide -bool true
 
