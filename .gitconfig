@@ -9,10 +9,9 @@
     bb = !git branch|grep '^\\*'|sed 's/^\\* //'
     ci = commit
     co = checkout
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
-    dw = diff --color-words
+    cp = cherry-pick
+    diffw = diff --color-words
+    diffs = diff --stat
     diffc = diff --cached
     l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -10
     ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
