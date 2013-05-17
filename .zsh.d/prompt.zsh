@@ -31,19 +31,26 @@ case $USER in
     usercolor="$NC" ;;
 esac
 
+rprompt_host=""
 if [[ -n $SUDO_USER || -n $SSH_TTY ]]; then
-  rprompt="${usercolor}${USER}${NC}@${hostcolor}%m${NC}"
+  rprompt_host="${usercolor}${USER}${NC}@${hostcolor}%m${NC}"
 fi
 
 prompt="${hostcolor}[${NC}${usercolor}%~${NC}${hostcolor}]${NC}: "
 
 export PS1=$prompt
-
-[[ -z $MC_SID ]] && export RPROMPT=$rprompt
+export RPROMPT=$rprompt_host
 
 case "$TERM" in
   xterm*|rxvt*)
-    precmd () { print -Pn  "\033]0;%12<...<%~\007" }
+    precmd () {
+        print -Pn  "\033]0;%12<...<%~\007"
+        if git rev-parse --git-dir &> /dev/null; then
+            export RPROMPT="$rprompt_host ${BLUE}[`git bb`]${NC}"
+        else
+            export RPROMPT="$rprompt_host"
+        fi
+    }
     preexec () { print -Pn "\033]0;$1\007" }
     ;;
   screen*)
