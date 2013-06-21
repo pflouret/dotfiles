@@ -74,7 +74,11 @@ set -o vi
 
 # ALIASES
 
-coreutils=`brew info coreutils|grep default-names`
+coreutils=""
+if hash brew &> /dev/null; then
+    coreutils=$(brew --prefix coreutils)/libexec/gnubin;
+fi
+
 if [[ `uname` == 'Darwin' ]] && [[ ! $coreutils ]]; then
     alias ls="ls -GHF"
 else
