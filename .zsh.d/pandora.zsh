@@ -19,7 +19,7 @@ PROJECTS=~/dev/main/SavageBeast/Engineering/projects
 
 alias p="cd $PROJECTS"
 alias m="cd $SRC"
-alias vmconfig='vim ~/vm_localhost/.vm_config'
+alias vmconfig="vim $VM_ROOT/.vm_config"
 alias buildjs="pushd $PROJECTS/radio/src/js > /dev/null ; ant ; cp -f -u $SRC/stage/radio/www/*.js $VM_ROOT/documentRoot/www ; cp -f -u -r $SRC/stage/radio/www/src $VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
 alias cw="cp -f -u -R $PROJECTS/radio/www/* $VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" $PROJECTS/radio/web/index.jsp > $VM_ROOT/documentRoot/radio/index.jsp"
 alias css='pushd $PROJECTS/radio > /dev/null ; ant compile.css ; cp -f -u $SRC/stage/radio/www/css/compiled.css $VM_ROOT/documentRoot/www/css ; popd > /dev/null'

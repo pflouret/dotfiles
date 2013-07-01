@@ -48,3 +48,9 @@
 
 [push]
     default = tracking
+
+[gc]
+	auto = 0
+
+[git-p4]
+	attemptRCSCleanup = true
