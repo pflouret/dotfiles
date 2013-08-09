@@ -14,17 +14,9 @@ alias pgstart=startpg
 alias pgstop=stoppg
 alias pgstatus=statuspg
 
-SRC=~/dev/main
-PROJECTS=~/dev/main/SavageBeast/Engineering/projects
+test -e /usr/local/bin/allutils && source /usr/local/bin/allutils
 
-alias p="cd $PROJECTS"
-alias m="cd $SRC"
-alias vmconfig="vim $VM_ROOT/.vm_config"
-alias buildjs="pushd $PROJECTS/radio/src/js > /dev/null ; ant ; cp -f -u $SRC/stage/radio/www/*.js $VM_ROOT/documentRoot/www ; cp -f -u -r $SRC/stage/radio/www/src $VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
-alias cw="cp -f -u -R $PROJECTS/radio/www/* $VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" $PROJECTS/radio/web/index.jsp > $VM_ROOT/documentRoot/radio/index.jsp"
-alias css='pushd $PROJECTS/radio > /dev/null ; ant compile.css ; cp -f -u $SRC/stage/radio/www/css/compiled.css $VM_ROOT/documentRoot/www/css ; popd > /dev/null'
-
-function jsdebug {
+function jsdebug() {
     case $1 in
         "on")
             export JS_DEBUG=true
@@ -36,8 +28,61 @@ function jsdebug {
             unset JS_LOGGING
             unset JS_PRETTY_PRINT
             ;;
+        *)
+            echo "JS_DEBUG=$JS_DEBUG"
+            echo "JS_LOGGING=$JS_LOGGING"
+            echo "JS_PRETTY_PRINT=$JS_PRETTY_PRINT"
+            ;;
     esac
 }
 
 jsdebug on
+
+# Reverse integrate all new changes from main into the current (custom) branch
+alias integmain='p4 integ -r -d -b $CODELINE //depot/main/... //depot/$CODELINE/...'
+
+PROJECTS_REL_DIR=SavageBeast/Engineering/projects
+
+src_dir() {
+    src=~/dev/main
+    d=`pwd`
+    while [ $d != ~ ]; do
+        if [ -d "$d/$PROJECTS_REL_DIR" ]; then
+            echo "$d"
+        fi
+        d=`dirname $d`
+        return
+    done
+    echo "$src"
+}
+
+projects_dir() {
+    echo "$(src_dir)/$PROJECTS_REL_DIR"
+}
+
+# Show last perforce checkin by current user
+pp() {
+    p4 describe -s `p4 changes -u $USER -m 1 | awk '{print $2}'`
+}
+
+# Integrate a changelist from release codeline back to main
+# $1 -> codeline $2 -> changelist
+i() {
+    p4 integ -b $1 @$2,@$2
+    p4 resolve -am
+}
+
+# Reverse integrate a changelist from main to release codeline
+# $1 -> codeline $2 -> changelist
+ri() {
+    p4 integ -r -b $1 @$2,@$2
+    p4 resolve -am
+}
+
+alias p="cd \$(projects_dir)"
+alias m="cd \$(src_dir)"
+alias vmconfig="vim $VM_ROOT/.vm_config"
+alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js $VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src $VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
+alias cw="cp -f -u -R \$(projects_dir)/radio/www/* $VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > $VM_ROOT/documentRoot/radio/index.jsp"
+alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css $VM_ROOT/documentRoot/www/css ; popd > /dev/null"
 
