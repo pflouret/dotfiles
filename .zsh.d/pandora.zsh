@@ -14,7 +14,7 @@ alias pgstart=startpg
 alias pgstop=stoppg
 alias pgstatus=statuspg
 
-test -e /usr/local/bin/allutils && source /usr/local/bin/allutils
+test -e ~/bin/allutils && relsb_path=~/bin sysdb_path=$relsb_path source ~/bin/allutils
 
 function jsdebug() {
     case $1 in
