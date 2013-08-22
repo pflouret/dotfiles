@@ -38,8 +38,8 @@ fi
 
 prompt="${hostcolor}[${NC}${usercolor}%~${NC}${hostcolor}]${NC}: "
 
-export PS1=$prompt
-export RPROMPT=$rprompt_host
+export PS1="$prompt"
+export RPROMPT="$rprompt_host"
 
 case "$TERM" in
   xterm*|rxvt*)
