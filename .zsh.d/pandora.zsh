@@ -2,8 +2,10 @@ export ANT_HOME=$HOME/local/ant
 export MACOSX_DEPLOYMENT_TARGET=10.7
 export P4CLIENT=pflouret-m01
 export PGDATA=$HOME/local/postgres/data
-export VM_HOSTNAME=localhost
-export VM_ROOT=$HOME/vm_localhost
+if [[ ! -n $SSH_TTY ]]; then
+    export VM_HOSTNAME=localhost
+    export VM_ROOT=$HOME/vm_localhost
+fi
 export PYTHON_HOME=$HOME/local/python-2.7.3
 export JYTHON_HOME=$HOME/local/jython2.2.1
 
