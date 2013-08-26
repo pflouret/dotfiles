@@ -16,7 +16,7 @@ case $HOSTNAME in
     hostcolor="$NC" ;;
   ca88*)
     hostcolor="$YELLOW" ;;
-  parb.es|pipe|quux|woot)
+  parb.es|pipe|quux|woot|app*)
     hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
@@ -42,26 +42,23 @@ export PS1="$prompt"
 export RPROMPT="$rprompt_host"
 
 case "$TERM" in
-  xterm*|rxvt*)
+  xterm*|rxvt*|screen*)
     precmd () {
         print -Pn  "\033]0;%12<...<%~\007"
+        print -Pn '\ek%12<...<%~\e\\'
+        print -Pn  "\033]2;%~\007"
+        extra=""
         if git rev-parse --git-dir &> /dev/null; then
-            export RPROMPT="$rprompt_host ${BLUE}[`git bb`]${NC}"
-        else
-            export RPROMPT="$rprompt_host"
+            extra="${extra}[${RED}git${BLUE}:`git bb`]"
         fi
+        if [[ -n $VM_HOSTNAME ]]; then
+            extra="${extra}[${RED}vm${BLUE}:$VM_HOSTNAME]"
+        fi
+        export RPROMPT="$rprompt_host ${BLUE}$extra${NC}"
     }
-    preexec () { print -Pn "\033]0;$1\007" }
-    ;;
-  screen*)
-    precmd () {
-      print -Pn '\ek%12<...<%~\e\\'
-      print -Pn  "\033]2;%~\007"
-    }
-
-    preexec () { 
-      print -Pn '\ek'$1'\e\\'
-      print -Pn "\033]0;$1\007"
+    preexec () {
+        print -Pn '\ek'$1'\e\\'
+        print -Pn "\033]0;$1\007"
     }
     ;;
   *)
