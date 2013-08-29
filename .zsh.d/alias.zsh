@@ -38,7 +38,7 @@ alias weeknumber='echo WEEK `date +%V`'
 alias fs="stat -f \"%z bytes\""
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip='ipconfig getifaddr en1|perl -pe "s/\r|\n//m"'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
