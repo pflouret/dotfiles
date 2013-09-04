@@ -95,9 +95,9 @@ ri() {
 
 alias p="cd \$(projects_dir)"
 alias m="cd \$(src_dir)"
-alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js $VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src $VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
-alias cw="cp -f -u -R \$(projects_dir)/radio/www/* $VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > $VM_ROOT/documentRoot/radio/index.jsp"
-alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css $VM_ROOT/documentRoot/www/css ; popd > /dev/null"
+alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js \$VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src \$VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
+alias cw="cp -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > \$VM_ROOT/documentRoot/radio/index.jsp"
+alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css \$VM_ROOT/documentRoot/www/css ; popd > /dev/null"
 
 if [[ ! -n $SSH_TTY ]]; then
     setvm main &> /dev/null
