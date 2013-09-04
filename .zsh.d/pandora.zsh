@@ -60,12 +60,12 @@ PROJECTS_REL_DIR=SavageBeast/Engineering/projects
 src_dir() {
     src=~/dev/main
     d=`pwd`
-    while [ $d != ~ ]; do
+    while [ $d != / ]; do
         if [ -d "$d/$PROJECTS_REL_DIR" ]; then
             echo "$d"
+            return
         fi
         d=`dirname $d`
-        return
     done
     echo "$src"
 }
