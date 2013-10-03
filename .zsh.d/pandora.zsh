@@ -17,12 +17,14 @@ alias cdvm="cd \$VM_ROOT"
 
 setvm() {
     if [ ! -z $1 ]; then
-        if [ ! -d ~/vm/$1 ]; then
-            echo "$0: error: Bad vm: '$1'"
-            return 1;
+        if [ $1 != "." ] && [ $1 != ".." ] && [ -d ~/vm/$1 ]; then
+            export VM_HOSTNAME=$1
+            export VM_ROOT=~/vm/$1
+        else
+            p=`readlink -f "$1"`
+            export VM_HOSTNAME=`basename $p`
+            export VM_ROOT=$p
         fi
-        export VM_HOSTNAME=$1
-        export VM_ROOT=~/vm/$1
     fi
     echo "VM_HOSTNAME=$VM_HOSTNAME"
     echo "VM_ROOT=$VM_ROOT"
@@ -98,6 +100,7 @@ alias m="cd \$(src_dir)"
 alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js \$VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src \$VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
 alias cw="cp -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > \$VM_ROOT/documentRoot/radio/index.jsp"
 alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css \$VM_ROOT/documentRoot/www/css ; popd > /dev/null"
+alias cptest="(cd \$(projects_dir)/radio/test && find ./ -name '*.py' -exec cp -f -u --parents -v {} \$VM_ROOT/radio/test \; && chmod 755 \$VM_ROOT/radio/test/*/*.py)" ;
 
 if [[ ! -n $SSH_TTY ]]; then
     setvm main &> /dev/null
