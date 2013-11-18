@@ -207,4 +207,6 @@ if filereadable(expand(expand("~/.vimrc.local")))
   source ~/.vimrc.local
 endif
 
+set vb t_vb=
+
 ":imap <C-Space> <Plug>AutocomplpopOnPopupPost
