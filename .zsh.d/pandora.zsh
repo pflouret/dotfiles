@@ -82,25 +82,27 @@ pp() {
 }
 
 # Integrate a changelist from release codeline back to main
-# $1 -> codeline $2 -> changelist
+# $1 -> changelist
 i() {
-    p4 integ -b $1 @$2,@$2
+    p4 integ -b $CODELINE @$1,@$1
     p4 resolve -am
 }
 
 # Reverse integrate a changelist from main to release codeline
-# $1 -> codeline $2 -> changelist
+# $1 -> changelist
 ri() {
-    p4 integ -r -b $1 @$2,@$2
+    p4 integ -r -b $CODELINE @$1,@$1
     p4 resolve -am
 }
 
+alias nag="p4 integ -n -b \$CODELINE"
 alias p="cd \$(projects_dir)"
 alias m="cd \$(src_dir)"
 alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js \$VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src \$VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
 alias cw="cp -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > \$VM_ROOT/documentRoot/radio/index.jsp"
 alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css \$VM_ROOT/documentRoot/www/css ; popd > /dev/null"
 alias cptest="(cd \$(projects_dir)/radio/test && find ./ -name '*.py' -exec cp -f -u --parents -v {} \$VM_ROOT/radio/test \; && chmod 755 \$VM_ROOT/radio/test/*/*.py)" ;
+alias cpadops="cp -v -f -u -R \$(projects_dir)/adops/web/* \$VM_ROOT/adops/web/adops"
 
 if [[ ! -n $SSH_TTY ]]; then
     setvm main &> /dev/null
