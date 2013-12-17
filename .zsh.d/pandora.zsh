@@ -103,6 +103,7 @@ alias cw="cp -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; 
 alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css ; cp -f -u \$(src_dir)/stage/radio/www/css/compiled.css \$VM_ROOT/documentRoot/www/css ; popd > /dev/null"
 alias cptest="(cd \$(projects_dir)/radio/test && find ./ -name '*.py' -exec cp -f -u --parents -v {} \$VM_ROOT/radio/test \; && chmod 755 \$VM_ROOT/radio/test/*/*.py)" ;
 alias cpadops="cp -v -f -u -R \$(projects_dir)/adops/web/* \$VM_ROOT/adops/web/adops"
+alias cpcust="cp -v -f -u -R \$(projects_dir)/customerservice/web/* \$VM_ROOT/customerservice/web/customerservice"
 
 if [[ ! -n $SSH_TTY ]]; then
     setvm main &> /dev/null
