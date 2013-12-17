@@ -23,6 +23,7 @@
     st = status
     stp = !git -p status
     unmerged = ls-files -u
+    mt = mergetool
 
 [branch]
     autosetupmerge = true
@@ -37,8 +38,12 @@
     excludesfile = ~/.gitignoreglobal
 
 [merge]
-    tool = vimdiff
+    tool = vim
     log = true
+
+[mergetool "vim"]
+    cmd = "vim $MERGED"
+    trustExitCode = true
 
 #[merge "changelog"]
 #	driver = perl Tools/Scripts/resolve-ChangeLogs --fix-merged --merge-driver %O %A %B
