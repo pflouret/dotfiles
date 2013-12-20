@@ -30,7 +30,9 @@
 use strict;
 
 my $version = "0.3";
-my $beep_command = "echo -ne \\\\a; aplay -q /usr/share/skype/sounds/ChatIncoming.wav &> /dev/null &";
+#my $beep_command = "echo -ne \\\\a; aplay -q /usr/share/skype/sounds/ChatIncoming.wav &> /dev/null &";
+#my $beep_command = "echo -ne \\\\a; echo -ne '\\a'; echo -ne ''";
+my $beep_command = "echo -ne \\\\a >> /dev/tty";
 
 # default values in setup file (~/.weechat/plugins.conf)
 my $default_beep_highlight = "on";
