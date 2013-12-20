@@ -14,6 +14,7 @@ alias pgstatus=statuspg
 
 alias vmconfig="vim \$VM_ROOT/.vm_config"
 alias cdvm="cd \$VM_ROOT"
+alias cdlog="cd \$VM_ROOT/var/log"
 
 setvm() {
     if [ ! -z $1 ]; then
