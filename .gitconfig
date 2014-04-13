@@ -3,7 +3,8 @@
     name = Pablo Flouret
 
 [alias]
-    amend = !git log -n 1 --pretty=format:%B | git commit --amend -F -
+    #amend = !git log -n 1 --pretty=format:%B | git commit --amend -F -
+    amend = commit --amend -C HEAD
     b = branch
     ba = branch -a
     bb = !git branch|grep '^\\*'|sed 's/^\\* //'

@@ -4,5 +4,5 @@
 --type-set=mk=.mk,.make,.am
 --type-set=gyp=.gyp,.gypi
 --type-set=vm=.vm
---ignore-directory=is:classes
---ignore-directory=is:TMP
+--ignore-dir=classes
+--ignore-dir=TMP
