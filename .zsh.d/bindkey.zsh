@@ -45,7 +45,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
+  if [[ $LBUFFER = *.. ]] && [[ $LBUFFER != *p4* ]]; then
       LBUFFER+=/..
   else
       LBUFFER+=.

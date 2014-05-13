@@ -15,7 +15,7 @@ zstyle ':completion:*' original true
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zshcache
-zstyle ':completion:*' menu select=5
+zstyle ':completion:*' menu select=1
 zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
@@ -26,12 +26,12 @@ autoload -U zargs
 #compdef pkill=killall
 
 zstyle ':completion:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,args --sort cmd,args'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,args'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31' 
 
 zstyle ':completion:*:xmms2:*' menu yes select
 zstyle ':completion:*:git:*' menu yes select
 zstyle ':completion:*:brew:*' menu yes select
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select=3
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select=1
 
 zstyle ':completion:*:(vim|cp):*' ignored-patterns '*.(pyc|o)'
