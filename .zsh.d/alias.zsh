@@ -18,6 +18,9 @@ alias lsa='ls -a .*(.)'  # only show dot-files
 alias lsbig='ls -lSrh'   # display the biggest files
 
 alias h='history 0|grep -i'
+hh() {
+    grep -ie 'git p4' ~/.zhistory|sed 's/^: [0-9]*:[0-9];//'
+}
 
 alias ot='pushd .'
 alias to='popd'
