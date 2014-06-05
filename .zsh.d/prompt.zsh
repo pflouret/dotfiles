@@ -14,9 +14,9 @@ USER=`id -un`
 case $HOSTNAME in
   chateaufort|berserk*|pflouret-m*)
     hostcolor="$NC" ;;
-  ca88*)
+  beta*|stage*)
     hostcolor="$YELLOW" ;;
-  parb.es|pipe|quux|woot|app*)
+  parb.es|app*|radio*)
     hostcolor="$RED" ;;
   *)
     hostcolor="$GREEN" ;;
