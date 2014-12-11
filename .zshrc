@@ -1,5 +1,5 @@
-export HISTSIZE=500000
-export SAVEHIST=500000
+export HISTSIZE=99999
+export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zhistory
 export CLICOLOR=1
 

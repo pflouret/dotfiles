@@ -1,4 +1,5 @@
 export ANT_HOME=$HOME/local/ant
+export ANT_OPTS="-Xms256m -Xmx1024m"
 #export MACOSX_DEPLOYMENT_TARGET=10.7
 export P4CLIENT=pflouret-m01
 export PGDATA=$HOME/local/postgres/data
@@ -100,7 +101,7 @@ alias nag="p4 integ -n -b \$CODELINE"
 alias p="cd \$(projects_dir)"
 alias m="cd \$(src_dir)"
 alias buildjs="pushd \$(projects_dir)/radio/src/js > /dev/null ; ant ; cp -f -u \$(src_dir)/stage/radio/www/*.js \$VM_ROOT/documentRoot/www ; cp -f -u -r \$(src_dir)/stage/radio/www/src \$VM_ROOT/documentRoot/www 2> /dev/null ; cw ; css ; popd > /dev/null"
-alias cw="cp -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > \$VM_ROOT/documentRoot/radio/index.jsp"
+alias cw="cp -v -f -u -R \$(projects_dir)/radio/www/* \$VM_ROOT/documentRoot/www ; TIMESTAMP=`date +%N%s` ; sed "s/\@CACHE_BUSTER@/$TIMESTAMP/g" \$(projects_dir)/radio/web/index.jsp > \$VM_ROOT/documentRoot/radio/index.jsp"
 alias css="pushd \$(projects_dir)/radio > /dev/null ; ant compile.css sass ; cp -f -u -R \$(src_dir)/stage/radio/www/css/* \$VM_ROOT/documentRoot/www/css ; popd > /dev/null"
 alias cptest="(cd \$(projects_dir)/radio/test && find ./ -name '*.py' -exec cp -f -u --parents -v {} \$VM_ROOT/radio/test \; && chmod 755 \$VM_ROOT/radio/test/*/*.py)" ;
 alias cpadops="cp -v -f -u -R \$(projects_dir)/adops/web/* \$VM_ROOT/adops/web/adops"
