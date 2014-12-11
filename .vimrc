@@ -6,6 +6,8 @@ if &diff
     colorscheme desert256
 endif
 
+
+
 autocmd VimEnter * :hi IncSearch cterm=NONE ctermfg=black ctermbg=green
 autocmd VimEnter * :hi Search cterm=NONE ctermfg=black ctermbg=blue
 "autocmd VimEnter * :hi Visual cterm=reverse,bold
@@ -198,6 +200,9 @@ nnoremap K <nop>
 " When pasting over selected text in visual mode, re-copy what you're pasting
 " instead of trampling it with what you pasted over.
 xnoremap <expr> p v:register=='"'?'pgvy':'p'
+
+set undofile
+set undodir=~/.vim-undo
 
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
