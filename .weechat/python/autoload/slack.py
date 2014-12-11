@@ -1,10 +1,12 @@
 import time
 import weechat as w
 from slacker import Slacker
+from threading import Thread
 
 TOKEN = "xoxp-2151843163-2151845305-2312749758-4fdde1"
 slack = Slacker(TOKEN)
 all_channels = {}
+private_groups = {}
 
 def _channels():
     il = w.infolist_get("buffer", "", "")
@@ -18,6 +20,22 @@ def _channels():
         w.infolist_free(il)
     return channels
 
+def _mark(channels):
+    for c in channels:
+        cs = c.lstrip("#")
+        if cs in all_channels:
+            try:
+                if c.startswith("#"):
+                    if cs in private_groups:
+                        r = slack.groups.mark(all_channels[cs], time.time())
+                    else:
+                        r = slack.channels.mark(all_channels[cs], time.time())
+                else:
+                    r = slack.im.mark(all_channels[cs], time.time())
+                w.prnt("", "%s: %s" % (c, r.body["ok"] and "ok" or "not ok"))
+            except:
+                w.prnt("", "Error while setting unread marker on %s" % c)
+
 def unread_cb(data, buffer, command):
     global all_channels
     channels = []
@@ -29,12 +47,20 @@ def unread_cb(data, buffer, command):
         channels = _channels()
 
     for c in channels:
-        c = c.lstrip("#")
-        if c in all_channels:
+        cs = c.lstrip("#")
+        if cs in all_channels:
             try:
-                r = slack.channels.mark(all_channels[c], time.time())
+                if c.startswith("#"):
+                    if cs in private_groups:
+                        r = slack.groups.mark(all_channels[cs], time.time())
+                    else:
+                        r = slack.channels.mark(all_channels[cs], time.time())
+                else:
+                    r = slack.im.mark(all_channels[cs], time.time())
+                #w.prnt("", "%s: %s" % (c, r.body["ok"] and "ok" or "not ok"))
             except:
                 w.prnt("", "Error while setting unread marker on %s" % c)
+    w.prnt("", "%d channels marked as read" % len(channels))
 
     return w.WEECHAT_RC_OK
 
@@ -54,8 +80,10 @@ if __name__ == "__main__":
     w.register("slack", "pf@parb.es", "0.1", "MIT", "Pitiful slack integration", "", "")
     #w.hook_command_run("/input set_unread*", "conga", "")
     w.hook_command_run("/input set_unread*", "unread_cb", "")
-    all_channels = {c['name']: c['id'] for c in slack.channels.list().body["channels"]}
     users = {u['id']: u['name'] for u in slack.users.list().body["members"]}
+    private_groups = {g['name']: g['id'] for g in slack.groups.list().body["groups"]}
+    all_channels = {c['name']: c['id'] for c in slack.channels.list().body["channels"]}
     all_channels.update({users[i["user"]]: i["id"] for i in slack.im.list().body["ims"] if i["user"] in users})
+    all_channels.update(private_groups)
     #w.prnt("", "hai %d" % len(all_channels))
     #w.prnt("", str(all_channels))
