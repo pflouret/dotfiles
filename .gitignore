@@ -9,3 +9,4 @@
 .vim/ruby/command-t/*.o
 .weechat/logs
 .weechat/weechat.log
+..vimrc.un~
