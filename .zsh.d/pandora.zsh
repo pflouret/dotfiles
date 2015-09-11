@@ -5,6 +5,7 @@ export P4CLIENT=pflouret-m01
 export PGDATA=$HOME/local/postgres/data
 export PYTHON_HOME=$HOME/local/python-2.7.3
 export JYTHON_HOME=$HOME/local/jython2.2.1
+export EXCLUDE_HTML5_VERSIONS=true
 
 alias startpg='pg_ctl -D $HOME/local/postgres/data -l $HOME/local/postgres/logfile start'
 alias stoppg='pg_ctl -D $HOME/local/postgres/data -l $HOME/local/postgres/logfile stop'

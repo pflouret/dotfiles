@@ -3,6 +3,10 @@ set show-all-if-ambiguous on
 set page-completions off
 #"\E[Z": complete-filename
 set editing-mode vi
+set meta-flag on 
+set input-meta on 
+set output-meta on 
+set convert-meta off
 
 "\C-p" previous-history
 "\C-n" next-history
