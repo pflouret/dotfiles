@@ -16,7 +16,7 @@ alias pgstatus=statuspg
 
 alias vmconfig="vim \$VM_ROOT/.vm_config"
 alias cdvm="cd \$VM_ROOT"
-alias cdlog="cd \$VM_ROOT/var/log"
+alias cdlog="cd \$VM_ROOT/var/log/radio"
 
 setvm() {
     if [ ! -z $1 ]; then
@@ -96,6 +96,14 @@ i() {
 ri() {
     p4 integ -r -b $CODELINE @$1,@$1
     p4 resolve -am
+}
+
+jenkins_build() {
+    branch=`git bb 2> /dev/null`
+    if [ ! -z $1 ]; then
+        branch=$1
+    fi
+    curl "http://psy:8080/view/pandoraone-minaj/job/p1-pflouret-git-build/buildWithParameters?token=conga&GIT_BRANCH=$branch"
 }
 
 alias nag="p4 integ -n -b \$CODELINE"

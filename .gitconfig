@@ -1,5 +1,5 @@
 [user]
-    email = pf@parb.es
+    email = pflouret@gmail.com
     name = Pablo Flouret
 
 [alias]
@@ -25,6 +25,9 @@
     stp = !git -p status
     unmerged = ls-files -u
     mt = mergetool
+    last-commit-message = !git log -n 1 --pretty=format:%B|tee `git rev-parse --show-toplevel`/.git/MERGE_MSG
+    copy-last-commit-message = !git log -n 1 --pretty=format:%B|pbcopy
+    reset-last = !git copy-last-commit-message && git reset HEAD^ && pbpaste > `git rev-parse --show-toplevel`/.git/MERGE_MSG
 
 [branch]
     autosetupmerge = true
