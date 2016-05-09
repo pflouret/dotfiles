@@ -49,6 +49,11 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 
 alias omg="say -r 350 -v trinoids omg omg omg; terminal-notifier -message 'omg omg omg'"
 
+alias ag="ag -t"
+alias ack="ag"
+
+alias g="gradle"
+
 dum() {
   n=$1
   shift

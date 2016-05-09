@@ -5,6 +5,8 @@ export P4CLIENT=pflouret-m01
 export PGDATA=$HOME/local/postgres/data
 export PYTHON_HOME=$HOME/local/python-2.7.3
 export JYTHON_HOME=$HOME/local/jython2.2.1
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8.0_66)
+export JAVA_HOME=$JAVA_8_HOME
 export EXCLUDE_HTML5_VERSIONS=true
 
 alias startpg='pg_ctl -D $HOME/local/postgres/data -l $HOME/local/postgres/logfile start'
@@ -103,7 +105,9 @@ jenkins_build() {
     if [ ! -z $1 ]; then
         branch=$1
     fi
-    curl "http://psy:8080/view/pandoraone-minaj/job/p1-pflouret-git-build/buildWithParameters?token=conga&GIT_BRANCH=$branch"
+    url="http://psy:8080/view/pandoraone-minaj/job/p1-pflouret-git-build/buildWithParameters?token=conga&GIT_BRANCH=$branch"
+    curl "$url"
+    open "http://psy:8080/view/pandoraone-minaj/job/p1-pflouret-git-build/"
 }
 
 alias nag="p4 integ -n -b \$CODELINE"
