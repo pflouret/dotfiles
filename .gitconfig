@@ -11,10 +11,11 @@
     ci = commit
     co = checkout
     cp = cherry-pick
-    diffw = diff --color-words
+    diffw = diff --word-diff
     diffs = diff --stat
     diffc = diff --cached
-    l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -10
+    f = fetch --prune
+    l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -15
     ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
     lf = log --pretty=medium --stat
     l1 = log --pretty=oneline
@@ -63,3 +64,6 @@
 
 [git-p4]
 	attemptRCSCleanup = true
+
+[interactive]
+	singlekey = true
