@@ -5,6 +5,7 @@
 [alias]
     #amend = !git log -n 1 --pretty=format:%B | git commit --amend -F -
     amend = commit --amend -C HEAD
+    addamend = !git add . && git amend
     b = branch
     ba = branch -a
     bb = !git branch|grep '^\\*'|sed 's/^\\* //'
@@ -15,7 +16,8 @@
     diffs = diff --stat
     diffc = diff --cached
     f = fetch --prune
-    l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -15
+    p = pull --rebase --prune
+    l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -n 15
     ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
     lf = log --pretty=medium --stat
     l1 = log --pretty=oneline
