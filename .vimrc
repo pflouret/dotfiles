@@ -204,6 +204,10 @@ xnoremap <expr> p v:register=='"'?'pgvy':'p'
 set undofile
 set undodir=~/.vim-undo
 
+if filereadable(expand(expand("~/.vim/bundle/conga")))
+  source ~/.vimrc.vundle
+endif
+
 if filereadable(expand(expand("~/.vimrc.plugins")))
   source ~/.vimrc.plugins
 endif

@@ -1,7 +1,7 @@
 .xmonad/
 !.xmonad/xmonad.hs
 .ipython/
-!.ipython/ipythonrc
+!.ipython/profile_default/ipython*.py
 .vim/.netrwhist
 .vim/ruby/command-t/Makefile
 .vim/ruby/command-t/ext.bundle

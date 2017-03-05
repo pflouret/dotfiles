@@ -53,7 +53,7 @@ alias ag="ag -t"
 alias ack="ag"
 
 alias g="gradle"
-alias gd="gradle --daemon"
+alias gd="gradle --no-daemon"
 
 dum() {
   n=$1
