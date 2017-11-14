@@ -1,4 +1,2 @@
-set show-date = local
-set show-rev-graph = false
-set tab-size = 4
+set tab-size = 2
 set ignore-case = true
