@@ -12,9 +12,9 @@ USER=`id -un`
 #autoload colors; colors
 
 case $HOSTNAME in
-  chateaufort|berserk*|pflouret-m*)
+  chateaufort|berserk*|*pflou*)
     hostcolor="$NC" ;;
-  beta*|stage*)
+  i-*)
     hostcolor="$YELLOW" ;;
   parb.es|app*|radio*)
     hostcolor="$RED" ;;
@@ -23,8 +23,8 @@ case $HOSTNAME in
 esac
 
 case $USER in
-  pf|palbo|pflouret|thd864)
-    usercolor="$YELLOW" ;;
+  pf|palbo|pflouret|thd864|pablo_flouret)
+    usercolor="$GREEN" ;;
   root)
     usercolor="$RED" ;;
   *)
