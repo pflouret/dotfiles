@@ -11,24 +11,25 @@ USER=`id -un`
 
 #autoload colors; colors
 
-case $HOSTNAME in
-  chateaufort|berserk*|*pflou*)
-    hostcolor="$NC" ;;
-  i-*)
-    hostcolor="$YELLOW" ;;
-  parb.es|app*|radio*)
-    hostcolor="$RED" ;;
-  *)
-    hostcolor="$GREEN" ;;
-esac
-
 case $USER in
   pf|palbo|pflouret|thd864|pablo_flouret)
-    usercolor="$GREEN" ;;
+    usercolor="$NC" ;;
   root)
     usercolor="$RED" ;;
   *)
     usercolor="$NC" ;;
+esac
+
+case $HOSTNAME in
+  chateaufort|berserk*|*pflou*)
+    hostcolor="$NC" ;;
+  i-*)
+    hostcolor="$GREEN"
+    usercolor="$YELLOW" ;;
+  parb.es|app*|radio*)
+    hostcolor="$RED" ;;
+  *)
+    hostcolor="$GREEN" ;;
 esac
 
 rprompt_host=""

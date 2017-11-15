@@ -37,3 +37,5 @@ termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 attrcolor b ".I" # allow bold colors
 defbce "on" # erase background with current bg color
 term screen-256color-bce
+
+shell -zsh

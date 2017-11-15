@@ -55,6 +55,8 @@ alias ack="ag"
 alias g="gradle"
 alias gd="gradle --no-daemon"
 
+alias assh="ssh airlab -t 'screen -RD'"
+
 dum() {
   n=$1
   shift
