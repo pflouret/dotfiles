@@ -20,3 +20,6 @@ test -f "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"  # This load
 
 test -f ~/.zshrc.local && source ~/.zshrc.local
 
+if direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi

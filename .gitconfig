@@ -31,6 +31,7 @@
     last-commit-message = !git log -n 1 --pretty=format:%B|tee `git rev-parse --show-toplevel`/.git/MERGE_MSG
     copy-last-commit-message = !git log -n 1 --pretty=format:%B|pbcopy
     reset-last = !git copy-last-commit-message && git reset HEAD^ && pbpaste > `git rev-parse --show-toplevel`/.git/MERGE_MSG
+    personal = config user.email \"pflouret@gmail.com\"
 
 [branch]
     autosetupmerge = true
@@ -43,6 +44,8 @@
 
 [core]
     excludesfile = ~/.gitignoreglobal
+    precomposeunicode = true
+    sparseCheckout = true
 
 [merge]
     tool = vim
@@ -52,20 +55,22 @@
     cmd = "vim $MERGED"
     trustExitCode = true
 
-#[merge "changelog"]
-#	driver = perl Tools/Scripts/resolve-ChangeLogs --fix-merged --merge-driver %O %A %B
-
 [mergetool]
     keepBackup = false
 
 [push]
-    default = tracking
+    default = current
 
 [gc]
-	auto = 0
+    auto = 0
 
 [git-p4]
-	attemptRCSCleanup = true
+    attemptRCSCleanup = true
+    detectRenames = true
+    detectCopies = true
 
 [interactive]
-	singlekey = true
+    singlekey = true
+[rerere]
+    enabled = true
+

@@ -22,7 +22,7 @@ esac
 
 case $HOSTNAME in
   chateaufort|berserk*|*pflou*)
-    hostcolor="$NC" ;;
+    hostcolor="$BLUE" ;;
   i-*)
     hostcolor="$GREEN"
     usercolor="$YELLOW" ;;

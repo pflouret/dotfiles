@@ -7,7 +7,7 @@ brew install coreutils findutils
 brew install wget --enable-iri
 brew install ag calc cowsay ctags dos2unix fortune git htop tree zsh-completions
 brew install midnight-commander mercurial node pidof readline renameutils
-brew install ssh-copy-id tig unrar watch wget python ffmpeg imagemagick
+brew install ssh-copy-id tig unrar watch wget python ffmpeg imagemagick direnv
 brew install caskroom/cask/flash-npapi caskroom/cask/flash-ppapi
 
 brew tap homebrew/dupes
