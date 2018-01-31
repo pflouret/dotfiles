@@ -16,6 +16,8 @@
     diffs = diff --stat
     diffc = diff --cached
     f = fetch --prune
+    fm = fetch origin master
+    pushnv = push --no-verify
     p = pull --rebase --prune
     l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -n 15
     ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
@@ -31,7 +33,6 @@
     last-commit-message = !git log -n 1 --pretty=format:%B|tee `git rev-parse --show-toplevel`/.git/MERGE_MSG
     copy-last-commit-message = !git log -n 1 --pretty=format:%B|pbcopy
     reset-last = !git copy-last-commit-message && git reset HEAD^ && pbpaste > `git rev-parse --show-toplevel`/.git/MERGE_MSG
-    personal = config user.email \"pflouret@gmail.com\"
 
 [branch]
     autosetupmerge = true
@@ -73,4 +74,8 @@
     singlekey = true
 [rerere]
     enabled = true
-
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

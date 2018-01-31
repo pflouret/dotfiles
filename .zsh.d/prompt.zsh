@@ -40,7 +40,8 @@ fi
 prompt="${hostcolor}[${NC}${usercolor}%~${NC}${hostcolor}]${NC}: "
 
 export PS1="$prompt"
-export RPROMPT="$rprompt_host"
+rprompt_base="${YELLOW}%D{%T}${NC} $rprompt_host"
+export RPROMPT="$rprompt_base"
 
 case "$TERM" in
   xterm*|rxvt*|screen*)
@@ -55,7 +56,7 @@ case "$TERM" in
         if [[ -n $VM_HOSTNAME ]]; then
             extra="${extra}[${RED}vm${BLUE}:$VM_HOSTNAME]"
         fi
-        export RPROMPT="$rprompt_host ${BLUE}$extra${NC}"
+        export RPROMPT="$rprompt_base ${BLUE}$extra${NC}"
     }
     preexec () {
         print -Pn '\ek'$1'\e\\'

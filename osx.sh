@@ -215,6 +215,12 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Disable Creation of Metadata Files on Network Volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Remove Dropbox’s green checkmark icons in Finder
 #file=/Applications/Dropbox.app/Contents/Resources/check.icns
 #[ -e "$file" ] && mv -f "$file" "$file.bak"
@@ -443,6 +449,12 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+###############################
+
+# Disable Sound Effects on Boot
+sudo nvram SystemAudioVolume=" "
+
 
 ###############################################################################
 # Kill affected applications                                                  #
