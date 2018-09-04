@@ -1,8 +1,10 @@
 --smart-case
---type-set=idl=.idl
---type-set=conf=.conf
---type-set=mk=.mk,.make,.am
---type-set=gyp=.gyp,.gypi
---type-set=vm=.vm
+--type-add=idl:ext:idl
+--type-add=conf:ext:conf
+--type-add=mk:ext:mk,make,am
+--type-add=gyp:ext:gyp,gypi
+--type-add=thrift:ext:thrift
+--type-add=yaml:ext:yml:yml.example
+--type-add=gradle:ext:gradle
 --ignore-dir=classes
 --ignore-dir=TMP

@@ -16,6 +16,7 @@ alias lsd='ls -ld *(/)'  # only show directories
 alias lad='ls -ld .*(/)' # only show dot-directories
 alias lsa='ls -a .*(.)'  # only show dot-files
 alias lsbig='ls -lSrh'   # display the biggest files
+alias macls="/bin/ls -laO@"
 
 alias h='history 0|grep -i'
 hh() {
@@ -49,13 +50,9 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 
 alias omg="say -r 350 -v trinoids omg omg omg; terminal-notifier -message 'omg omg omg'"
 
-alias ag="ag -t"
-alias ack="ag"
-
 alias g="gradle"
 alias gd="gradle --no-daemon"
-
-alias assh="ssh airlab -t 'screen -RD'"
+alias grepl='$GRADLEW javarepl --no-daemon --console plain'
 
 dum() {
   n=$1

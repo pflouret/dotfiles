@@ -17,7 +17,8 @@
     diffc = diff --cached
     f = fetch --prune
     fm = fetch origin master
-    pushnv = push --no-verify
+    pm = pull --rebase origin master
+    pushnv = push -f --no-verify
     p = pull --rebase --prune
     l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -n 15
     ll = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s'
@@ -27,12 +28,14 @@
     gitkf = !gitk master..origin &
     r = remote -v
     st = status
+    # st = !eval \"$(scmpuff init -s)\" && scmpuff_status
     stp = !git -p status
     unmerged = ls-files -u
     mt = mergetool
     last-commit-message = !git log -n 1 --pretty=format:%B|tee `git rev-parse --show-toplevel`/.git/MERGE_MSG
     copy-last-commit-message = !git log -n 1 --pretty=format:%B|pbcopy
     reset-last = !git copy-last-commit-message && git reset HEAD^ && pbpaste > `git rev-parse --show-toplevel`/.git/MERGE_MSG
+    wip = commit -am WIP
 
 [branch]
     autosetupmerge = true
@@ -45,8 +48,8 @@
 
 [core]
     excludesfile = ~/.gitignoreglobal
-    precomposeunicode = true
-    sparseCheckout = true
+	precomposeunicode = true
+	sparseCheckout = true
 
 [merge]
     tool = vim
@@ -60,7 +63,7 @@
     keepBackup = false
 
 [push]
-    default = current
+	default = current
 
 [gc]
     auto = 0
@@ -73,9 +76,11 @@
 [interactive]
     singlekey = true
 [rerere]
-    enabled = true
+	enabled = true
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[hub]
+	host = git.musta.ch
