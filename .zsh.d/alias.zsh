@@ -19,6 +19,7 @@ alias lsbig='ls -lSrh'   # display the biggest files
 alias macls="/bin/ls -laO@"
 
 alias h='history 0|grep -i'
+alias hf='history 0|fzf'
 hh() {
     grep -ie $1 ~/.zhistory|sed 's/^: [0-9]*:[0-9];//'
 }
@@ -53,6 +54,11 @@ alias omg="say -r 350 -v trinoids omg omg omg; terminal-notifier -message 'omg o
 alias g="gradle"
 alias gd="gradle --no-daemon"
 alias grepl='$GRADLEW javarepl --no-daemon --console plain'
+
+alias https='http --default-scheme=https --verify=no'
+
+type bat &> /dev/null && alias cat=bat
+type prettyping &> /dev/null && alias ping=prettyping
 
 dum() {
   n=$1

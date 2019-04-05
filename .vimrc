@@ -1,9 +1,11 @@
 " hAx0r vimrc, bite the dust
 " lots borrowed from Seth House :P
 
-colorscheme desert
+"colorscheme desert
+colorscheme monokai
 if &diff
-    colorscheme desert256
+    "colorscheme desert256
+    colorscheme monokai
 endif
 
 
