@@ -36,6 +36,8 @@
     copy-last-commit-message = !git log -n 1 --pretty=format:%B|pbcopy
     reset-last = !git copy-last-commit-message && git reset HEAD^ && pbpaste > `git rev-parse --show-toplevel`/.git/MERGE_MSG
     wip = commit -am WIP
+    fixup = commit --fixup
+    addfixup = !git add . && git commit --fixup
 
 [branch]
     autosetupmerge = true

@@ -55,7 +55,7 @@ alias g="gradle"
 alias gd="gradle --no-daemon"
 alias grepl='$GRADLEW javarepl --no-daemon --console plain'
 
-alias https='http --default-scheme=https --verify=no'
+alias https='http --default-scheme=https'
 
 type bat &> /dev/null && alias cat=bat
 type prettyping &> /dev/null && alias ping=prettyping

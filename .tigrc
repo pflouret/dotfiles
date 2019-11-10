@@ -1,2 +1,8 @@
 set tab-size = 2
 set ignore-case = true
+set blame-view = \
+        id:yes,color \
+        date:relative \
+        author:abbreviated \
+        file-name:no \
+        line-number:yes,interval=1 text
