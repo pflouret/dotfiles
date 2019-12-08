@@ -1,4 +1,4 @@
-export HISTSIZE=99999
+export HISTSIZE=9999999
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zhistory
 export CLICOLOR=1
@@ -16,10 +16,8 @@ for f in ~/.zsh.d/*.zsh; do
   source $f
 done
 
-test -f "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# test -f "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 test -f ~/.zshrc.local && source ~/.zshrc.local
-
-if direnv &> /dev/null; then
-    eval "$(direnv hook zsh)"
-fi
+type rbenv &> /dev/null && eval "$(rbenv init -)"
+type direnv &> /dev/null && eval "$(direnv hook zsh)"
