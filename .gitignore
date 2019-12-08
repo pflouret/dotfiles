@@ -3,11 +3,8 @@
 .ipython/
 !.ipython/profile_default/ipython*.py
 .vim/.netrwhist
-.vim/ruby/command-t/Makefile
-.vim/ruby/command-t/ext.bundle
-.vim/ruby/command-t/mkmf.log
-.vim/ruby/command-t/*.o
 .weechat/logs
 .weechat/weechat.log
 ..vimrc.un~
 .vim-undo/*
+.httpie/sessions
