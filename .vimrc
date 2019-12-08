@@ -1,14 +1,38 @@
 " hAx0r vimrc, bite the dust
 " lots borrowed from Seth House :P
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plugin 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plugin 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plugin 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plugin 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plugin 'scrooloose/syntastic'
+Plugin 'tmhedberg/matchit'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'moll/vim-node'
+Plugin 'elzr/vim-json'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'petrbroz/vim-glsl'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'bkad/camelcasemotion'
+call vundle#end()            " required
+
+let g:coc_node_path = "/usr/local/bin/node"
+
 "colorscheme desert
-colorscheme monokai
+colorscheme molokai
 if &diff
-    "colorscheme desert256
-    colorscheme monokai
+    colorscheme molokai
 endif
-
-
 
 autocmd VimEnter * :hi IncSearch cterm=NONE ctermfg=black ctermbg=green
 autocmd VimEnter * :hi Search cterm=NONE ctermfg=black ctermbg=blue
@@ -18,7 +42,7 @@ autocmd VimEnter * :hi LineNr ctermfg=grey
 
 let mapleader=","
 set nocompatible     " cp: turn off vi compatibility
-"set autochdir
+set autochdir
 
 " Search {{{
 
@@ -51,7 +75,7 @@ set noswapfile  "swf:   don't pollute my fs with swp files
 " Searches the current directory as well as subdirectories with commands like
 " :find, :grep, etc.
 set path=.,**
-set grepprg=ack
+set grepprg=a
 
 set tabstop=4     "ts:    number of spaces that a tab counts for
 set softtabstop=4 "sts:   number of spaces that a tab counts for when editing
@@ -206,12 +230,37 @@ xnoremap <expr> p v:register=='"'?'pgvy':'p'
 set undofile
 set undodir=~/.vim-undo
 
-if filereadable(expand(expand("~/.vim/bundle/conga")))
-  source ~/.vimrc.vundle
+"if filereadable(expand(expand("~/.vimrc.plugins")))
+"  source ~/.vimrc.plugins
+"endif
+
+au BufRead *.mako set filetype=mako
+au BufRead *.mkd set filetype=mkd
+au BufRead *.md set filetype=mkd
+au BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
+au BufRead ChangeLog* set et tw=80
+au BufRead *.vm set filetype=vm
+
+au BufRead,BufNewFile *.vala set filetype=vala
+au BufRead,BufNewFile *.vapi set filetype=vala
+au BufRead,BufNewFile *.gradle setf groovy
+
+if has("gui_running")
+  " colorscheme fruity
+  if has("gui_gtk2")
+    set guifont=Terminus\ 9
+  endif
+else
+  if &term != "linux"
+    set t_Co=256
+    set ttymouse=xterm2
+    set mouse=a
+    "autocmd VimEnter * :GuiColorScheme fruity
+  endif
 endif
 
-if filereadable(expand(expand("~/.vimrc.plugins")))
-  source ~/.vimrc.plugins
+if has("win32")
+  set guifont=Consolas:h9:cDEFAULT
 endif
 
 if filereadable(expand(expand("~/.vimrc.local")))

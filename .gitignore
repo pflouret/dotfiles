@@ -10,3 +10,4 @@
 .weechat/logs
 .weechat/weechat.log
 ..vimrc.un~
+.vim-undo/*
