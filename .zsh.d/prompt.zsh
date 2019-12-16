@@ -21,7 +21,7 @@ case $USER in
 esac
 
 case $HOSTNAME in
-  chateaufort|berserk*|*pflou*)
+  chateaufort|berserk*|*pflou*|loaners*)
     hostcolor="$BLUE" ;;
   i-*)
     hostcolor="$GREEN"

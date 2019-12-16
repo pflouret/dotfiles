@@ -56,6 +56,7 @@ alias gd="gradle --no-daemon"
 alias grepl='$GRADLEW javarepl --no-daemon --console plain'
 
 alias https='http --default-scheme=https'
+alias envpry='RBENV_VERSION=2.3.1 rbenv exec pry'
 
 type bat &> /dev/null && alias cat=bat
 type prettyping &> /dev/null && alias ping=prettyping
