@@ -26,7 +26,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'bkad/camelcasemotion'
 call vundle#end()            " required
 
-let g:coc_node_path = "/usr/local/bin/node"
+let g:coc_node_path = "/opt/homebrew/bin/node"
+let gruby_recommended_style = 1
 
 "colorscheme desert
 colorscheme molokai
@@ -77,11 +78,11 @@ set noswapfile  "swf:   don't pollute my fs with swp files
 set path=.,**
 set grepprg=a
 
-set tabstop=4     "ts:    number of spaces that a tab counts for
-set softtabstop=4 "sts:   number of spaces that a tab counts for when editing
+set tabstop=2     "ts:    number of spaces that a tab counts for
+set softtabstop=2 "sts:   number of spaces that a tab counts for when editing
 set expandtab     "et:    uses spaces instead of tab characters
 set smarttab      "sta:   helps with backspacing because of expandtab
-set shiftwidth=4  "sw:    number of spaces to use for autoindent
+set shiftwidth=2  "sw:    number of spaces to use for autoindent
 set shiftround    "sr:    rounds indent to a multiple of shiftwidth
 set autoindent    "ai:    copy indent from current line
 "set textwidth=100 "tw:    text width of text in columns
@@ -241,6 +242,7 @@ au BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 au BufRead ChangeLog* set et tw=80
 au BufRead *.vm set filetype=vm
 
+au BufRead,BufNewFile *.rb set sw=2
 au BufRead,BufNewFile *.vala set filetype=vala
 au BufRead,BufNewFile *.vapi set filetype=vala
 au BufRead,BufNewFile *.gradle setf groovy

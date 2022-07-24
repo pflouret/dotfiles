@@ -1,14 +1,14 @@
-coreutils=""
-if hash brew &> /dev/null; then
-    coreutils=$(brew --prefix coreutils)/libexec/gnubin;
-fi
+#if hash /opt/homebrew/bin/brew &> /dev/null; then
+#    coreutils=$(brew --prefix coreutils)/libexec/gnubin;
+#fi
+coreutils=$(/opt/homebrew/bin/brew --prefix coreutils)/libexec/gnubin;
 
 if hash launchctl &> /dev/null; then
     launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.Root.plist &> /dev/null
     launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.plist &> /dev/null
 fi
 
-export PATH=.:~/bin:$coreutils:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=.:~/bin:$coreutils:/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:$PATH
 
 if [[ `uname` == "Linux" ]]; then
     SSH_ENV="$HOME/.ssh/environment"

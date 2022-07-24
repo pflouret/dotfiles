@@ -30,10 +30,10 @@ alias to='popd'
 alias b='brew'
 alias bi='brew install'
 alias bs='brew search'
-alias y='yaourt'
-alias yi='yaourt -Qii'
-alias yl='yaourt -Ql'
-alias yo='yaourt -Qo'
+#alias y='yaourt'
+#alias yi='yaourt -Qii'
+#alias yl='yaourt -Ql'
+#alias yo='yaourt -Qo'
 
 alias dh='df -h'
 alias psss='ps -ef|grep'
@@ -57,6 +57,7 @@ alias grepl='$GRADLEW javarepl --no-daemon --console plain'
 
 alias https='http --default-scheme=https'
 alias envpry='RBENV_VERSION=2.3.1 rbenv exec pry'
+alias jqq='jq -C .|less'
 
 type bat &> /dev/null && alias cat=bat
 type prettyping &> /dev/null && alias ping=prettyping

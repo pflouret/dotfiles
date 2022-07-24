@@ -4,11 +4,13 @@ export HISTFILE=~/.zhistory
 export CLICOLOR=1
 
 export EDITOR=vim
-export BROWSER="open -a Firefox"
+export BROWSER="open -a Vivaldi"
+export GOPATH=/usr/local/go
 
 export PAGER="less"
 export LESS="FRX"
 export GREP_OPTIONS="--color=auto"
+export JQ_COLORS="1;31:0;39:0;39:0;39:0;32:1;39:1;39"
 
 fpath=($fpath /usr/local/share/zsh-completions ~/.zsh.d/completion)
 

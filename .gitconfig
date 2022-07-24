@@ -15,9 +15,13 @@
     diffw = diff --word-diff
     diffs = diff --stat
     diffc = diff --cached
+    shown = show --name-only
+    diffn = diff --name-only
     f = fetch --prune
     fm = fetch origin master
     pm = pull --rebase origin master
+    fw = fetch origin WARM_MAIN
+    pw = pull --rebase origin WARM_MAIN
     pushnv = push -f --no-verify
     p = pull --rebase --prune
     l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -n 15
@@ -38,6 +42,16 @@
     wip = commit -am WIP
     fixup = commit --fixup
     addfixup = !git add . && git commit --fixup
+    prune-origin = !git b -D `git remote prune origin|ag -o 'origin/\\K.*'|tr '\n' ' '`
+
+[pull]
+    rebase = true
+
+[log]
+    follow = true
+
+[feature]
+    manyFiles = true
 
 [branch]
     autosetupmerge = true
@@ -50,18 +64,19 @@
 
 [core]
     excludesfile = ~/.gitignoreglobal
+    ignorecase = false
 	precomposeunicode = true
-	sparseCheckout = true
+    commitGraph = true
 
 [merge]
     tool = vim
     log = true
+    renamelimit = 3000
+
 
 [mergetool "vim"]
     cmd = "vim $MERGED"
     trustExitCode = true
-
-[mergetool]
     keepBackup = false
 
 [push]
@@ -69,6 +84,7 @@
 
 [gc]
     auto = 0
+    writeCommitGraph = true
 
 [git-p4]
     attemptRCSCleanup = true
@@ -79,6 +95,7 @@
     singlekey = true
 [rerere]
 	enabled = true
+    autoupdate = true
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
