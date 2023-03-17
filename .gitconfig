@@ -20,8 +20,6 @@
     f = fetch --prune
     fm = fetch origin master
     pm = pull --rebase origin master
-    fw = fetch origin WARM_MAIN
-    pw = pull --rebase origin WARM_MAIN
     pushnv = push -f --no-verify
     p = pull --rebase --prune
     l = log --format='%Cblue%h%Creset %an %Cgreen%ar:%Creset %s' -n 15
@@ -111,3 +109,5 @@
 	autosquash = true
 [protocol]
 	version = 2
+[advice]
+	skippedCherryPicks = true

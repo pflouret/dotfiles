@@ -49,7 +49,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-alias omg="say -r 350 -v trinoids omg omg omg; terminal-notifier -message 'omg omg omg'"
+alias omg="say -r 210 -v trinoids omg omg omg; terminal-notifier -message 'omg omg omg'"
 
 alias g="gradle"
 alias gd="gradle --no-daemon"
@@ -58,6 +58,9 @@ alias grepl='$GRADLEW javarepl --no-daemon --console plain'
 alias https='http --default-scheme=https'
 alias envpry='RBENV_VERSION=2.3.1 rbenv exec pry'
 alias jqq='jq -C .|less'
+
+#alias rpoo='ssh rpoo.local -t '\''screen -RD'\'
+alias rpoo='ssh 192.168.0.229 -t '\''screen -RD'\'
 
 type bat &> /dev/null && alias cat=bat
 type prettyping &> /dev/null && alias ping=prettyping
